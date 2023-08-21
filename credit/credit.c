@@ -7,7 +7,7 @@ int main(void)
     long number;
     number = get_long("Number: ");
     // check the credit card's validity
-    
+    for (int a = 1; number < 1; a = a * 10)
     // determine which type
 
 }
