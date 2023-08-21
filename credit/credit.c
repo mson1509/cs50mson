@@ -12,8 +12,8 @@ int main(void)
     {
         x = number / digit;
     }
-    int b;
-    for (b = 1; a = )
+    int single_digit;
+    for (inconstant_num = number; a = )
     // determine which type
 
 }
