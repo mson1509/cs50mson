@@ -9,7 +9,7 @@ int main(void)
     // calculate the checksum
     long x = number;
     int single_digit;
-    long sum = 0;
+    int sum = 0;
     do
     {
         for (int i = 0; i < 2; i ++)
@@ -44,7 +44,7 @@ int main(void)
     while (x > 0);
     // calculate digits
     long y = 2;
-    long digits;
+    int digits;
     for (digits = 1; y > 1; digits ++)
     {
         y = number / 10;
@@ -55,7 +55,7 @@ int main(void)
     {
         x = (x - (x % 10)) / 10;
     }
-    long first_two = x;
+    int first_two = x;
     // check and print results
     if (sum % 10 == 0)
     {
