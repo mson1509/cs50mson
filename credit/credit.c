@@ -8,8 +8,8 @@ int main(void)
     number = get_long("Number: ");
     // calculate the checksum
     long x = number;
-    int single_digit;
-    int sum = 0;
+    long single_digit;
+    long sum = 0;
     do
     {
         for (int i = 0; i < 2; i ++)
@@ -44,7 +44,7 @@ int main(void)
     while (x > 0);
     // calculate digits
     long y = 0;
-    int digits;
+    long digits;
     for (digits = 1; y > 1; digits ++)
     {
         y = number / 10;
@@ -55,8 +55,7 @@ int main(void)
     {
         x = (x - (x % 10)) / 10;
     }
-
-    int first_two = x;
+    long first_two = x;
     // check and print results
     if (sum % 10 == 0)
     {
