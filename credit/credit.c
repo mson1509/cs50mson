@@ -15,9 +15,12 @@ int main(void)
     int y = number;
     do
     {
-        single_digit = y % 10;
-        y = (y - single_digit) / 10;
-        
+        for (int i = 0; i < 2; i ++)
+        {
+            single_digit = y % 10;
+            y = (y - single_digit) / 10;
+        }
+
     }
     while (y > 0)
     // determine which type
