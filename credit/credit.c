@@ -48,12 +48,14 @@ int main(void)
     {
         y = number / 10;
     }
+    return digits;
     // calculate the first two digits
     x = number;
     while (x > 10)
     {
         x = (x - (x % 10)) / 10;
     }
+    return x;
     int first_two = x;
     // check and print results
     if (sum % 10 == 0)
