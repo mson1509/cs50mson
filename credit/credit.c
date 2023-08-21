@@ -43,9 +43,13 @@ int main(void)
     while (x > 0)
     // determine which type
     long z;
-    while (int digits = 1; z > 10; digits = digits * 10)
+    int divider = 10;
+    int n = 0;
+    while (z > 1)
     {
-        z = number / digits;
+        z = number / 10;
+        divider = divider * 10;
+        n++
     }
     //
 
