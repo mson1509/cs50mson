@@ -12,6 +12,7 @@ int main(void)
     {
         x = number / digit;
     }
+    int a;
     for ()
     // determine which type
 
