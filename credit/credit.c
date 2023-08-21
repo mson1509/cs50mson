@@ -9,6 +9,7 @@ int main(void)
     // calculate the checksum
     long x = number;
     int single_digit;
+    int sum = 0;
     do
     {
         for (int i = 0; i < 2; i ++)
@@ -16,7 +17,6 @@ int main(void)
             single_digit = x % 10;
             x = (x - single_digit) / 10;
         }
-        int sum = 0;
         if (single_digit < 5)
         {
             sum = sum + single_digit * 2;
@@ -34,17 +34,17 @@ int main(void)
     sum = sum + single_digit;
     do
     {
-        for (int i = 0; j=i < 2; i ++)
+        for (int i = 0; i < 2; i ++)
         {
             single_digit = x % 10;
             x = (x - single_digit) / 10;
         }
         sum = sum + single_digit;
     }
-    while (x > 0)
+    while (x > 0);
     // calculate digits
     long y;
-    for (digits = 1; y > 1; digits ++)
+    for (int digits = 1; y > 1; digits ++)
     {
         y = number / 10;
     }
@@ -52,21 +52,21 @@ int main(void)
     x = number;
     while (x > 10)
     {
-        x = (x - (x % 10)) / 10
+        x = (x - (x % 10)) / 10;
     }
     int first_two = x;
     // check and print results
-    if (sum % 10 = 0)
+    if (sum % 10 == 0)
     {
-        if (digits = 15 && (first_two = 34 || first_two = 37))
+        if (digits == 15 && (first_two == 34 || first_two == 37))
         {
             printf ("AMEX\n");
         }
-         else if ((digits = 13 || digits = 16) && first_two - (first_two % 10) = 4)
+         else if ((digits == 13 || digits == 16) && first_two - (first_two % 10) == 4)
         {
             printf ("VISA\n");
         }
-         else if (digits = 15 && (first_two = 51 || first_two = 52 || first_two = 53 || first_two = 54 || first_two = 55 ))
+         else if (digits == 15 && (first_two == 51 || first_two == 52 || first_two == 53 || first_two == 54 || first_two == 55 ))
         {
             printf ("MASTERCARD\n");
         }
