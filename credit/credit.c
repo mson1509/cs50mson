@@ -25,8 +25,8 @@ int main(void)
         {
             sum = sum + single_digit * 2 - 9;
         }
-    while (x > 0);
     }
+    while (x > 0);
 
     x = number;
     single_digit = x % 10;
