@@ -26,7 +26,7 @@ int main(void)
         }
     while (x > 0);
     }
-    ///
+
     x = number;
     single_digit = x % 10;
     x = (x - single_digit) / 10;
@@ -41,14 +41,35 @@ int main(void)
         sum = sum + single_digit;
     }
     while (x > 0)
-    // determine which type
-    long ;
-    for (digits = 1; z > 1; digits ++)
+    // calculate digits
+    long y;
+    for (digits = 1; y > 1; digits ++)
     {
-        z = number / 10;
+        y = number / 10;
     }
-
-
-    //
-
+    // calculate the first two digits
+    x = number;
+    while (x > 10)
+    {
+        x = (x - (x % 10)) / 10
+    }
+    int first_two = x;
+    // check and print results
+    if (sum % 10 = 0)
+    {
+        if (digits = 15 && (first_two = 34 || first_two = 37))
+        {
+            printf ("AMEX\n");
+        }
+         else if ((digits = 13 || digits = 16) && first_two - (first_two % 10) = 4)
+        {
+            printf ("VISA\n");
+        }
+         else if (digits = 15 && (first_two = 51 || first_two = 52 || first_two = 53 || first_two = 54 || first_two = 55 ))
+        {
+            printf ("MASTERCARD\n");
+        }
+    }
+    else
+        printf ("INVALID\n");
 }
