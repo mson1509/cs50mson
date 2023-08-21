@@ -12,8 +12,8 @@ int main(void)
     {
         x = number / digits;
     }
-    int single_digit;
-    for (y = number; y > 0; y = (y - single_digit)/10 )
+    int single_digit = y % 10;
+    for (int y = number; y > 0; y = (y - single_digit) / 10 )
     {
         single_digit = y % 10
     }
