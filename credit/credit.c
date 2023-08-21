@@ -8,6 +8,7 @@ int main(void)
     number = get_long("Number: ");
     // calculate the checksum
     long x = number;
+    int single_digit;
     do
     {
         for (int i = 0; i < 2; i ++)
