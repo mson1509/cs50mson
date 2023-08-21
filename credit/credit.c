@@ -43,9 +43,9 @@ int main(void)
     while (x > 0)
     // determine which type
     long z;
-    for (digits = 0; z > 1; digits ++)
+    for (digits = 1; z > 1; digits ++)
     {
-        z = number / 10
+        z = number / 10;
     }
 
 
