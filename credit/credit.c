@@ -12,11 +12,14 @@ int main(void)
     {
         x = number / digits;
     }
-    int single_digit = y % 10;
-    for (int y = number; y > 0; y = (y - single_digit) / 10 )
+    int y = number;
+    do
     {
-        single_digit = y % 10
+        single_digit = y % 10;
+        y = (y - single_digit) / 10;
+        
     }
+    while (y > 0)
     // determine which type
 
 }
