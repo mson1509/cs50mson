@@ -20,6 +20,8 @@ int main(void)
             single_digit = y % 10;
             y = (y - single_digit) / 10;
         }
+        int sum = 0;
+        sum = sum + single_digit * 2;
 
     }
     while (y > 0)
