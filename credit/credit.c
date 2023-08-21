@@ -10,9 +10,9 @@ int main(void)
     int x;
     for (int digit = 1; x < 10; digit = digit * 10)
     {
-        x / digit;
+        x = number / digit;
     }
-    
+    for ()
     // determine which type
 
 }
