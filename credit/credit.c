@@ -42,8 +42,8 @@ int main(void)
     }
     while (x > 0)
     // determine which type
-    int z;
-    for (int digits = 1; z > 10; digits = digits * 10)
+    long z;
+    while (int digits = 1; z > 10; digits = digits * 10)
     {
         z = number / digits;
     }
