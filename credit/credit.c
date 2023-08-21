@@ -27,12 +27,12 @@ int main(void)
     while (x > 0);
     }
     ///
-    long x = number
-    single_digit = x % 10
+    long x = number;
+    single_digit = x % 10;
     x = (x - single_digit) / 10;
+    sum = sum + single_digit;
     do
     {
-        sum = sum + single_digit;
         for (int j = 0; j < 2; j ++)
         {
             single_digit = x % 10;
