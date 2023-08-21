@@ -7,13 +7,13 @@ int main(void)
     long number;
     number = get_long("Number: ");
     // calculate the checksum
-    long y = number;
+    long x = number;
     do
     {
         for (int i = 0; i < 2; i ++)
         {
-            single_digit = y % 10;
-            y = (y - single_digit) / 10;
+            single_digit = x % 10;
+            x = (x - single_digit) / 10;
         }
         int sum = 0;
         if (single_digit < 5)
@@ -27,13 +27,13 @@ int main(void)
     while (x > 0);
     }
     ///
-    long x = number;
+    x = number;
     single_digit = x % 10;
     x = (x - single_digit) / 10;
     sum = sum + single_digit;
     do
     {
-        for (int j = 0; j < 2; j ++)
+        for (int i = 0; j=i < 2; i ++)
         {
             single_digit = x % 10;
             x = (x - single_digit) / 10;
@@ -42,7 +42,7 @@ int main(void)
     }
     while (x > 0)
     // determine which type
-    long z;
+    long ;
     for (digits = 1; z > 1; digits ++)
     {
         z = number / 10;
