@@ -24,13 +24,13 @@ int main(void)
     // TODO: Calculate number of years until we reach threshold
 
     int n;
-    for (n = -1; x < y; n++)
+    for (n = 0; x < y; n++)
     {
         x = x - x/4 +x/3;
     }
 
     // TODO: Print number of years
 
-    printf ("Years: %i/n", n);
+    printf ("Years: %i\n", n);
 
 }
