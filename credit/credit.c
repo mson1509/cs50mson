@@ -24,6 +24,8 @@ int main(void)
         {
             sum = sum + single_digit * 2 - 9;
         }
+    while (x > 0);
+    }
     ///
     long x = number
     single_digit = x % 10
@@ -37,7 +39,6 @@ int main(void)
             x = (x - single_digit) / 10;
         }
         sum = sum + single_digit;
-    }
     }
     while (x > 0)
     // determine which type
