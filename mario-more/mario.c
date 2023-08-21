@@ -15,18 +15,19 @@ while (height < 1 || height > 8);
 int row;
 for (row = 1; row <= height; row++)
 {
-    for (i = 0; i < height - row; i++)
+    for (int i = 0; i < height - row; i++)
     {
         printf(" ");
     }
-    for (j = 0; j < row; j++)
+    for (int j = 0; j < row; j++)
     {
         printf("#");
     }
     printf("  ");
-    for (h = 0; h < row; h++)
+    for (int h = 0; h < row; h++)
     {
-        printf("#")
+        printf("#");
     }
+    printf("\n");
 }
 }
