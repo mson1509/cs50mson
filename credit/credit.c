@@ -6,7 +6,7 @@ int main(void)
     // get the credit card number
     long number;
     number = get_long("Number: ");
-    // check the credit card's validity
+    // calculate the checksum
     int x;
     for (int digits = 1; x < 10; digits = digits * 10)
     {
