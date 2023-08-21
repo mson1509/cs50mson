@@ -13,7 +13,7 @@ int main(void)
         x = number / digits;
     }
     ///
-    int y = number;
+    long y = number;
     do
     {
         for (int i = 0; i < 2; i ++)
@@ -31,9 +31,21 @@ int main(void)
             sum = sum + single_digit * 2 - 9;
         }
     ///
-    int x = number 
+    long x = number
+    single_digit = x % 10
+    x = (x - single_digit) / 10;
+    do
+    {
+        sum = sum + single_digit;
+        for (int j = 0; j < 2; j ++)
+        {
+            single_digit = x % 10;
+            x = (x - single_digit) / 10;
+        }
+        sum = sum + single_digit;
     }
-    while (y > 0)
+    }
+    while (x > 0)
     // determine which type
 
 }
