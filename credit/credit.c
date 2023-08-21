@@ -21,7 +21,14 @@ int main(void)
             y = (y - single_digit) / 10;
         }
         int sum = 0;
-        sum = sum + single_digit * 2;
+        if (single_digit < 5)
+        {
+            sum = sum + single_digit * 2;
+        }
+        else
+        {
+            sum = sum + single_digit * 2 - 9;
+        }
 
     }
     while (y > 0)
