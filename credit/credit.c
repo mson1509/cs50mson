@@ -7,14 +7,6 @@ int main(void)
     long number;
     number = get_long("Number: ");
     // calculate the checksum
-    int x;
-    for (int digits = 1; x < 10; digits = digits * 10)
-    {
-        x = number / digits;
-    }
-    ///
-    long y = number;
-    do
     {
         for (int i = 0; i < 2; i ++)
         {
@@ -47,5 +39,12 @@ int main(void)
     }
     while (x > 0)
     // determine which type
-
+    int z;
+    for (int digits = 1; z < 10; digits = digits * 10)
+    {
+        z = number / digits;
+    }
+    ///
+    long y = number;
+    do
 }
