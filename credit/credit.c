@@ -8,12 +8,15 @@ int main(void)
     number = get_long("Number: ");
     // check the credit card's validity
     int x;
-    for (int digit = 1; x < 10; digit = digit * 10)
+    for (int digits = 1; x < 10; digits = digits * 10)
     {
-        x = number / digit;
+        x = number / digits;
     }
     int single_digit;
-    for (inconstant_num = number; a = )
+    for (y = number; y > 0; y = (y - single_digit)/10 )
+    {
+        single_digit = y % 10
+    }
     // determine which type
 
 }
