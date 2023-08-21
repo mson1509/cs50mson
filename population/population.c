@@ -26,11 +26,10 @@ int main(void)
     int n;
     for (n = 0; x < y; n++)
     {
-        x = x - x/4 +x/3;
+        x = x - x / 4 + x / 3;
     }
 
     // TODO: Print number of years
 
-    printf ("Years: %i\n", n);
-
+    printf("Years: %i\n", n);
 }
