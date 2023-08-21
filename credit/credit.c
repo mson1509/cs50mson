@@ -31,7 +31,7 @@ int main(void)
             sum = sum + single_digit * 2 - 9;
         }
     ///
-    
+    int x = number 
     }
     while (y > 0)
     // determine which type
