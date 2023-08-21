@@ -12,6 +12,7 @@ int main(void)
     {
         x = number / digits;
     }
+    ///
     int y = number;
     do
     {
@@ -29,7 +30,8 @@ int main(void)
         {
             sum = sum + single_digit * 2 - 9;
         }
-
+    ///
+    
     }
     while (y > 0)
     // determine which type
