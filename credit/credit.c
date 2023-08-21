@@ -43,19 +43,19 @@ int main(void)
     }
     while (x > 0);
     // calculate digits
-    long y;
-    for (int digits = 1; y > 1; digits ++)
+    long y = 0;
+    int digits;
+    for (digits = 1; y > 1; digits ++)
     {
         y = number / 10;
     }
-    return digits;
     // calculate the first two digits
     x = number;
     while (x > 10)
     {
         x = (x - (x % 10)) / 10;
     }
-    return x;
+
     int first_two = x;
     // check and print results
     if (sum % 10 == 0)
