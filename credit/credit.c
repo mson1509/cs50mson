@@ -7,6 +7,8 @@ int main(void)
     long number;
     number = get_long("Number: ");
     // calculate the checksum
+    long y = number;
+    do
     {
         for (int i = 0; i < 2; i ++)
         {
@@ -44,7 +46,6 @@ int main(void)
     {
         z = number / digits;
     }
-    ///
-    long y = number;
-    do
+    //
+
 }
