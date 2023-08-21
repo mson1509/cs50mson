@@ -21,9 +21,12 @@ for (row = 1; row <= height; row++)
     }
     for (j = 0; j < row; j++)
     {
-        printf(" ");
+        printf("#");
     }
     printf("  ");
-    for (h = 0; )
+    for (h = 0; h < row; h++)
+    {
+        printf("#")
+    }
 }
 }
