@@ -43,7 +43,7 @@ int main(void)
     }
     while (x > 0);
     // calculate digits
-    long y = 0;
+    long y = 2;
     long digits;
     for (digits = 1; y > 1; digits ++)
     {
