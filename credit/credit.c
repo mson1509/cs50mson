@@ -8,7 +8,7 @@ int main(void)
     number = get_long("Number: ");
     // calculate the checksum
     long x = number;
-    long single_digit;
+    int single_digit;
     long sum = 0;
     do
     {
@@ -51,7 +51,7 @@ int main(void)
     }
     // calculate the first two digits
     x = number;
-    while (x > 10)
+    while (x > 100)
     {
         x = (x - (x % 10)) / 10;
     }
