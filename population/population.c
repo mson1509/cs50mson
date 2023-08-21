@@ -24,10 +24,14 @@ int main(void)
     return y;
 
     // TODO: Calculate number of years until we reach threshold
+
     int n;
     for (n = -1, x < y, n++)
     {
-        x = x - x/4 +x/3
+        x = x - x/4 +x/3;
     }
+    return n;
+
     // TODO: Print number of years
+    printf ("Years: %i", n);
 }
