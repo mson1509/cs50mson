@@ -12,48 +12,48 @@ int main(void)
     int sum = 0;
     do
     {
-        for (int i = 0; i < 2; i ++)
+        for (int i = 0; i < 2; i++)
         {
             single_digit = x % 10;
-            x = (x - single_digit) / 10;
+            x = x / 10;
         }
         if (single_digit < 5)
         {
-            sum = sum + single_digit * 2;
+            sum += single_digit * 2;
         }
         else
         {
-            sum = sum + single_digit * 2 - 9;
+            sum += single_digit * 2 - 9;
         }
     }
     while (x > 0);
 
     x = number;
     single_digit = x % 10;
-    x = (x - single_digit) / 10;
+    x = x / 10;
     sum = sum + single_digit;
     do
     {
-        for (int i = 0; i < 2; i ++)
+        for (int i = 0; i < 2; i++)
         {
             single_digit = x % 10;
-            x = (x - single_digit) / 10;
+            x = x / 10;
         }
-        sum = sum + single_digit;
+        sum += single_digit;
     }
     while (x > 0);
-    // calculate digits
-    long y = 2;
+    // calculate number of digits
+    x = number;
     int digits;
-    for (digits = 1; y > 1; digits ++)
+    for (digits = 0; x > 1; digits++)
     {
-        y = number / 10;
+        x = x / 10;
     }
     // calculate the first two digits
     x = number;
     while (x > 100)
     {
-        x = (x - (x % 10)) / 10;
+        x = x / 10;
     }
     int first_two = x;
     // check and print results
@@ -61,17 +61,21 @@ int main(void)
     {
         if (digits == 15 && (first_two == 34 || first_two == 37))
         {
-            printf ("AMEX\n");
+            printf("AMEX\n");
         }
-         else if ((digits == 13 || digits == 16) && first_two - (first_two % 10) == 4)
+        else if ((digits == 13 || digits == 16) && (first_two / 10) == 4)
         {
-            printf ("VISA\n");
+            printf("VISA\n");
         }
-         else if (digits == 15 && (first_two == 51 || first_two == 52 || first_two == 53 || first_two == 54 || first_two == 55 ))
+        else if (digits == 16 && first_two > 50 && first_two < 56)
         {
-            printf ("MASTERCARD\n");
+            printf("MASTERCARD\n");
+        }
+        else
+        {
+            printf("INVALID\n");
         }
     }
     else
-        printf ("INVALID\n");
+        printf("INVALID\n");
 }
