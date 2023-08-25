@@ -40,11 +40,11 @@ int compute_score(string word)
     int n = strlen(word);
     for (int i = 0; i < n; i ++)
     {
-        if (isupper(word[n]) == true)
+        if (isupper(word[i]) == true)
         {
-            word[n] += 32;
+            word[i] += 32;
         }
-        sum += POINTS[word[n] - 97];
+        sum += POINTS[word[i] - 97];
     }
     return sum;
 }
