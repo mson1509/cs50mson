@@ -3,13 +3,15 @@
 #include <stdio.h>
 #include <string.h>
 
+bool only_once_letter(string key);
+
 int main(void)
 {
     string key = "YTNSHKVEFXRBAUQZCLWDMIPGJO";
-    printf(")
+    printf("/b\n", only_once_letter(key));
 }
 
-bool only_once_letter(key)
+bool only_once_letter(string key)
 {
     int exclusive_letter_count = 0;
     key = convert_lower(key);
