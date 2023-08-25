@@ -37,11 +37,11 @@ bool non_alphabetic(string argv[2])
     {
         if (isupper(argv[2][i]) || islower(argv[2][i]))
         {
-            verify = true
+            verify = true;
         }
         else
         {
-            verify = false
+            verify = false;
         }
     }
     return verify;
@@ -49,7 +49,7 @@ bool non_alphabetic(string argv[2])
     // check whether each letter appear only once in key
 bool only_once_letter(string argv[2])
 {
-        
+
 }
     // identify upper characters and convert by key to upper cyphertext
     // identify lower characters and convert by key to lower cyphertext
