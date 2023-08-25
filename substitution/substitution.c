@@ -5,6 +5,8 @@
 
 bool non_alphabetic(string key);
 bool only_once_letter(string key);
+string convert_lower (string text);
+string convert_upper (string text);
 
 int main(int argc, string argv[])
 {
@@ -30,6 +32,26 @@ int main(int argc, string argv[])
         string plain_text = get_string("Plaintext: ");
     }
 }
+    // convert string to lower
+string convert_lower(string text)
+{
+    bool verify;
+    for (int i = 0; text[i] != '\0'; i++)
+    {
+        tolower(text[i]);
+    }
+    return text;
+}
+    // convert string to upper
+string convert_upper(string text)
+{
+    bool verify;
+    for (int i = 0; text[i] != '\0'; i++)
+    {
+        toupper(text[i]);
+    }
+    return text;
+}
     // check the non-alphabetic characters in key
 bool non_alphabetic(string key)
 {
@@ -51,10 +73,11 @@ bool non_alphabetic(string key)
     // check whether each letter appear only once in key
 bool only_once_letter(string key)
 {
-    bool verify;
-    for (int i = 0; key[i] != '\0'; i++)
-    tolower(key)
-    for (char c = 'A')
+    string key = convert_lower(key);
+    for (char c = 'a'; c <= 'z', c++)
+    {
+
+    }
 }
     // identify upper characters and convert by key to upper cyphertext
     // identify lower characters and convert by key to lower cyphertext
