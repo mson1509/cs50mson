@@ -21,18 +21,18 @@ int main(void)
     int final = (int) round(reading_level);
     if (final >= 16)
     {
-        printf("Grade 16+");
+        printf("Grade 16+\n");
     }
     else if (final < 1)
     {
-        printf("Before Grade 1");
+        printf("Before Grade 1\n");
     }
     else
     {
         printf("Grade %i\n", final);
     }
 }
-    // count number of letters
+// count number of letters
 int num_letters(string text)
 {
     int letter = 0;
@@ -45,20 +45,20 @@ int num_letters(string text)
     }
     return letter;
 }
-    // count number of words
+// count number of words
 int num_words(string text)
 {
     int spaces = 1;
     for (int n = 0; text[n] != '\0'; n++)
     {
-        if (text [n] == ' ')
+        if (text[n] == ' ')
         {
             spaces++;
         }
     }
     return spaces;
 }
-    // count number of sentences
+// count number of sentences
 int num_sentences(string text)
 {
     int marks = 0;
@@ -70,5 +70,4 @@ int num_sentences(string text)
         }
     }
     return marks;
-
 }
