@@ -8,6 +8,7 @@ bool only_once_letter(string key);
 string convert_lower (string text);
 string convert_upper (string text);
 
+
 int main(int argc, string argv[])
 {
     // check whether the key is valid
