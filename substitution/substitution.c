@@ -73,10 +73,17 @@ bool non_alphabetic(string key)
     // check whether each letter appear only once in key
 bool only_once_letter(string key)
 {
+    int exclusive_letter_count = 0
     string key = convert_lower(key);
-    for (char c = 'a'; c <= 'z', c++)
+    for (char letter = 'a'; letter <= 'z', letter++)
     {
-
+        for (i = 0; i < strlen(key); i++)
+        {
+            if (key[i] == letter)
+            {
+                exclusive_letter_count++;
+            }
+        }
     }
 }
     // identify upper characters and convert by key to upper cyphertext
