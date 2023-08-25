@@ -31,12 +31,12 @@ int main(int argc, string argv[])
     }
 }
     // check the non-alphabetic characters in key
-bool non_alphabetic(string text)
+bool non_alphabetic(string key)
 {
     bool verify;
-    for (int i = 0; text[i] != '\0'; i++)
+    for (int i = 0; key[i] != '\0'; i++)
     {
-        if (isupper(text[i]) || islower(text[i]))
+        if (isupper(key[i]) || islower(key[i]))
         {
             verify = true;
         }
@@ -52,6 +52,7 @@ bool non_alphabetic(string text)
 bool only_once_letter(string key)
 {
     bool verify;
+    for (int i = 0; key[i] != '\0'; i++)
     tolower(key)
     for (char c = 'A')
 }
