@@ -22,7 +22,7 @@ int num_letters(string text)
     int length = 0;
     for (int n = 0; text[n] != '\0'; n++)
     {
-        if (text[n] > 64 && text[n] < 91) || (text[n] > 96 && text[n] < 123)
+        if ((text[n] > 64 && text[n] < 91) || (text[n] > 96 && text[n] < 123))
         {
             length++;
         }
