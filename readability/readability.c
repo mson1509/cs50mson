@@ -18,18 +18,18 @@ int main(void)
     float L = (float) letters / (float) words * 100;
     float S = (float) sentences / (float) words * 100;
     float reading_level = 0.0588 * L - 0.296 * S - 15.8;
-    int final = int round(reading_level);
+    int final = (int) round(reading_level);
     if (final >= 16)
     {
         printf("Grade 16+");
     }
     else if (final < 1)
     {
-        printf("Before grade 1");
+        printf("Before Grade 1");
     }
     else
     {
-        printf("Grade %i\n", (int) round(reading_level));
+        printf("Grade %i\n", final);
     }
 }
     // count number of letters
