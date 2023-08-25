@@ -7,10 +7,10 @@ bool only_once_letter(string key);
 
 int main(void)
 {
+    string key = "YTNSHKVEFXRBAUQZCLWDMIPGJO";
     int exclusive_letter_count = 0;
-    key = convert_lower(key);
     bool verify;
-    for (char letter = 'a'; letter <= 'z'; letter++)
+    for (char letter = 'A'; letter <= 'Z'; letter++)
     {
         for (int i = 0; i < strlen(key); i++)
         {
