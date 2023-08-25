@@ -108,16 +108,18 @@ string encrypt (string plaintext)
     {
         if (isupper(plaintext[i]))
         {
-            ciphertext[i] = plaintext[plaintext[i] - ]
+            ciphertext[i] = plaintext[plaintext[i] - 65];
+            ciphertext
         }
         else if (islower(plaintext[i]))
         {
-
+            ciphertext[i] = plaintext[plaintext[i] - 97];
         }
         else
         {
-            cipher[i] = plaintext[i];
+            ciphertext[i] = plaintext[i];
         }
+        return ciphertext;
     }
 }
     // identify lower characters and convert by key to lower cyphertext
