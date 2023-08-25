@@ -12,8 +12,6 @@ string encrypt (string plaintext, string key);
 int main(int argc, string argv[])
 {
     // check whether the key is valid
-    string plain_text;
-    string cypher_text;
     if (argc != 2)
     {
         printf("Usage: ./substitution key\n");
@@ -32,10 +30,10 @@ int main(int argc, string argv[])
     }
     else
     {
-       plain_text = get_string("Plaintext: ");
+       string plain_text = get_string("Plaintext: ");
+       string cypher_text = encrypt(plain_text, argv[2]);
+       printf("Cyphertext: %s\n", cypher_text);
     }
-    cypher_text = encrypt(plain_text, argv[2]);
-    printf("Cyphertext: %s\n", cypher_text);
 }
 
 // convert string to lower
@@ -44,7 +42,7 @@ string convert_lower(string text)
     bool verify;
     for (int i = 0; text[i] != '\0'; i++)
     {
-        tolower(text[i]);
+        text[i] = tolower(text[i]);
     }
     return text;
 }
@@ -54,7 +52,7 @@ string convert_upper(string text)
     bool verify;
     for (int i = 0; text[i] != '\0'; i++)
     {
-        toupper(text[i]);
+        text[i] = toupper(text[i]);
     }
     return text;
 }
@@ -79,11 +77,12 @@ bool non_alphabetic(string key)
 // check whether each letter appear only once in key
 bool only_once_letter(string key)
 {
-    int exclusive_letter_count = 0
-    string key = convert_lower(key);
+    int exclusive_letter_count = 0;
+    key = convert_lower(key);
+    bool verify;
     for (char letter = 'a'; letter <= 'z'; letter++)
     {
-        for (i = 0; i < strlen(key); i++)
+        for (int i = 0; i < strlen(key); i++)
         {
             if (key[i] == letter)
             {
@@ -106,23 +105,23 @@ bool only_once_letter(string key)
 // identify upper characters and convert by key to upper cyphertext
 string encrypt (string plaintext, string key)
 {
-    string ciphertext;
+    string cyphertext = NULL;
     for (int i = 0; i < strlen(plaintext); i++)
     {
         if (isupper(plaintext[i]))
         {
-            ciphertext[i] = key[plaintext[i] - 65];
-            ciphertext[i] = toupper(ciphertext[i]);
+            cyphertext[i] = key[plaintext[i] - 65];
+            cyphertext[i] = toupper(cyphertext[i]);
         }
         else if (islower(plaintext[i]))
         {
-            ciphertext[i] = key[plaintext[i] - 97];
-            ciphertext[i] = tolower(ciphertext[i]);
+            cyphertext[i] = key[plaintext[i] - 97];
+            cyphertext[i] = tolower(cyphertext[i]);
         }
         else
         {
-            ciphertext[i] = plaintext[i];
+            cyphertext[i] = plaintext[i];
         }
-        return ciphertext;
     }
+    return cyphertext;
 }
