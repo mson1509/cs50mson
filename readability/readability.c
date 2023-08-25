@@ -9,10 +9,11 @@ int main(void)
 {
     // prompt the user for the text
     string text = get_string("Text: ");
-    // calculate 
+    // calculate numbers
     int letters = num_letters(text);
     int words = num_words(text);
     int sentences = num_sentences(text);
+    // caculate reading level
     int reading_level = 0.0588 * letters / words * 100 - 0.296 * sentences / words * 100 - 15.8;
     printf("Grade %i\n", reading_level);
 }
