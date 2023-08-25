@@ -29,5 +29,5 @@ int main(void)
     {
         verify = false;
     }
-    return verify;
+    printf("%s\n", (string) verify);
 }
