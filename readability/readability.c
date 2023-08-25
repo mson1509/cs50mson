@@ -26,7 +26,7 @@ int num_letters(string text)
     // count number of words
 int num_words(string text)
 {
-    int spaces
+    int spaces;
 
 }
     // count number of sentences
