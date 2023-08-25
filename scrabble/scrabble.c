@@ -43,25 +43,15 @@ int compute_score(string word)
         if (isupper(word[i]) == true)
         {
             word[i] += 32;
-            if (word[i] < 97 || word[i] > 122)
-            {
-                sum += 0;
-            }
-            else
-            {
-                sum += POINTS[word[i] - 97];
-            }
+            printf("%i\n", word[i]);
+        }
+        if (word[i] < 97 || word[i] > 122)
+        {
+            sum += 0;
         }
         else
         {
-            if (word[i] < 97 || word[i] > 122)
-            {
-                sum += 0;
-            }
-            else
-            {
-                sum += POINTS[word[i] - 97];
-            }
+            sum += POINTS[word[i] - 97];
         }
     }
     return sum;
