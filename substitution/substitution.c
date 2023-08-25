@@ -14,12 +14,20 @@ int main(int argc, string argv[])
     {
         printf("Key must contain 26 characters.\n");
     }
-    else if (argv[])
+    else if (isupper(argv[2]) == false || islower(argv[2]) == false)
+    {
+        printf("Key must not contain non-alphabetic characters.\n");
+    }
+    else if ()
     else
     {
         string plain_text = get_string("Plaintext: ");
     }
-    // identify each characters of text
+    // identify upper characters and convert by key to upper cyphertext
 
-    // substitute it by the given key
+    // identify lower characters and convert by key to lower cyphertext
+
+    // identify non-alphabetic characters and remain same to cyphertext
+
+    // print cyphertext
 }
