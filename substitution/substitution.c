@@ -39,7 +39,6 @@ bool non_alphabetic(string text)
         if (isupper(text[i]) || islower(text[i]))
         {
             verify = true;
-            continue;
         }
         else
         {
