@@ -46,16 +46,6 @@ string convert_lower(string text)
     }
     return text;
 }
-// convert string to upper
-string convert_upper(string text)
-{
-    bool verify;
-    for (int i = 0; text[i] != '\0'; i++)
-    {
-        text[i] = toupper(text[i]);
-    }
-    return text;
-}
 // check the non-alphabetic characters in key
 bool non_alphabetic(string key)
 {
