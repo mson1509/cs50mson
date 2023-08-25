@@ -49,7 +49,10 @@ bool non_alphabetic(string argv[2])
     // check whether each letter appear only once in key
 bool only_once_letter(string argv[2])
 {
-    
+        //#define alphabet_sum
+        //convert all to lower
+        //add to sum each characters
+        //if sum = alphabet_sum -> true; else -> false
 }
     // identify upper characters and convert by key to upper cyphertext
     // identify lower characters and convert by key to lower cyphertext
