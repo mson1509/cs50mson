@@ -40,10 +40,9 @@ int compute_score(string word)
     int n = strlen(word);
     for (int i = 0; i < n; i++)
     {
-        if (isupper(word[i]) == true)
+        if (isupper(word[i]))
         {
             word[i] += 32;
-            printf("%i\n", word[i]);
         }
         if (word[i] < 97 || word[i] > 122)
         {
