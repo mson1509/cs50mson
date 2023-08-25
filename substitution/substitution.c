@@ -32,7 +32,8 @@ int main(int argc, string argv[])
         string plain_text = get_string("Plaintext: ");
     }
 }
-    // convert string to lower
+
+// convert string to lower
 string convert_lower(string text)
 {
     bool verify;
@@ -42,7 +43,7 @@ string convert_lower(string text)
     }
     return text;
 }
-    // convert string to upper
+// convert string to upper
 string convert_upper(string text)
 {
     bool verify;
@@ -52,7 +53,7 @@ string convert_upper(string text)
     }
     return text;
 }
-    // check the non-alphabetic characters in key
+// check the non-alphabetic characters in key
 bool non_alphabetic(string key)
 {
     bool verify;
@@ -70,7 +71,7 @@ bool non_alphabetic(string key)
     }
     return verify;
 }
-    // check whether each letter appear only once in key
+// check whether each letter appear only once in key
 bool only_once_letter(string key)
 {
     int exclusive_letter_count = 0
