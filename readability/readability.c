@@ -17,10 +17,10 @@ int main(void)
 int num_letters(string text)
 {
     int length;
-    for (int n = 0; text[n] != 0; n++)
+    for (int n = 0; (text[n] > 64 && text[n] < 91) || (text[n] > 96 && text[n] < 123); n++)
+    {
         length = n;
-    
-
+    }
 }
     // count number of words
 int num_words(string text)
