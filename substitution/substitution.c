@@ -12,6 +12,8 @@ string encrypt (string plaintext, string key);
 int main(int argc, string argv[])
 {
     // check whether the key is valid
+    string plain_text;
+    string cypher_text;
     if (argc != 2)
     {
         printf("Usage: ./substitution key\n");
@@ -30,9 +32,9 @@ int main(int argc, string argv[])
     }
     else
     {
-        string plain_text = get_string("Plaintext: ");
+       plain_text = get_string("Plaintext: ");
     }
-    string cipher_text = encrypt(plain_text, argv[2]);
+    cipher_text = encrypt(plain_text, argv[2]);
     printf("Ciphertext: %s\n", cipher_text);
 }
 
