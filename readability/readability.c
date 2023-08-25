@@ -16,9 +16,11 @@ int main(void)
     // count number of letters
 int num_letters(string text)
 {
-    int length = 0
-    for (length = 0; text[length] != 0; length++)
-        
+    int length;
+    for (int n = 0; text[n] != 0; n++)
+        length = n;
+    
+
 }
     // count number of words
 int num_words(string text)
