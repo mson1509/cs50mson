@@ -42,6 +42,7 @@ bool non_alphabetic(string argv[2])
         else
         {
             verify = false;
+            return verify;
         }
     }
     return verify;
