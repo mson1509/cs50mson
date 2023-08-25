@@ -29,5 +29,5 @@ int main(void)
     {
         verify = false;
     }
-    printf("%s\n", (string) verify);
+    printf("%i %i\n", exclusive_letter_count, verify);
 }
