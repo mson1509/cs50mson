@@ -3,8 +3,8 @@
 #include <stdio.h>
 #include <string.h>
 
-bool non_alphabetic(string argv[2]);
-bool only_once_letter(string argv[2]);
+bool non_alphabetic(string key);
+bool only_once_letter(string key);
 
 int main(int argc, string argv[])
 {
@@ -29,13 +29,14 @@ int main(int argc, string argv[])
     {
         string plain_text = get_string("Plaintext: ");
     }
+}
     // check the non-alphabetic characters in key
-bool non_alphabetic(string argv[2])
+bool non_alphabetic(string text)
 {
     bool verify;
-    for (int i = 0; argv[2][i] != '\0'; i++)
+    for (int i = 0; text[i] != '\0'; i++)
     {
-        if (isupper(argv[2][i]) || islower(argv[2][i]))
+        if (isupper(text[i]) || islower(text[i]))
         {
             verify = true;
         }
