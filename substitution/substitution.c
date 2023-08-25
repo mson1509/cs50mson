@@ -4,7 +4,7 @@
 #include <string.h>
 
 bool non_alphabetic(string key);
-int only_once_letter(string key);
+bool only_once_letter(string key);
 string convert_lower (string text);
 string convert_upper (string text);
 string encrypt (string plaintext, string key);
@@ -12,7 +12,6 @@ string encrypt (string plaintext, string key);
 int main(int argc, string argv[])
 {
     // check whether the key is valid
-    printf ("%s\n", convert_lower(argv[1]));
     if (argc != 2)
     {
         printf("Usage: ./substitution key\n");
@@ -25,7 +24,7 @@ int main(int argc, string argv[])
     {
         printf("Key must not contain non-alphabetic characters.\n");
     }
-    else if (only_once_letter(argv[1]) != 26)
+    else if (only_once_letter(argv[1]) == false)
     {
         printf("Key must have each letter exactly once.\n");
     }
@@ -40,7 +39,7 @@ int main(int argc, string argv[])
 // convert string to lower
 string convert_lower(string text)
 {
-    for (int i = 0; text[i] < strlen(text); i++)
+    for (int i = 0; i < strlen(text); i++)
     {
         text[i] = tolower(text[i]);
     }
@@ -65,7 +64,7 @@ bool non_alphabetic(string key)
     return verify;
 }
 // check whether each letter appear only once in key
-int only_once_letter(string key)
+bool only_once_letter(string key)
 {
     int exclusive_letter_count = 0;
     key = convert_lower(key);
@@ -81,7 +80,15 @@ int only_once_letter(string key)
             }
         }
     }
-    return exclusive_letter_count;
+    if (exclusive_letter_count == 26)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    return verify;
 }
 
 // identify upper characters and convert by key to upper cyphertext

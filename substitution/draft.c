@@ -8,7 +8,7 @@ bool only_once_letter(string key);
 int main(void)
 {
     string text = "YTNSHKVEFXRBAUQZCLWDMIPGJO";
-    for (int i = 0; text[i] < strlen(text); i++)
+    for (int i = 0; i] < strlen(text); i++)
     {
         text[i] = tolower(text[i]);
     }
