@@ -26,7 +26,7 @@ int main(int argc, string argv[])
     }
     else if (only_once_letter(argv[1]) == false)
     {
-        printf("Key must have each letter exactly once.\n");
+        printf("Key must have each letter exactly once. %d\n", only_once_letter(argv[1]));
     }
     else
     {
