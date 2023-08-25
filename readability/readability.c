@@ -16,10 +16,10 @@ int main(void)
     // count number of letters
 int num_letters(string text)
 {
-    int length;
-    for (int n = 0; (text[n] > 64 && text[n] < 91) || (text[n] > 96 && text[n] < 123); n++)
+    int length = 0;
+    while ((text[n] > 64 && text[n] < 91) || (text[n] > 96 && text[n] < 123))
     {
-        length = n;
+        length++;
     }
     return length;
 }
@@ -27,6 +27,10 @@ int num_letters(string text)
 int num_words(string text)
 {
     int spaces;
+    for (int n = 0; text [n] = ' '; n++)
+    {
+
+    }
 
 }
     // count number of sentences
