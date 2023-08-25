@@ -34,8 +34,8 @@ int main(int argc, string argv[])
     {
        plain_text = get_string("Plaintext: ");
     }
-    cipher_text = encrypt(plain_text, argv[2]);
-    printf("Ciphertext: %s\n", cipher_text);
+    cypher_text = encrypt(plain_text, argv[2]);
+    printf("Cyphertext: %s\n", cypher_text);
 }
 
 // convert string to lower
