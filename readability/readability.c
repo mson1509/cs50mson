@@ -21,10 +21,12 @@ int num_letters(string text)
     {
         length = n;
     }
+    return length;
 }
     // count number of words
 int num_words(string text)
 {
+    int spaces
 
 }
     // count number of sentences
