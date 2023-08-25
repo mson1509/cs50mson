@@ -33,19 +33,21 @@ int main(int argc, string argv[])
     // check the non-alphabetic characters in key
 bool non_alphabetic(string text)
 {
-    bool verify = true;
+    bool verify;
     for (int i = 0; text[i] != '\0'; i++)
     {
         if (isupper(text[i]) || islower(text[i]))
         {
             verify = true;
+            continue;
         }
         else
         {
             verify = false;
-            return verify;
+            break;
         }
     }
+    return verify;
 }
     // check whether each letter appear only once in key
 bool only_once_letter(string argv[2])
