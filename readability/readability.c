@@ -1,4 +1,5 @@
 #include <cs50.h>
+#include <math.h>
 #include <stdio.h>
 
 int num_letters(string text);
@@ -17,7 +18,7 @@ int main(void)
     float L = (float) letters / (float) words * 100;
     float S = (float) sentences / (float) words * 100;
     float reading_level = 0.0588 * L - 0.296 * S - 15.8;
-    if 
+    int round(readling_level)
     printf("Grade %f\n", reading_level);
 }
     // count number of letters
