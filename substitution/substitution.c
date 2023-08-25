@@ -49,9 +49,11 @@ bool non_alphabetic(string text)
     return verify;
 }
     // check whether each letter appear only once in key
-bool only_once_letter(string argv[2])
+bool only_once_letter(string key)
 {
-
+    bool verify;
+    tolower(key)
+    for (char c = 'A')
 }
     // identify upper characters and convert by key to upper cyphertext
     // identify lower characters and convert by key to lower cyphertext
