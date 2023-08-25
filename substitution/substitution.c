@@ -7,7 +7,7 @@ bool non_alphabetic(string key);
 bool only_once_letter(string key);
 string convert_lower (string text);
 string convert_upper (string text);
-string encrypt (string plaintext);
+string encrypt (string plaintext, string key);
 
 int main(int argc, string argv[])
 {
@@ -32,6 +32,8 @@ int main(int argc, string argv[])
     {
         string plain_text = get_string("Plaintext: ");
     }
+    string cipher_text = encrypt(plain_text, argv[2]);
+    printf("Ciphertext: %s\n", cipher_text);
 }
 
 // convert string to lower
@@ -100,20 +102,20 @@ bool only_once_letter(string key)
 }
 
 // identify upper characters and convert by key to upper cyphertext
-string encrypt (string plaintext)
+string encrypt (string plaintext, string key)
 {
-    string plaintext;
     string ciphertext;
     for (int i = 0; i < strlen(plaintext); i++)
     {
         if (isupper(plaintext[i]))
         {
-            ciphertext[i] = plaintext[plaintext[i] - 65];
-            ciphertext
+            ciphertext[i] = key[plaintext[i] - 65];
+            ciphertext[i] = toupper(ciphertext[i]);
         }
         else if (islower(plaintext[i]))
         {
-            ciphertext[i] = plaintext[plaintext[i] - 97];
+            ciphertext[i] = key[plaintext[i] - 97];
+            ciphertext[i] = tolower(ciphertext[i]);
         }
         else
         {
@@ -121,8 +123,4 @@ string encrypt (string plaintext)
         }
         return ciphertext;
     }
-}
-    // identify lower characters and convert by key to lower cyphertext
-    // identify non-alphabetic characters and remain same to cyphertext
-    // print cyphertext
 }
