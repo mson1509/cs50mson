@@ -83,13 +83,12 @@ bool only_once_letter(string key)
     if (exclusive_letter_count == 26)
     {
         verify = true;
-        return verify;
     }
     else
     {
         verify = false;
-        return verify;
     }
+    return verify;
 }
 
 // identify upper characters and convert by key to upper cyphertext
