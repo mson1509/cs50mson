@@ -44,11 +44,18 @@ int compute_score(string word)
         {
             word[i] += 32;
         }
-        if (word[i] < 97 || word[i] > 122)
+        else
         {
-            sum += 0;
+            if (word[i] < 97 || word[i] > 122)
+            {
+                sum += 0;
+            }
+            else
+            {
+                sum += POINTS[word[i] - 97];
+            }
         }
-        sum += POINTS[word[i] - 97];
+
     }
     return sum;
 }
