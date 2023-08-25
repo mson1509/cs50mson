@@ -35,7 +35,7 @@ int main(int argc, string argv[])
     {
        string plain_text = get_string("plaintext: ");
        string cypher_text = encrypt(plain_text, argv[1]);
-       printf("cyphertext: %s\n", cypher_text);
+       printf("ciphertext: %s\n", cypher_text);
        return 0;
     }
 }
