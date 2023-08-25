@@ -14,9 +14,7 @@ int main(void)
     int words = num_words(text);
     int sentences = num_sentences(text);
     // caculate reading level
-    int L = letters / words * 100;
-    int S = sentences / words * 100;
-    int reading_level = 0.0588 * L - 0.296 * S - 15.8;
+    int reading_level = 0.0588 * letters / words * 100 - 0.296 * sentences / words * 100 - 15.8;
     printf("Grade %i\n", reading_level);
 }
     // count number of letters
