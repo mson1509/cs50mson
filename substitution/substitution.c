@@ -40,7 +40,7 @@ int main(int argc, string argv[])
 string convert_lower(string text)
 {
     bool verify;
-    for (int i = 0; text[i] != '\0'; i++)
+    for (int i = 0; text[i] < strlen(text); i++)
     {
         text[i] = tolower(text[i]);
     }
