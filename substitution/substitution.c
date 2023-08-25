@@ -6,7 +6,6 @@
 bool non_alphabetic(string key);
 bool only_once_letter(string key);
 string convert_lower (string text);
-string convert_upper (string text);
 string encrypt (string plaintext, string key);
 
 int main(int argc, string argv[])
@@ -94,7 +93,7 @@ bool only_once_letter(string key)
 // identify upper characters and convert by key to upper cyphertext
 string encrypt (string plaintext, string key)
 {
-    string cyphertext = NULL;
+    char cyphertext[strlen(plaintext)];
     for (int i = 0; i < strlen(plaintext); i++)
     {
         if (isupper(plaintext[i]))
