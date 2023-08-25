@@ -14,11 +14,12 @@ int main(int argc, string argv[])
     {
         printf("Key must contain 26 characters.\n");
     }
+    else if (argv[])
     else
     {
         string plain_text = get_string("Plaintext: ");
     }
     // identify each characters of text
-    
+
     // substitute it by the given key
 }
