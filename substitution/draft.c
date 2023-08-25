@@ -2,7 +2,13 @@
 #include <ctype.h>
 #include <stdio.h>
 #include <string.h>
-string key = "YTNSHKVEFXRBAUQZCLWDMIPGJO";
+
+int main(void)
+{
+    string key = "YTNSHKVEFXRBAUQZCLWDMIPGJO";
+    printf(")
+}
+
 bool only_once_letter(key)
 {
     int exclusive_letter_count = 0;
