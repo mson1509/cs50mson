@@ -102,19 +102,21 @@ bool only_once_letter(string key)
 // identify upper characters and convert by key to upper cyphertext
 string encrypt (string plaintext)
 {
+    string plaintext;
+    string ciphertext;
     for (int i = 0; i < strlen(plaintext); i++)
     {
-        if (isupper(plain[i]))
+        if (isupper(plaintext[i]))
         {
-
+            ciphertext[i] = plaintext[plaintext[i] - ]
         }
-        else if (islower(plain[i]))
+        else if (islower(plaintext[i]))
         {
 
         }
         else
         {
-            cipher[i] = plain[i];
+            cipher[i] = plaintext[i];
         }
     }
 }
