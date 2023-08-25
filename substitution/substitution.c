@@ -56,7 +56,7 @@ string convert_upper(string text)
 bool non_alphabetic(string key)
 {
     bool verify;
-    for (int i = 0; key[i] != '\0'; i++)
+    for (int i = 0; i < strlen(key); i++)
     {
         if (isupper(key[i]) || islower(key[i]))
         {
@@ -82,9 +82,19 @@ bool only_once_letter(string key)
             if (key[i] == letter)
             {
                 exclusive_letter_count++;
+                break;
             }
         }
     }
+    if (exclusive_letter_count == 26)
+    {
+        verify = true;
+    }
+    else
+    {
+        verify = false;
+    }
+    return verify;
 }
     // identify upper characters and convert by key to upper cyphertext
     // identify lower characters and convert by key to lower cyphertext
