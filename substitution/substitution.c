@@ -39,7 +39,6 @@ int main(int argc, string argv[])
 // convert string to lower
 string convert_lower(string text)
 {
-    bool verify;
     for (int i = 0; text[i] < strlen(text); i++)
     {
         text[i] = tolower(text[i]);
