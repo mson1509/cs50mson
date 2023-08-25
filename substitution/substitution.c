@@ -32,12 +32,24 @@ int main(int argc, string argv[])
     // check the non-alphabetic characters in key
 bool non_alphabetic(string argv[2])
 {
-
+    bool verify;
+    for (int i = 0; argv[2][i] != '\0'; i++)
+    {
+        if (isupper(argv[2][i]) || islower(argv[2][i]))
+        {
+            verify = true
+        }
+        else
+        {
+            verify = false
+        }
+    }
+    return verify;
 }
     // check whether each letter appear only once in key
 bool only_once_letter(string argv[2])
 {
-
+    
 }
     // identify upper characters and convert by key to upper cyphertext
     // identify lower characters and convert by key to lower cyphertext
