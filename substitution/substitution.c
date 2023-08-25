@@ -1,6 +1,12 @@
 #include <cs50.h>
+#include <ctype.h>
 #include <stdio.h>
+#include <string.h>
 
 int main(int argc, string argv[])
 {
+    // check whether the key is right
+    
+    // identify each characters of text
+    // substitute it by the given key
 }
