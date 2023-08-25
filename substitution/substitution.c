@@ -14,22 +14,22 @@ int main(int argc, string argv[])
     if (argc != 2)
     {
         printf("Usage: ./substitution key\n");
-        return 0;
+        return 1;
     }
     else if (strlen(argv[1]) != 26)
     {
         printf("Key must contain 26 characters.\n");
-        return 0;
+        return 1;
     }
     else if (non_alphabetic(argv[1]) == false)
     {
         printf("Key must not contain non-alphabetic characters.\n");
-        return 0;
+        return 1;
     }
     else if (only_once_letter(argv[1]) == false)
     {
         printf("Key must have each letter exactly once.\n");
-        return 0;
+        return 1;
     }
     else
     {
