@@ -19,15 +19,15 @@ int main(void)
     // count number of letters
 int num_letters(string text)
 {
-    int length = 0;
+    int letter = 0;
     for (int n = 0; text[n] != '\0'; n++)
     {
         if ((text[n] > 64 && text[n] < 91) || (text[n] > 96 && text[n] < 123))
         {
-            length++;
+            letter++;
         }
     }
-    return length;
+    return letter;
 }
     // count number of words
 int num_words(string text)
