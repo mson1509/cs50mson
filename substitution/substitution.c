@@ -68,7 +68,7 @@ bool only_once_letter(string key)
 {
     int exclusive_letter_count = 0;
     key = convert_lower(key);
-    bool verify;
+    bool verify1;
     for (char letter = 'a'; letter <= 'z'; letter++)
     {
         for (int i = 0; i < strlen(key); i++)
@@ -82,13 +82,13 @@ bool only_once_letter(string key)
     }
     if (exclusive_letter_count == 26)
     {
-        verify = true;
+        verify1 = true;
     }
     else
     {
-        verify = false;
+        verify1 = false;
     }
-    return verify;
+    return verify1;
 }
 
 // identify upper characters and convert by key to upper cyphertext
