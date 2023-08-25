@@ -10,7 +10,7 @@ int main(void)
     // prompt the user for the text
     string text = get_string("Text: ");
     // calculate reading level
-    int letters = num_letters(string text);
+    int letters = num_letters( text);
     int words = num_words(string text);
     int sentences = num_sentences(string text);
     int reading_level = 0.0588 * (letters / words) * 100 - 0.296 * (sentences / words) * 100 - 15.8;
@@ -34,16 +34,25 @@ int num_words(string text)
 {
     int spaces = 1;
     for (int n = 0; text[n] != /0; n++)
-    while(text [n] == ' ')
     {
-        if (text[n] == ' ')
-        spaces++;
+        if (text [n] == ' ')
+        {
+            spaces++;
+        }
     }
     return spaces;
 }
     // count number of sentences
 int num_sentences(string text)
 {
-    int 
+    int marks = 0;
+    for (int n = 0; text[n] != /0; n++)
+    {
+        if (text[n] == '.' || text[n] == '!' || text[n] == '?')
+        {
+            marks++;
+        }
+    }
+    return marks;
 
 }
