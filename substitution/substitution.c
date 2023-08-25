@@ -10,10 +10,15 @@ int main(int argc, string argv[])
     {
         printf("Usage: ./substitution key\n");
     }
-    else if (argc argv[2] != 26)
+    else if (strlen(argv[2]) != 26)
     {
         printf("Key must contain 26 characters.\n");
     }
+    else
+    {
+        string plain_text = get_string("Plaintext: ");
+    }
     // identify each characters of text
+    
     // substitute it by the given key
 }
