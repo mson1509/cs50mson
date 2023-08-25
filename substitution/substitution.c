@@ -16,22 +16,22 @@ int main(int argc, string argv[])
     {
         printf("Usage: ./substitution key\n");
     }
-    else if (strlen(argv[2]) != 26)
+    else if (strlen(argv[1]) != 26)
     {
         printf("Key must contain 26 characters.\n");
     }
-    else if (non_alphabetic(argv[2]) == false)
+    else if (non_alphabetic(argv[1]) == false)
     {
         printf("Key must not contain non-alphabetic characters.\n");
     }
-    else if (only_once_letter(argv[2]) == false)
+    else if (only_once_letter(argv[1]) == false)
     {
         printf("Key must have each letter exactly once.\n");
     }
     else
     {
        string plain_text = get_string("Plaintext: ");
-       string cypher_text = encrypt(plain_text, argv[2]);
+       string cypher_text = encrypt(plain_text, argv[1]);
        printf("Cyphertext: %s\n", cypher_text);
     }
 }
