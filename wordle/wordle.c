@@ -82,7 +82,7 @@ int main(int argc, string argv[])
 
         // array to hold guess status, initially set to zero
         int status[wordsize];
-        for (int j = 0; j < strlen[wordsize]; j++)
+        for (int j = 0; j < wordsize; j++)
         {
             status[j] = 0;
         }
@@ -118,11 +118,12 @@ int main(int argc, string argv[])
 string get_guess(int wordsize)
 {
     // ensure users actually provide a guess that is the correct length
+    string guess;
     do
     {
-        string guess = get_string("Input a 5-letter word\n");
+        guess = get_string("Input a 5-letter word\n");
     }
-    while (strlen(guess) != wordsize)
+    while (strlen(guess) != wordsize);
 
     return guess;
 }
@@ -174,7 +175,7 @@ void print_word(string guess, int wordsize, int status[])
                 printf(YELLOW"%c"RESET, guess[i]);
                 break;
             case WRONG:
-                prinf(RED"%c"RESET, guess[i]);
+                prinrf(RED"%c"RESET, guess[i]);
                 break;
         }
     }
