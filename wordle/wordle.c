@@ -35,14 +35,14 @@ int main(int argc, string argv[])
     int wordsize = 0;
 
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
-    if ( atoi(argv[1]) > 8 || int atoi(argv[1]) < 5)
+    if (atoi(argv[1]) > 8 || atoi(argv[1]) < 5)
     {
         printf("Error: wordsize must be either 5, 6, 7, or 8\n");
         return 1;
     }
     else
     {
-        wordsize = int atoi(argv[1]);
+        wordsize = atoi(argv[1]);
     }
     // open correct file, each file has exactly LISTSIZE words
     char wl_filename[6];
@@ -121,7 +121,7 @@ string get_guess(int wordsize)
     string guess;
     do
     {
-        guess = get_string("Input a 5-letter word\n");
+        guess = get_string("Input a %i letter word\n", wordsize);
     }
     while (strlen(guess) != wordsize);
 
