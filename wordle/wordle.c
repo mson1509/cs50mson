@@ -104,7 +104,7 @@ int main(int argc, string argv[])
     }
 
     // Print the game's result
-    if (won == true)
+    if (won)
     {
         printf("You won! %s\n", choice);
     }
