@@ -117,7 +117,7 @@ string get_guess(int wordsize)
     // ensure users actually provide a guess that is the correct length
     do
     {
-        string guess = get_string("Guess %i\n", guess_num);
+        string guess = get_string("Input a 5-letter word\n");
     }
     while (strlen(guess) != wordsize)
 
@@ -129,7 +129,10 @@ int check_word(string guess, int wordsize, int status[], string choice)
     int score = 0;
 
     // compare guess to choice and score points as appropriate, storing points in status
-    // TODO #5
+    for (int i = 0; i < strlen(guess); i++)
+    {
+        if (guess[i] == 
+    }
 
     // HINTS
     // iterate over each letter of the guess
