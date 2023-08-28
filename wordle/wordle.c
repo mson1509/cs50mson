@@ -35,7 +35,7 @@ int main(int argc, string argv[])
     int wordsize = 0;
 
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
-    if (strlen(argv[1]) > 8 || strlen(argv[1]) < 5)
+    if ((int)argv[1] > 8 || (int)argv[1] < 5)
     {
         printf("Error: wordsize must be either 5, 6, 7, or 8\n");
         return 1;
@@ -175,7 +175,7 @@ void print_word(string guess, int wordsize, int status[])
                 printf(YELLOW"%c"RESET, guess[i]);
                 break;
             case WRONG:
-                prinrf(RED"%c"RESET, guess[i]);
+                printf(RED"%c"RESET, guess[i]);
                 break;
         }
     }
