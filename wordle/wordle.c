@@ -35,7 +35,7 @@ int main(int argc, string argv[])
     int wordsize = 0;
 
     // ensure argv[1] is either 5, 6, 7, or 8 and store that value in wordsize instead
-    if (argv[1] > 8 || argv[1] < 5)
+    if (strlen(argv[1]) > 8 || strlen(argv[1]) < 5)
     {
         printf("Error: wordsize must be either 5, 6, 7, or 8\n");
         return 1;
@@ -82,9 +82,7 @@ int main(int argc, string argv[])
 
         // array to hold guess status, initially set to zero
         int status[wordsize];
-
-        // set all elements of status array initially to 0, aka WRONG
-        for (int j = 0; j < strlen[status]; j++)
+        for (int j = 0; j < strlen[wordsize]; j++)
         {
             status[j] = 0;
         }
@@ -106,9 +104,14 @@ int main(int argc, string argv[])
     }
 
     // Print the game's result
-    // TODO #7
-
-    // that's all folks!
+    if (won == true)
+    {
+        printf("You won!\n");
+    }
+    else
+    {
+        printf("The word was %s!\n", choice);
+    }
     return 0;
 }
 
@@ -153,15 +156,6 @@ int check_word(string guess, int wordsize, int status[], string choice)
             score += status[i];
         }
     }
-
-    // HINTS
-    // iterate over each letter of the guess
-        // iterate over each letter of the choice
-            // compare the current guess letter to the current choice letter
-                // if they're the same position in the word, score EXACT points (green) and break so you don't compare that letter further
-                // if it's in the word, but not the right spot, score CLOSE point (yellow)
-        // keep track of the total score by adding each individual letter's score from above
-
     return score;
 }
 
