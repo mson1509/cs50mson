@@ -86,7 +86,7 @@ int main(int argc, string argv[])
         // set all elements of status array initially to 0, aka WRONG
         for (int j = 0; j < strlen[status]; j++)
         {
-            
+            status[j] = 0;
         }
 
         // Calculate score for the guess
@@ -117,7 +117,7 @@ string get_guess(int wordsize)
     string guess = "";
 
     // ensure users actually provide a guess that is the correct length
-    // TODO #3
+    if (strlen(guess) != wordsize)
 
     return guess;
 }
