@@ -144,14 +144,13 @@ int check_word(string guess, int wordsize, int status[], string choice)
                 else
                 {
                     status[i] = CLOSE;
-                    score += status[i];
                 }
             }
             else
             {
-                status[i] = WRONG;
-                score += status[i];
+                status[i] += WRONG;
             }
+            score += status[i];
         }
     }
 
