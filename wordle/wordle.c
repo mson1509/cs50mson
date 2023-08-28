@@ -141,7 +141,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
             {
                 if (i == j)
                 {
-                    status[i] += EXACT;
+                    status[i] = EXACT;
                     score += status[i];
                     break;
                 }
@@ -154,8 +154,8 @@ int check_word(string guess, int wordsize, int status[], string choice)
             {
                 status[i] += WRONG;
             }
-            score += status[i];
         }
+        score += status[i];
     }
     return score;
 }
