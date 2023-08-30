@@ -1,13 +1,29 @@
 #include <cs50.h>
 #include <stdio.h>
 
-int main(int argc, string argv[])
+void draw(int n);
+
+int main(void)
 {
-    if (argc != 2)
+    int height = get_int("Height of the pyramid: ");
+    draw(height);
+}
+
+void draw(int n)
+{
+    // If nothing to draw
+    if (n <= 0)
     {
-        printf("Missing command-line argument\n");
-        return 1;
+        return;
     }
-    printf("hello, %s\n", argv[1]);
-    return 0;
+
+    // Draw pyramid of height n - 1
+    draw(n - 1);
+
+    // Draw one more row of width n
+    for (int i = 0; i < n; i++)
+    {
+        printf("#");
+    }
+    printf("\n");
 }
