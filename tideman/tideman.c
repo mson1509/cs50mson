@@ -65,7 +65,7 @@ int main(int argc, string argv[])
 
     pair_count = 0;
     int voter_count = get_int("Number of voters: ");
-
+ 
     // Query for votes
     for (int i = 0; i < voter_count; i++)
     {
