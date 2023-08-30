@@ -67,18 +67,27 @@ int main(int argc, string argv[])
 bool vote(string name)
 {
     for (int i = 0;i < candidate_count; i++)
+    {
         if (name == candidate[i].name)
         {
             candidate[i].votes += 1;
             return true;
             break;
         }
+    }
     return false;
 }
 
 // Print the winner (or winners) of the election
 void print_winner(void)
 {
-    
+    int more_votes;
+    for (int i = 0; i < candidate_count - 1; i++)
+    {
+        if (candidate[i].votes > candidate[i + 1].votes)
+            more_votes = i;
+        else
+            more_votes = i + 1;
+    }
     return;
 }
