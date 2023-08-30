@@ -89,8 +89,13 @@ void print_winner(void)
         {
             most_votes = candidate[i].votes;
         }
-        if (candidate[i] = most_votes)
-
+    }
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidate[i].votes = most_votes)
+        {
+            printf("%s\n", candidate[i].name);
+        }
     }
     return;
 }
