@@ -88,7 +88,6 @@ void print_winner(void)
         if (candidate[i].votes > most_votes)
         {
             most_votes = candidate[i].votes;
-            winner = i;
         }
         if (candidate[i] = most_votes)
 
