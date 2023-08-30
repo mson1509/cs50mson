@@ -1,11 +1,11 @@
-sort1 uses: TODO
+sort1 uses: Bubble sort
 
-How do you know?: TODO
+How do you know?: Fastest in sorted files, as its lower bound is Ω(1)
 
-sort2 uses: TODO
+sort2 uses: Merge sort
 
-How do you know?: TODO
+How do you know?: Second fastest in sorted files, as its lower bound is Ω(n*log(n))
 
-sort3 uses: TODO
+sort3 uses: Selection sort
 
-How do you know?: TODO
+How do you know?: Slowest in sorted files, as its lower bound is Ω(n^2)
