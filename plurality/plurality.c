@@ -90,7 +90,6 @@ void print_winner(void)
             most_votes = candidate[i].votes;
             winner = i;
         }
-
         if (candidate[i] = most_votes)
 
     }
