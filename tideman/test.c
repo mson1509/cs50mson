@@ -23,14 +23,14 @@ pair;
 string candidates[MAX];
 pair pairs[MAX * (MAX - 1) / 2];
 
-int pair_count = ;
-int candidate_count;
+int pair_count = 3;
+int candidate_count = 3;
 
 void lock_pair(void);
 
 int main(void)
 {
-
+pairs[0].winner = 
 }
 
 void lock_pairs(void)
