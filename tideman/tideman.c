@@ -157,11 +157,13 @@ void sort_pairs(void)
     {
         if (preferences[pairs[n].winner][pairs[n].loser] < preferences[pairs[n + 1].winner][pairs[n + 1].loser])
         {
+            //swap index number in array pairs
             int x = pairs[n].winner;
             int y = pairs[n].loser;
-            pairs[n + 1].winner = pairs[n].winner;
-            pairs[n + 1].loser = pairs[n].loser;
-
+            pairs[n].winner = pairs[n + 1].winner;
+            pairs[n].loser = pairs[n + 1].loser;
+            pairs[n + 1].winner = x;
+            pairs[n + 1].loser = y;
         }
     }
     return;
