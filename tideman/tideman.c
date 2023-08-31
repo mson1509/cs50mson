@@ -130,7 +130,7 @@ void add_pairs(void)
     {
         preferences[i][j] > preferences[j][i]
         pairs[n].winner = i;
-        pairs[n].loser = j;
+        pairs[n].loser = j;  
     }
     return;
 }
