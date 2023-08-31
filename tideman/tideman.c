@@ -188,7 +188,11 @@ void lock_pairs(void)
         {
             for (int j = 0; j < candidate_count; j++)
             {
-                if (locked[j][i])
+                if (j == i)
+                {
+                    continue;
+                }
+                else if (locked[j][i])
                 {
                     break;
                 }
