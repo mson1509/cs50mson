@@ -223,6 +223,10 @@ void print_winner(void)
             {
                 break;
             }
+            else
+            {
+                continue;
+            }
             printf("%s\n", candidates[i]);
         }
     }
