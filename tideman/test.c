@@ -30,7 +30,12 @@ void lock_pair(void);
 
 int main(void)
 {
-pairs[0].winner =
+pairs[0].winner = 0;
+pairs[0].loser = 1;
+pairs[1].winner = 2;
+pairs[1].loser = 0;
+pairs[2].winner = 1;
+pairs[2].loser = 2;
 }
 
 void lock_pairs(void)
