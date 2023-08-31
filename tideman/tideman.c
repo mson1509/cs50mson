@@ -195,7 +195,7 @@ void lock_pairs(void)
                 }
                 else if (j == candidate_count)
                 {
-                    i = candidate_count + 1;
+                    i = MAX + 1;
                 }
             }
             if (i == candidate_count - 1)
