@@ -154,7 +154,7 @@ void add_pairs(void)
 void sort_pairs(void)
 {
     // TODO
-    return;
+    return;  
 }
 
 // Lock pairs into the candidate graph in order, without creating cycles
