@@ -30,7 +30,7 @@ void lock_pair(void);
 
 int main(void)
 {
-pairs[0].winner = 
+pairs[0].winner =
 }
 
 void lock_pairs(void)
