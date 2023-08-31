@@ -30,12 +30,19 @@ void lock_pair(void);
 
 int main(void)
 {
-pairs[0].winner = 0;
-pairs[0].loser = 1;
-pairs[1].winner = 2;
-pairs[1].loser = 0;
-pairs[2].winner = 1;
-pairs[2].loser = 2;
+    for (int i = 0; i < candidate_count; i++)
+    {
+        for (int j = 0; j < candidate_count; j++)
+        {
+            locked[i][j] = false;
+        }
+    }
+    pairs[0].winner = 0;
+    pairs[0].loser = 1;
+    pairs[1].winner = 2;
+    pairs[1].loser = 0;
+    pairs[2].winner = 1;
+    pairs[2].loser = 2;
 }
 
 void lock_pairs(void)
@@ -56,6 +63,7 @@ void lock_pairs(void)
                 else if (j == candidate_count - 1)
                 {
                     i = MAX + 1;
+                    break;
                 }
             }
             // if there is no source left, unlock the last pair
