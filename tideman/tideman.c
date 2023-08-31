@@ -223,11 +223,10 @@ void print_winner(void)
             {
                 break;
             }
-            else
+            else if (j == candidate_count - 1)
             {
-                continue;
+                printf("%s\n", candidates[i]);
             }
-            printf("%s\n", candidates[i]);
         }
     }
     return;
