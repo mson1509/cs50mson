@@ -202,7 +202,7 @@ void lock_pairs(void)
             // if there is no source left, unlock the last pair
             if (i == candidate_count - 1)
             {
-                locked[pairs[x].winner][pairs[x].loser] = false;
+                !locked[pairs[x].winner][pairs[x].loser] = false;
             }
         }
     }
