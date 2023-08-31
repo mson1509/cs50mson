@@ -219,8 +219,9 @@ void print_winner(void)
         {
             if (locked[j][i])
             {
-                printf
+                break;
             }
+            printf("%s\n", candidate[i])
         }
     }
     return;
