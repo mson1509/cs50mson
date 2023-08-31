@@ -155,6 +155,7 @@ void sort_pairs(void)
 {
     for (int i = 0; i < pair_count; i++)
     {
+        int no_swap_check = 0;
         for (int j = 0; j < pair_count - 1; j++)
         {
             if (preferences[pairs[j].winner][pairs[j].loser] < preferences[pairs[j + 1].winner][pairs[j + 1].loser])
@@ -166,7 +167,13 @@ void sort_pairs(void)
                 pairs[j].loser = pairs[j + 1].loser;
                 pairs[j + 1].winner = x;
                 pairs[j + 1].loser = y;
+                no_swap_check = 1;
             }
+        }
+        //check if no swap
+        if (no_swap_check == 0)
+        {
+            break;
         }
     }
     return;
@@ -175,7 +182,7 @@ void sort_pairs(void)
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
-    // TODO
+    
     return;
 }
 
