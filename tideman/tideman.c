@@ -102,7 +102,7 @@ bool vote(int rank, string name, int ranks[])
 {
     for (int i = 0; i < candidate_count; i++)
     {
-        if (strcmp(name, candidates[i]) == 0);
+        if (strcmp(name, candidates[i]) == 0)
         {
             ranks[rank] = i;
             return true;
@@ -127,9 +127,9 @@ void record_preferences(int ranks[])
 // Record pairs of candidates where one is preferred over the other
 void add_pairs(void)
 {
-    for (int i = 0; i < candiate_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = 0; j < candidate_count; ;j++)
+        for (int j = 0; j < candidate_count; j++)
         {
             if ( j == i)
             {
@@ -147,6 +147,7 @@ void add_pairs(void)
                 pairs[pair_count].loser = i;
                 pair_count++;
             }
+        }
     }
     return;
 }
@@ -185,7 +186,7 @@ void lock_pairs(void)
 {
     for (int x = 0; x < pair_count; x++)
     {
-        locked[pairs[x].winner][pairs[x].loser] == true;
+        locked[pairs[x].winner][pairs[x].loser] = true;
         //check if cycle was created
         for (int i = 0; i < candidate_count; i++)
         {
@@ -204,7 +205,7 @@ void lock_pairs(void)
             // if there is no source left, unlock the last pair
             if (i == candidate_count - 1)
             {
-                locked[pairs[x].winner][pairs[x].loser] == false;
+                locked[pairs[x].winner][pairs[x].loser] = false;
             }
         }
     }
@@ -222,7 +223,7 @@ void print_winner(void)
             {
                 break;
             }
-            printf("%s\n", candidate[i]);
+            printf("%s\n", candidates[i]);
         }
     }
     return;
