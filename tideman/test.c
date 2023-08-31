@@ -26,7 +26,7 @@ pair pairs[MAX * (MAX - 1) / 2];
 int pair_count = 3;
 int candidate_count = 3;
 
-void lock_pair(void);
+void lock_pairs(void);
 
 int main(void)
 {
@@ -43,6 +43,7 @@ int main(void)
     pairs[1].loser = 0;
     pairs[2].winner = 1;
     pairs[2].loser = 2;
+    lock_pairs();
 }
 
 void lock_pairs(void)
