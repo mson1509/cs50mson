@@ -193,6 +193,10 @@ void lock_pairs(void)
                 {
                     break;
                 }
+                else if (j == candidate_count)
+                {
+                    
+                }
             }
         }
     }
