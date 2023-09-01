@@ -147,6 +147,14 @@ void add_pairs(void)
     return;
 }
 
+// Swap values in two different array
+void swap(int a, int b)
+{
+    int x = a;
+    a = b;
+    b = x;
+}
+
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
