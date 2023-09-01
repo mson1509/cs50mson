@@ -16,8 +16,7 @@ typedef struct
 {
     int winner;
     int loser;
-}
-pair;
+} pair;
 
 // Array of candidates
 string candidates[MAX];
@@ -158,7 +157,7 @@ void sort_pairs(void)
         {
             if (preferences[pairs[j].winner][pairs[j].loser] < preferences[pairs[j + 1].winner][pairs[j + 1].loser])
             {
-            //swap index number in array pairs
+                // swap index number in array pairs
                 int x = pairs[j].winner;
                 int y = pairs[j].loser;
                 pairs[j].winner = pairs[j + 1].winner;
@@ -168,7 +167,7 @@ void sort_pairs(void)
                 no_swap_check = 1;
             }
         }
-        //check if no swap
+        // check if no swap
         if (no_swap_check == 0)
         {
             break;
@@ -183,17 +182,17 @@ void lock_pairs(void)
     for (int x = 0; x < pair_count; x++)
     {
         locked[pairs[x].winner][pairs[x].loser] = true;
-        //check if cycle was created
+        // check if cycle was created
         for (int i = 0; i < candidate_count; i++)
         {
             for (int j = 0; j < candidate_count; j++)
             {
                 if (locked[j][i])
                 {
-                    //there is at least 1 candidate j directed to candidate i -> move on to the next i
+                    // there is at least 1 candidate j directed to candidate i -> move on to the next i
                     break;
                 }
-                //if there is still a source -> keep lock pairs
+                // if there is still a source -> keep lock pairs
                 else if (j == candidate_count - 1)
                 {
                     i = MAX + 1;
