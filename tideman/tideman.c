@@ -29,6 +29,7 @@ int candidate_count;
 bool vote(int rank, string name, int ranks[]);
 void record_preferences(int ranks[]);
 void add_pairs(void);
+void swap(int j);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
@@ -147,12 +148,15 @@ void add_pairs(void)
     return;
 }
 
-// Swap values in two different array
-void swap(int a, int b)
+// Swap two adjacent values in array
+void swap(int j)
 {
-    int x = a;
-    a = b;
-    b = x;
+    int x = pairs[j].winner;
+    int y = pairs[j].loser;
+    pairs[j].winner = pairs[j + 1].winner;
+    pairs[j].loser = pairs[j + 1].loser;
+    pairs[j + 1].winner = x;
+    pairs[j + 1].loser = y;
 }
 
 // Sort pairs in decreasing order by strength of victory
@@ -166,12 +170,7 @@ void sort_pairs(void)
             if (preferences[pairs[j].winner][pairs[j].loser] < preferences[pairs[j + 1].winner][pairs[j + 1].loser])
             {
                 // swap index number in array pairs
-                int x = pairs[j].winner;
-                int y = pairs[j].loser;
-                pairs[j].winner = pairs[j + 1].winner;
-                pairs[j].loser = pairs[j + 1].loser;
-                pairs[j + 1].winner = x;
-                pairs[j + 1].loser = y;
+                swap(j);
                 no_swap_check = 1;
             }
         }
