@@ -183,26 +183,29 @@ void lock_pairs(void)
     for (int x = 0; x < pair_count; x++)
     {
         locked[pairs[x].winner][pairs[x].loser] = true;
-        //check if cycle was created
+        //check if cycle was created: if every candidate i have at least 1 candidtae j directed to it
         for (int i = 0; i < candidate_count; i++)
         {
             for (int j = 0; j < candidate_count; j++)
             {
                 if (locked[j][i])
                 {
+                    //meaning there is at least 1 candidate j directed to candidate i -> move on to the next i
                     break;
                 }
-                //if there is still a source, keep lock pairs
+                //meaning this candidate i have no directed arrow to it -> there is still a source -> keep lock pairs
                 else if (j == candidate_count - 1)
                 {
+                    // keep locking pairs by break out of the nested loops of j and i
                     i = MAX + 1;
                     break;
                 }
             }
-            // if there is no source left, unlock the last pair
+            // meaning every candidate i have at least 1 candidate j directed to it -> there is no source left -> unlock the last pair
             if (i == candidate_count - 1)
             {
                 locked[pairs[x].winner][pairs[x].loser] = false;
+                // after unlocking the cycle-causing pair, move on to the next pair (x)
             }
         }
     }
