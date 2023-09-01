@@ -197,34 +197,30 @@ void sort_pairs(void)
     return;
 }
 
+// Check if a cycle is created
+bool create_cycle(int winner, int loser)
+{
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (locked[loser][winner])
+        {
+            return true;
+        }
+        else if (locked[winner][i] && create_cycle(loser, i))
+        {
+            return true;
+        }
+    }
+}
+
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
-    for (int x = 0; x < pair_count; x++)
+    for (int i = 0; i < pair_count; i++)
     {
-        locked[winner(x)][loser(x)] = true;
-        // check if cycle was created
-        for (int i = 0; i < candidate_count; i++)
+        if (!create_cycle(winner(i), loser(i)))
         {
-            for (int j = 0; j < candidate_count; j++)
-            {
-                if (locked[j][i])
-                {
-                    // at least 1 candidate j directed to candidate i -> move on to the next i
-                    break;
-                }
-                // if there is still a source -> keep lock pairs
-                else if (j == candidate_count - 1)
-                {
-                    i = MAX + 1;
-                    break;
-                }
-            }
-            // if there is no source left -> unlock the last pair
-            if (i == candidate_count - 1)
-            {
-                locked[winner(x)][loser(x)] = false;
-            }
+            locked[winner(i)][loser(i)];
         }
     }
     return;
