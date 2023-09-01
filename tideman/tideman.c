@@ -30,9 +30,10 @@ bool vote(int rank, string name, int ranks[]);
 void record_preferences(int ranks[]);
 void add_pairs(void);
 void swap(int index);
-int winner(int index)
+int winner(int index);
 int loser(int index);
 void sort_pairs(void);
+bool create_cycle(int winner, int loser);
 void lock_pairs(void);
 void print_winner(void);
 
@@ -206,11 +207,12 @@ bool create_cycle(int winner, int loser)
         {
             return true;
         }
-        else if (locked[winner][i] && create_cycle(loser, i))
+        else if (locked[i][winner] && create_cycle(i, loser))
         {
             return true;
         }
     }
+    return false;
 }
 
 // Lock pairs into the candidate graph in order, without creating cycles
@@ -220,7 +222,7 @@ void lock_pairs(void)
     {
         if (!create_cycle(winner(i), loser(i)))
         {
-            locked[winner(i)][loser(i)];
+            locked[winner(i)][loser(i)] = true;
         }
     }
     return;
