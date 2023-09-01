@@ -29,7 +29,9 @@ int candidate_count;
 bool vote(int rank, string name, int ranks[]);
 void record_preferences(int ranks[]);
 void add_pairs(void);
-void swap(int j);
+void swap(int index);
+int winner(int index)
+int loser(int index);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
@@ -149,14 +151,26 @@ void add_pairs(void)
 }
 
 // Swap two adjacent values in array
-void swap(int j)
+void swap(int index)
 {
-    int x = pairs[j].winner;
-    int y = pairs[j].loser;
-    pairs[j].winner = pairs[j + 1].winner;
-    pairs[j].loser = pairs[j + 1].loser;
-    pairs[j + 1].winner = x;
-    pairs[j + 1].loser = y;
+    int x = pairs[index].winner;
+    int y = pairs[index].loser;
+    pairs[index].winner = pairs[index + 1].winner;
+    pairs[index].loser = pairs[index + 1].loser;
+    pairs[index + 1].winner = x;
+    pairs[index + 1].loser = y;
+}
+
+//Determine winner index number in array pairs
+int winner(int index)
+{
+    return pairs[index].winner;
+}
+
+//Determine loser index number in array pairs
+int loser(int index)
+{
+    return pairs[index].loser;
 }
 
 // Sort pairs in decreasing order by strength of victory
@@ -167,7 +181,7 @@ void sort_pairs(void)
         int no_swap_check = 0;
         for (int j = 0; j < pair_count - 1; j++)
         {
-            if (preferences[pairs[j].winner][pairs[j].loser] < preferences[pairs[j + 1].winner][pairs[j + 1].loser])
+            if (preferences[winner(j)][loser(j)] < preferences[winner(j + 1)][loser(j + 1)])
             {
                 // swap index number in array pairs
                 swap(j);
@@ -188,7 +202,7 @@ void lock_pairs(void)
 {
     for (int x = 0; x < pair_count; x++)
     {
-        locked[pairs[x].winner][pairs[x].loser] = true;
+        locked[winner(x)][loser(x)] = true;
         // check if cycle was created
         for (int i = 0; i < candidate_count; i++)
         {
@@ -196,7 +210,7 @@ void lock_pairs(void)
             {
                 if (locked[j][i])
                 {
-                    // there is at least 1 candidate j directed to candidate i -> move on to the next i
+                    // at least 1 candidate j directed to candidate i -> move on to the next i
                     break;
                 }
                 // if there is still a source -> keep lock pairs
@@ -209,7 +223,7 @@ void lock_pairs(void)
             // if there is no source left -> unlock the last pair
             if (i == candidate_count - 1)
             {
-                locked[pairs[x].winner][pairs[x].loser] = false;
+                locked[winner(x)][loser(x)] = false;
             }
         }
     }
