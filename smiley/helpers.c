@@ -1,6 +1,6 @@
 #include "helpers.h"
 
-int check_b_w(RGBTRIPLE image[i][j]);
+int check_b_w(RGBTRIPLE image[][]);
 
 void colorize(int height, int width, RGBTRIPLE image[height][width])
 {
