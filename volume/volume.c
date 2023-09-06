@@ -42,7 +42,8 @@ int main(int argc, char *argv[])
     }
 
     // TODO: Read samples from input file and write updated data to output file
-    uint8_t sequence = malloc()
+    uint16_t sequence = malloc(sizeof(int16_t)
+    
 
     // Close files
     fclose(input);
