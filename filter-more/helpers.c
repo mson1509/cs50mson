@@ -55,9 +55,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
 void swap(RGBTRIPLE a, RGBTRIPLE b)
 {
-    RGBTRIPLE temp;
-    RGBTRIPLE.rgbtBlue temp = RGBTRIPLE.rgbtBlue a;
-    RGBTRIPLE.rgbtGreen temp = RGBTRIPLE.rgbtGreen a;
-    RGBTRIPLE.rgbtRed temp = RGBTRIPLE.rgbtRed a;
-
+    RGBTRIPLE temp = a;
+    a = b;
+    b = temp;
+    return;
 }
