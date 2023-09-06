@@ -1,6 +1,6 @@
 #include "helpers.h"
 
-char check_b_w(int i, int j, RGBTRIPLE image[][]);
+char check_b_w(int i, int j, RGBTRIPLE image[i][j]);
 
 void colorize(int height, int width, RGBTRIPLE image[height][width])
 {
@@ -9,11 +9,11 @@ void colorize(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            if (check_b_w(image[i][j]) == 'w')
+            if (check_b_w(i, j, image[i][j]) == 'w')
             {
                 continue;
             }
-            else if (check_b_w(image[i][j]) == 'b')
+            else if (check_b_w(i, j, image[i][j]) == 'b')
             {
                 image[i][j].rgbtRed = 0x15;
                 image[i][j].rgbtGreen = 0x5b;
