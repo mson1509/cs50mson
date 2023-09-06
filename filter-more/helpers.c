@@ -27,14 +27,14 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
         {
             for (int j = 0; j < (width / 2); j++)
             {
-                swap(image[i][j], image[i][width - 1 - j]);
+                swap(&image[i][j], &image[i][width - 1 - j]);
             }
         }
         else
         {
             for (int j = 0; j < ((width - 1) / 2); j++)
             {
-                swap(image[i][j], image[i][width - 1 - j]);
+                swap(&image[i][j], &image[i][width - 1 - j]);
             }
         }
     }
