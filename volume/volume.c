@@ -42,8 +42,11 @@ int main(int argc, char *argv[])
     }
 
     // TODO: Read samples from input file and write updated data to output file
+
     uint16_t sequence = malloc(sizeof(int16_t)
-    
+    fread(sequence, sizeof(int16_t), num_samples, input);
+    fwrite(sequence, sizeof(int16_t), num_samples, output);
+
 
     // Close files
     fclose(input);
