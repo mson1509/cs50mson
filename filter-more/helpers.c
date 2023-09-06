@@ -53,10 +53,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-void swap(RGBTRIPLE a, RGBTRIPLE b)
+void swap(RGBTRIPLE* a, RGBTRIPLE* b)
 {
-    RGBTRIPLE temp = a;
-    a = b;
-    b = temp;
+    RGBTRIPLE temp = *a;
+    *a = *b;
+    *b = temp;
     return;
 }
