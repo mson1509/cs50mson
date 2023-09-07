@@ -97,18 +97,38 @@ void swap(RGBTRIPLE* a, RGBTRIPLE* b)
 RGBTRIPLE avg(int i, int j, int num_pixels)
 {
     int total = 0;
-    if ((i = 0 && j = 0) || (i = height - 1 && j = width - 1))
+    int a = i + 1;
+    int b = i - 1;
+    int c = j + 1;
+    int d = j - 1;
+    if (a == height && c == width)
     {
         total =
     }
-    else if (i = 0 || i = height - 1 || j = 0 || j = width - 1)
+    else if (b < 0 && d < 0)
+    {
+        total =
+    }
+    else if ()
     {
 
     }
+    else if ()
+    {
+
+    }
+    else if ()
+    {
+
+    }
+    else if ()
+    {
+        
+    }
     else
     {
-        total += image[i][j].rgbtBlue + image[i][j - 1].rgbtBlue + image[i][j + 1].rgbtBlue
-        total += image[i + 1][j].rgbtBlue + image[i - 1][j].rgbtBlue + image[i + 1][j + 1].rgbtBlue
-        total += image[i - 1][j - 1].rgbtBlue + image[i - 1][j + 1].rgbtBlue + image[i + 1][j - 1].rgbtBlue
+        total += image[i][j].rgbtBlue + image[i][c].rgbtBlue + image[i][d].rgbtBlue
+        total += image[a][j].rgbtBlue + image[a][c].rgbtBlue + image[a][d].rgbtBlue
+        total += image[b][j].rgbtBlue + image[b][c].rgbtBlue + image[b][d].rgbtBlue
     }
 }
