@@ -1,7 +1,7 @@
 #include "helpers.h"
 
 void swap(RGBTRIPLE* a, RGBTRIPLE* b);
-int avg(int i, int j, int height, int width, char color, RGBTRIPLE image[x][y]);
+int avg(int i, int j, int height, int width, char color, RGBTRIPLE image[i][j]);
 
 int const num_color_channels = 3;
 int const num_pixels_grid = 9;
