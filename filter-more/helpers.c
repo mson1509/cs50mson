@@ -1,6 +1,7 @@
 #include "helpers.h"
 
 void swap(RGBTRIPLE* a, RGBTRIPLE* b);
+int avg(int i, int j, int height, int width, char color, RGBTRIPLE image);
 
 int const num_color_channels = 3;
 int const num_pixels_grid = 9;
@@ -65,6 +66,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             if ((i = 0 && (j = width - 1 || j = 0)) || (i = height - 1 && (j = 0 || j = width - 1)))
             {
                 image[i][j].rgbtBlue = avg(i, j, height, width, 'b', copy);
+                image[i][j].rgbtGreen = avg(i, j, height, width, 'g', copy);
+                image[i][j].rgbtRed = avg(i, j, height, width, 'r', copy);
             }
             else if (i = 0 || i = height - 1 || j = 0 || j = width - 1)
             {
@@ -93,12 +96,12 @@ void swap(RGBTRIPLE* a, RGBTRIPLE* b)
     return;
 }
 
-int avg(int i, int j, int height, int width, char color, RGBTRIPLE image[column][row])
+int avg(int i, int j, int height, int width, char color, RGBTRIPLE image)
 {
     int sum = 0;
-    for (column = (i - 1); column <= (i + 1); column++)
+    for (int column = (i - 1); column <= (i + 1); column++)
     {
-        for (row = (j - 1); row <= (j + 1); row++)
+        for (int row = (j - 1); row <= (j + 1); row++)
         {
             if ((column < 0) || (row  < 0) || (column == height) || (row == width))
             {
