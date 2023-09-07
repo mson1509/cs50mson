@@ -101,32 +101,45 @@ RGBTRIPLE avg(int i, int j, int num_pixels)
     int b = i - 1;
     int c = j + 1;
     int d = j - 1;
-    switch (a)
+    switch (i)
     {
-        // if i = 0
-        case 1:
-            total = total - image[i][b].rgbtBlue - image[a][b].rgbtBlue - image[][b].rgbtBlue
-        // if i = height - 1
-        case height:
-            total +=
-        default:
-            total +=
+        case 0:
+            total = total - image[b][j].rgbtBlue - image[b][c].rgbtBlue - image[b][d].rgbtBlue;
+            break;
+        case height - 1:
+            total = total - image[a][j].rgbtBlue - image[a][c].rgbtBlue - image[a][d].rgbtBlue;
+            break;
     }
-    switch (c)
+    switch (j)
     {
-        // if j = 0
-        case 1:
-            total +=
+        case 0:
+            total = total - image[i][d].rgbtBlue - image[a][d].rgbtBlue - image[b][d].rgbtBlue;
+            break;
         // if j = width - 1
-        case width:
-            total +=
-        default:
-            total += image[i][j].rgbtBlue
+        case width - 1:
+            total = total - image[i][c].rgbtBlue - image[a][c].rgbtBlue - image[b][c].rgbtBlue;
+            break;
     }
-    else
+    if (num_pixels == 4)
     {
-        total += image[i][j].rgbtBlue + image[i][c].rgbtBlue + image[i][d].rgbtBlue
-        total += image[a][j].rgbtBlue + image[a][c].rgbtBlue + image[a][d].rgbtBlue
-        total += image[b][j].rgbtBlue + image[b][c].rgbtBlue + image[b][d].rgbtBlue
+        switch (i + j)
+        {
+            case 0:
+                total += image[b][d].rgbtBlue;
+                break;
+            case height - 1:
+                total += image[a][d].rgbtBlue;
+                break;
+            case width - 1:
+                total += image[b][c].rgbtBlue;
+                break;
+            case height + width - 2:
+                total += image[a][c].rgbtBlue;
+                break;
+        }
     }
+
+    total = total + image[i][j].rgbtBlue + image[i][c].rgbtBlue + image[i][d].rgbtBlue;
+    total = total + image[a][j].rgbtBlue + image[a][c].rgbtBlue + image[a][d].rgbtBlue;
+    total = total + image[b][j].rgbtBlue + image[b][c].rgbtBlue + image[b][d].rgbtBlue;
 }
