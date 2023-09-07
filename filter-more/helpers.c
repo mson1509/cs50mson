@@ -69,8 +69,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     return;
 }
 
-void avg()
-
 void swap(RGBTRIPLE* a, RGBTRIPLE* b)
 {
     RGBTRIPLE temp = *a;
