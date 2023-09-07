@@ -101,29 +101,15 @@ RGBTRIPLE avg(int i, int j, int num_pixels)
     int b = i - 1;
     int c = j + 1;
     int d = j - 1;
-    if (a == height && c == width)
+    switch (a)
     {
-        total =
-    }
-    else if (b < 0 && d < 0)
-    {
-        total =
-    }
-    else if ()
-    {
-
-    }
-    else if ()
-    {
-
-    }
-    else if ()
-    {
-
-    }
-    else if ()
-    {
-
+        case 1:
+            total +=
+        case height:
+            total +=
+        default:
+            total +=
+            brea
     }
     else
     {
