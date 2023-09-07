@@ -64,7 +64,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         {
             if ((i = 0 && (j = width - 1 || j = 0)) || (i = height - 1 && (j = 0 || j = width - 1)))
             {
-                image[i][j].rgbtBlue = avg(i, j, height, width, num_pixels_corner, b, copy);
+                image[i][j].rgbtBlue = avg(i, j, height, width, 'b', copy);
             }
             else if (i = 0 || i = height - 1 || j = 0 || j = width - 1)
             {
@@ -93,13 +93,33 @@ void swap(RGBTRIPLE* a, RGBTRIPLE* b)
     return;
 }
 
-RGBTRIPLE avg(int i, int j, int height, int width, int num_pixels, char color, RGBTRIPLE image[column][row])
+int avg(int i, int j, int height, int width, char color, RGBTRIPLE image[column][row])
 {
+    int sum = 0;
     for (column = (i - 1); column <= (i + 1); column++)
     {
         for (row = (j - 1); row <= (j + 1); row++)
         {
-            sum += copy[column][row]
+            if ((column < 0) || (row  < 0) || (column == height) || (row == width))
+            {
+                continue;
+            }
+            else
+            {
+                switch (color)
+                {
+                    case 'b':
+                        sum += copy[i][j].rgbtBlue;
+                        break;
+                    case 'g':
+                        sum += copy[i][j].rgbtGreen;
+                        break;
+                    case 'r':
+                        sum += copy[i][j].rgbtRed;
+                        break;
+                }
+            }
         }
     }
+    return sum;
 }
