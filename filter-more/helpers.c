@@ -1,7 +1,6 @@
 #include "helpers.h"
 
 void swap(RGBTRIPLE* a, RGBTRIPLE* b);
-RGBTRIPLE avg(int i, int j, int num_pixels);
 
 int const num_color_channels = 3;
 int const num_pixels_grid = 9;
@@ -65,7 +64,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         {
             if ((i = 0 && (j = width - 1 || j = 0)) || (i = height - 1 && (j = 0 || j = width - 1)))
             {
-                image[i][j] = avg(i, j, num_pixels_corner);
+                image[i][j].rgbtBlue = avg(i, j, height, width, num_pixels_corner, b, copy);
             }
             else if (i = 0 || i = height - 1 || j = 0 || j = width - 1)
             {
@@ -94,7 +93,7 @@ void swap(RGBTRIPLE* a, RGBTRIPLE* b)
     return;
 }
 
-RGBTRIPLE avg(int i, int j, int num_pixels)
+RGBTRIPLE avg(int i, int j, int height, int width, int num_pixels, char color, RGBTRIPLE image[height][width])
 {
     int total = 0;
     int a = i + 1;
