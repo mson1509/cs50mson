@@ -123,7 +123,7 @@ RGBTRIPLE avg(int i, int j, int num_pixels)
     }
     else if ()
     {
-        
+
     }
     else
     {
