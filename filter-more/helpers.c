@@ -103,8 +103,10 @@ RGBTRIPLE avg(int i, int j, int num_pixels)
     int d = j - 1;
     switch (a)
     {
+        // if i = 0
         case 1:
             total +=
+        // if i = height - 1
         case height:
             total +=
         default:
@@ -112,8 +114,10 @@ RGBTRIPLE avg(int i, int j, int num_pixels)
     }
     switch (c)
     {
+        // if j = 0
         case 1:
             total +=
+        // if j = width - 1
         case width:
             total +=
         default:
