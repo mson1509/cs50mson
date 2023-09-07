@@ -105,7 +105,7 @@ RGBTRIPLE avg(int i, int j, int num_pixels)
     {
         // if i = 0
         case 1:
-            total += image[a][j].rgbtBlue 
+            total -= image[i][b].rgbtBlue 
         // if i = height - 1
         case height:
             total +=
