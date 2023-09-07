@@ -107,6 +107,8 @@ RGBTRIPLE avg(int i, int j, int num_pixels)
     }
     else
     {
-        total = image[i][j].rgbtBlue + image[i][j - 1].rgbtBlue + image[i][j].rgbtBlue + image[i][j].rgbtBlue + image[i][j].rgbtBlue + image[i][j].rgbtBlue + image[i][j].rgbtBlue + image[i][j].rgbtBlue + image[i][j].rgbtBlue
+        total += image[i][j].rgbtBlue + image[i][j - 1].rgbtBlue + image[i][j + 1].rgbtBlue
+        total += image[i + 1][j].rgbtBlue + image[i - 1][j].rgbtBlue + image[i + 1][j + 1].rgbtBlue
+        total += image[i - 1][j - 1].rgbtBlue + image[i - 1][j + 1].rgbtBlue + image[i + 1][j - 1].rgbtBlue
     }
 }
