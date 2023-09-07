@@ -104,20 +104,24 @@ RGBTRIPLE avg(int i, int j, int num_pixels)
     switch (i)
     {
         case 0:
-            total = total - image[b][j].rgbtBlue - image[b][c].rgbtBlue - image[b][d].rgbtBlue;
+            total = total + image[i][j].rgbtBlue + image[i][c].rgbtBlue + image[i][d].rgbtBlue;
+            total = total + image[a][j].rgbtBlue + image[a][c].rgbtBlue + image[a][d].rgbtBlue;
             break;
         case height - 1:
-            total = total - image[a][j].rgbtBlue - image[a][c].rgbtBlue - image[a][d].rgbtBlue;
+            total = total + image[i][j].rgbtBlue + image[i][c].rgbtBlue + image[i][d].rgbtBlue;
+            total = total + image[b][j].rgbtBlue + image[b][c].rgbtBlue + image[b][d].rgbtBlue;
             break;
     }
     switch (j)
     {
         case 0:
-            total = total - image[i][d].rgbtBlue - image[a][d].rgbtBlue - image[b][d].rgbtBlue;
+            total = total + image[i][j].rgbtBlue + image[a][j].rgbtBlue + image[b][j].rgbtBlue;
+            total = total + image[i][c].rgbtBlue + image[a][c].rgbtBlue + image[b][c].rgbtBlue;
             break;
         // if j = width - 1
         case width - 1:
-            total = total - image[i][c].rgbtBlue - image[a][c].rgbtBlue - image[b][c].rgbtBlue;
+            total = total + image[i][j].rgbtBlue + image[a][j].rgbtBlue + image[b][j].rgbtBlue;
+            total = total + image[i][d].rgbtBlue + image[a][d].rgbtBlue + image[b][d].rgbtBlue;
             break;
     }
     if (num_pixels == 4)
@@ -125,16 +129,16 @@ RGBTRIPLE avg(int i, int j, int num_pixels)
         switch (i + j)
         {
             case 0:
-                total += image[b][d].rgbtBlue;
+                total -= image[i][j].rgbtBlue;
                 break;
             case height - 1:
-                total += image[a][d].rgbtBlue;
+                total -= image[a][d].rgbtBlue;
                 break;
             case width - 1:
-                total += image[b][c].rgbtBlue;
+                total -= image[b][c].rgbtBlue;
                 break;
             case height + width - 2:
-                total += image[a][c].rgbtBlue;
+                total -= image[a][c].rgbtBlue;
                 break;
         }
     }
