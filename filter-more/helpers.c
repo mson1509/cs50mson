@@ -109,7 +109,15 @@ RGBTRIPLE avg(int i, int j, int num_pixels)
             total +=
         default:
             total +=
-            brea
+    }
+    switch (c)
+    {
+        case 1:
+            total +=
+        case width:
+            total +=
+        default:
+            total += image[i][j].rgbtBlue
     }
     else
     {
