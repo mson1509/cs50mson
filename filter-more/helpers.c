@@ -119,13 +119,13 @@ int avg(int i, int j, int height, int width, char color, RGBTRIPLE image)
                 switch (color)
                 {
                     case 'b':
-                        sum += copy[i][j].rgbtBlue;
+                        sum += image[i][j].rgbtBlue;
                         break;
                     case 'g':
-                        sum += copy[i][j].rgbtGreen;
+                        sum += image[i][j].rgbtGreen;
                         break;
                     case 'r':
-                        sum += copy[i][j].rgbtRed;
+                        sum += image[i][j].rgbtRed;
                         break;
                 }
             }
