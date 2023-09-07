@@ -2,6 +2,11 @@
 
 void swap(RGBTRIPLE* a, RGBTRIPLE* b);
 
+int const num_color_channels = 3;
+int const num_pixels_grid = 9;
+int const num_pixels_edge = 6;
+int const num_pixels_corner = 4;
+
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
@@ -9,7 +14,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            int gray_pixel = (image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed)/3;
+            int gray_pixel = (image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed)/num_color_channels;
             image[i][j].rgbtBlue = gray_pixel;
             image[i][j].rgbtGreen = gray_pixel;
             image[i][j].rgbtRed = gray_pixel;
