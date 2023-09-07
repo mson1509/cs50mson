@@ -63,19 +63,26 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
+            image[i][j].rgbtBlue = avg(i, j, height, width, 'b', copy);
+            image[i][j].rgbtGreen = avg(i, j, height, width, 'g', copy);
+            image[i][j].rgbtRed = avg(i, j, height, width, 'r', copy);
             if ((i = 0 && (j = width - 1 || j = 0)) || (i = height - 1 && (j = 0 || j = width - 1)))
             {
-                image[i][j].rgbtBlue = avg(i, j, height, width, 'b', copy);
-                image[i][j].rgbtGreen = avg(i, j, height, width, 'g', copy);
-                image[i][j].rgbtRed = avg(i, j, height, width, 'r', copy);
+                image[i][j].rgbtBlue =/ num_pixels_corner;
+                image[i][j].rgbtGreen =/ num_pixels_corner;
+                image[i][j].rgbtRed =/ num_pixels_corner;
             }
             else if (i = 0 || i = height - 1 || j = 0 || j = width - 1)
             {
-                image[i][j] = avg(i, j, num_pixels_edge);
+                image[i][j].rgbtBlue =/ num_pixels_edge;
+                image[i][j].rgbtGreen =/ num_pixels_edge;
+                image[i][j].rgbtRed =/ num_pixels_edge;
             }
             else
             {
-                image[i][j] = avg(i, j, num_pixels_grid);
+                image[i][j].rgbtBlue =/ num_pixels_grid;
+                image[i][j].rgbtGreen =/ num_pixels_grid;
+                image[i][j].rgbtRed =/ num_pixels_grid;
             }
         }
     }
