@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
         printf("File cannot be opened");
         return 1;
     }
-    int buffer[sizeof_block]
+    un buffer[sizeof_block]
     for (int i = 0; i < num_images; i++)
     {
         fread(buffer, sizeof_block, 1, ptr);
