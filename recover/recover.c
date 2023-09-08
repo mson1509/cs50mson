@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
         return 1;
     }
     int* buffer = malloc(sizeof_block);
-    while (buffer )
+    while (buffer != )
     {
         fread(buffer, sizeof_block, 1, ptr);
     }
