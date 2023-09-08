@@ -18,11 +18,19 @@ int main(int argc, char *argv[])
     }
     unsigned char buffer[block_size];
     FILE* outptr = NULL;
+    int count = 0;
+    do
+    {
+        sprintf(filename, "%03i.jpg", count)
+        count++;
+        outptr = fopen(filename, "w");
+    }
     while (fread(buffer, block_size, 1, ptr) == block_size)
     {
-        int count = 0;
+
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xF0) == 0xe0)
         {
+            fclose(outptr);
             sprintf(filename, "%03i.jpg", count)
             count++;
             outptr = fopen(filename, "w");
