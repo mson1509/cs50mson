@@ -19,12 +19,6 @@ int main(int argc, char *argv[])
     unsigned char buffer[block_size];
     FILE* outptr = NULL;
     int count = 0;
-    do
-    {
-        sprintf(filename, "%03i.jpg", count)
-        count++;
-        outptr = fopen(filename, "w");
-    }
     while (fread(buffer, block_size, 1, ptr) == block_size)
     {
 
