@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 int const sizeof_block = 512;
+int const num_images = 50;
 
 int main(int argc, char *argv[])
 {
@@ -16,8 +17,9 @@ int main(int argc, char *argv[])
         printf("File cannot be opened");
         return 1;
     }
-    int* buffer = malloc(sizeof_block);
-    fread(buffer, sizeof_block, 1, ptr);
+    for (int i = 0; i < num_images; i++)
+    {
+        
     }
 
 }
