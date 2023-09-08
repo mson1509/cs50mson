@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     unsigned char buffer[block_size];
     FILE* outptr = NULL;
     int count = 0;
-    char* filename = NULL;
+    char filename[8];
     while (fread(buffer, block_size, 1, ptr) == 1)
     {
 
