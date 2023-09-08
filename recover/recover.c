@@ -19,9 +19,12 @@ int main(int argc, char *argv[])
     unsigned char buffer[block_size];
     while (fread(buffer, block_size, 1, ptr) == block_size)
     {
+        int count = 0;
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xF0) == 0xe0)
         {
-            FILE* outptr = fopen(.jpeg, "w");
+            sprintf(filename, "%03i", count)
+            count++;
+            FILE* outptr = fopen(filename, "w");
         }
         if (outptr != NULL)
         {
