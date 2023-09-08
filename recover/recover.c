@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
         printf("File cannot be opened");
         return 1;
     }
-    unsigned char buffer[block_size] = malloc(block_size);
+    unsigned char buffer[block_size];
     FILE* outptr = NULL;
     int count = 0;
     char* filename = malloc(sizeof(char) * 7);
@@ -46,6 +46,5 @@ int main(int argc, char *argv[])
     }
     fclose(outptr);
     fclose(ptr);
-    free(buffer);
     free(filename);
 }
