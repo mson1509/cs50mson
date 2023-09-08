@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
         return 1;
     }
     unsigned char buffer[block_size];
+    FILE* outptr = NULL;
     while (fread(buffer, block_size, 1, ptr) == block_size)
     {
         int count = 0;
@@ -24,7 +25,7 @@ int main(int argc, char *argv[])
         {
             sprintf(filename, "%03i", count)
             count++;
-            FILE* outptr = fopen(filename, "w");
+            outptr = fopen(filename, "w");
         }
         if (outptr != NULL)
         {
