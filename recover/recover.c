@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
     FILE* outptr = NULL;
     int count = 0;
     char* filename = malloc(sizeof(int));
-    while (fread(buffer, block_size, 1, ptr) == block_size)
+    while (fread(buffer, block_size, 1, ptr) == 1)
     {
 
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xF0) == 0xe0)
@@ -44,6 +44,7 @@ int main(int argc, char *argv[])
             fwrite(buffer, block_size, 1, outptr);
         }
     }
+    fclose(outptr);
     fclose(ptr);
     free(filename);
 }
