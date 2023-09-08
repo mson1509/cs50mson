@@ -46,5 +46,4 @@ int main(int argc, char *argv[])
     }
     fclose(outptr);
     fclose(ptr);
-    free(filename);
 }
