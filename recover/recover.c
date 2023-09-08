@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
     FILE* outptr = NULL;
     int count = 0;
     char* filename = malloc(sizeof(int));
+    filename = NULL;
     while (fread(buffer, block_size, 1, ptr) == 1)
     {
 
