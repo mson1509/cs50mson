@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int const sizeof_block = 512;
-int const num_images = 50;
+int const block_size = 512;
 
 int main(int argc, char *argv[])
 {
@@ -17,10 +16,9 @@ int main(int argc, char *argv[])
         printf("File cannot be opened");
         return 1;
     }
-    unsigned char buffer[sizeof_block]
-    for (int i = 0; i < num_images; i++)
+    unsigned char buffer[block_size];
+    while (fread(buffer, block_size, 1, ptr) == block_size)
     {
-        fread(buffer, sizeof_block, 1, ptr);
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3] == )
     }
 
