@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     unsigned char buffer[block_size];
     FILE* outptr = NULL;
     int count = 0;
-    char* filename = malloc(sizeof(char) * 7);
+    char* filename = NULL;
     while (fread(buffer, block_size, 1, ptr) == 1)
     {
 
@@ -46,5 +46,4 @@ int main(int argc, char *argv[])
     }
     fclose(outptr);
     fclose(ptr);
-    free(filename);
 }
