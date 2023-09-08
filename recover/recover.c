@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     for (int i = 0; i < num_images; i++)
     {
         fread(buffer, sizeof_block, 1, ptr);
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[])
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && buffer[3])
     }
 
 }
