@@ -21,9 +21,12 @@ int main(int argc, char *argv[])
     {
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && ((buffer[3] & 0xF0) == (0xe << 4)))
         {
-            FILE* outptr = fopen(.jpeg, "w")
+            FILE* outptr = fopen(.jpeg, "w");
         }
-        fwrite(buffer, block_size, 1, outptr);
+        if (outptr != NULL)
+        {
+            fwrite(buffer, block_size, 1, outptr);
+        }
     }
 
 }
