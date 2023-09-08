@@ -16,10 +16,10 @@ int main(int argc, char *argv[])
         printf("File cannot be opened");
         return 1;
     }
-    unsigned char buffer[block_size];
+    unsigned char buffer[block_size] = malloc(block_size);
     FILE* outptr = NULL;
     int count = 0;
-    char* filename = NULL;
+    char* filename = malloc(sizeof)
     while (fread(buffer, block_size, 1, ptr) == 1)
     {
 
