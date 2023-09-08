@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+int const sizeof_block = 512;
+
 int main(int argc, char *argv[])
 {
     if (argc != 2)
@@ -14,7 +16,10 @@ int main(int argc, char *argv[])
         printf("File cannot be opened");
         return 1;
     }
-    
-    fread()
+    int* buffer = malloc(sizeof_block);
+    for (int i = 0; i < )
+    {
+        fread(buffer, sizeof_block, 1, ptr);
+    }
 
 }
