@@ -8,5 +8,11 @@ int main(int argc, char *argv[])
         printf("Usage: ./recover <image>\n");
         return 1;
     }
+    FILE* ptr = fopen("argv[1]", "r");
+    if (ptr == NULL)
+    {
+        printf("File cannot be opened");
+        return 1;
+    }
     
 }
