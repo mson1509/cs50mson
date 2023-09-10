@@ -21,8 +21,7 @@ int main(int argc, char *argv[])
 
     // Open input file for reading
     // TODO #2
-    FILE* inptr = malloc()
-    inptr = fopen(argv[2], "r");
+    FILE* inptr = fopen(argv[1], "r");
     if (inptr == NULL)
     {
         printf("Cannot open input file\n");
@@ -44,7 +43,7 @@ int main(int argc, char *argv[])
     }
     // Open output file for writing
     // TODO #5
-    FILE* outptr = fopen(argv[3], "w");
+    FILE* outptr = fopen(argv[2], "w");
     if (outptr == NULL)
     {
         printf("Cannot open output file\n");
