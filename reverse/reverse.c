@@ -68,14 +68,15 @@ int main(int argc, char *argv[])
     }
     while (stop_reverse != header_end)
     {
-        stop_reverse = ftell(inptr)
         fread(block_buffer, block_size, 1, inptr);
         fwrite(block_bufferr, block_size, 1, outptr);
-        fseek(inptr, 2 * (-block_size), SEEK_CUR)
+        fseek(inptr, 2 * (-block_size), SEEK_CUR);
+        stop_reverse = ftell(inptr);
     }
     // TODO #8
     fclose(inptr);
     fclose(outptr);
+    free(block_buffer);
 }
 
 int check_format(WAVHEADER header)
