@@ -34,7 +34,6 @@ int main(int argc, char *argv[])
     WAVHEADER header_buffer;
     fread(&header_buffer, header_size, 1, inptr);
     long header_end = ftell(inptr);
-    printf("%ld\n", header_end);
 
     // Use check_format to ensure WAV format
     // TODO #4
@@ -59,9 +58,9 @@ int main(int argc, char *argv[])
     // Use get_block_size to calculate size of block
     // TODO #7
     int block_size = get_block_size(header_buffer);
-    printf("%i\n", block_size);
-    // TODO #8
+
     // Write reversed audio to file
+    // TODO #8
     BYTE block_buffer[block_size];
     long stop_reverse = 0;
     do
@@ -75,11 +74,9 @@ int main(int argc, char *argv[])
         fwrite(block_buffer, block_size, 1, outptr);
         fseek(inptr, - 2 * block_size, SEEK_CUR);
         stop_reverse = ftell(inptr);
-        printf("%ld\n", stop_reverse);
     }
     fclose(inptr);
     fclose(outptr);
-    printf("final %ld\n", stop_reverse);
 }
 
 int check_format(WAVHEADER header)
