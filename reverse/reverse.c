@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
         fseek(inptr, - 2 * block_size, SEEK_CUR);
         stop_reverse = ftell(inptr);
     }
-    while (stop_reverse > header_end);
+    while (stop_reverse >= header_end);
     fclose(inptr);
     fclose(outptr);
 }
