@@ -61,7 +61,7 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     WORD* block_buffer = malloc(block_size);
-    long stop_reverse;
+    long stop_reverse = 0;
     do
     {
         fseek(inptr, -block_size, SEEK_END)
