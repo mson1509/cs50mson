@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
     int block_size = get_block_size(header_buffer);
 
     // Write reversed audio to file
-    WORD block_buffer[block_size];
+    BYTE block_buffer[block_size];
     long stop_reverse = 0;
     do
     {
