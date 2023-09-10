@@ -59,6 +59,7 @@ int main(int argc, char *argv[])
     // TODO #7
     int block_size = get_block_size(header_buffer);
 
+    // TODO #8
     // Write reversed audio to file
     BYTE block_buffer[block_size];
     long stop_reverse = 0;
@@ -73,7 +74,6 @@ int main(int argc, char *argv[])
         fseek(inptr, - 2 * block_size, SEEK_CUR);
         stop_reverse = ftell(inptr);
     }
-    // TODO #8
     fclose(inptr);
     fclose(outptr);
 }
