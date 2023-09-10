@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     // Open input file for reading
     // TODO #2
     FILE* inptr = fopen(argv[2], "r");
-    if (inptr = NULL)
+    if (inptr == NULL)
     {
         printf("Cannot open input file\n");
         return 1;
@@ -36,12 +36,19 @@ int main(int argc, char *argv[])
 
     // Use check_format to ensure WAV format
     // TODO #4
-    if (check_format == true)
+    if (check_format(header_buffer) == false)
     {
-        
+        printf("Input file is not wav\n");
+        return 1;
     }
     // Open output file for writing
     // TODO #5
+    FILE* outptr = fopen(argv[3], "w");
+    if (outptr == NULL)
+    {
+        printf("Cannot open output file\n");
+        return 1;
+    }
 
     // Write header to file
     // TODO #6
