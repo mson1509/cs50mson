@@ -63,18 +63,16 @@ int main(int argc, char *argv[])
     // TODO #8
     BYTE block_buffer[block_size];
     long stop_reverse = 0;
+    fseek(inptr, -block_size, SEEK_END);
+    stop_reverse = ftell(inptr);
     do
-    {
-        fseek(inptr, -block_size, SEEK_END);
-        stop_reverse = ftell(inptr);
-    }
-    while (stop_reverse > header_end);
     {
         fread(block_buffer, block_size, 1, inptr);
         fwrite(block_buffer, block_size, 1, outptr);
         fseek(inptr, - 2 * block_size, SEEK_CUR);
         stop_reverse = ftell(inptr);
     }
+    while (stop_reverse > header_end);
     fclose(inptr);
     fclose(outptr);
 }
