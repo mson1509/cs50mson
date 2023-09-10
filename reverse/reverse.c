@@ -60,7 +60,8 @@ int main(int argc, char *argv[])
     int block_size = get_block_size(header_buffer);
 
     // Write reversed audio to file
-    WORD block_buffer
+    WORD* block_buffer = malloc(block_size);
+    fseek(inptr, )
     while (fread(block_buffer, block_size, 1, inptr) == 1)
     {
         fwrite(block_bufferr, block_size, )
