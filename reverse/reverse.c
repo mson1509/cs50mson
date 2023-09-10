@@ -4,7 +4,8 @@
 
 #include "wav.h"
 
-int header_size = 44;
+int const header_size = 44;
+int const bits_per_byte = 8;
 
 int check_format(WAVHEADER header);
 int get_block_size(WAVHEADER header);
@@ -82,8 +83,8 @@ int check_format(WAVHEADER header)
 int get_block_size(WAVHEADER header)
 {
     // TODO #7
-    int num_channels = header.numChannels * sizeof(WORD);
-    int bits_sample = header.bitsPerSample * sizeof(WORD);
-    int block_size = num_channels * bitsPerSample;
+    int num_channels = header.numChannels;
+    int bytes_sample = header.bitsPerSample / bits_per_byte;
+    int block_size = num_channels * bytes_sample;
     return block_size;
 }
