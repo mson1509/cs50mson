@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
     WAVHEADER header_buffer;
     fread(&header_buffer, header_size, 1, inptr);
     long header_end = ftell(inptr);
+    printf("%ld\n", header_end);
 
     // Use check_format to ensure WAV format
     // TODO #4
@@ -77,6 +78,7 @@ int main(int argc, char *argv[])
     }
     fclose(inptr);
     fclose(outptr);
+    printf("%ld\n", stop_reverse);
 }
 
 int check_format(WAVHEADER header)
