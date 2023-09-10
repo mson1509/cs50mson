@@ -63,7 +63,10 @@ int main(int argc, char *argv[])
 int check_format(WAVHEADER header)
 {
     // TODO #4
-    if (header[8].format = )
+    if (header.format[4] = "WAVE")
+    {
+        return 1;
+    }
     return 0;
 }
 
