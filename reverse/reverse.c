@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
     {
         fread(block_buffer, block_size, 1, inptr);
         fwrite(block_buffer, block_size, 1, outptr);
-        fseek(inptr, 2 * (-block_size), SEEK_CUR);
+        fseek(inptr, - 2 * block_size, SEEK_CUR);
         stop_reverse = ftell(inptr);
     }
     // TODO #8
