@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
 
     // Write header to file
     // TODO #6
+    fwrite(&buffer_header, header_size, 1, outptr);
 
     // Use get_block_size to calculate size of block
     // TODO #7
