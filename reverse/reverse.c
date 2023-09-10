@@ -11,12 +11,24 @@ int main(int argc, char *argv[])
 {
     // Ensure proper usage
     // TODO #1
+    if (argc != 3)
+    {
+        printf("Usage: ./reverse <input.wav> <output.wav>\n");
+        return 1;
+    }
 
     // Open input file for reading
     // TODO #2
+    FILE* inptr = fopen(argv[2], "r");
+    if (inptr = NULL)
+    {
+        printf("Cannot open input file\n");
+        return 1;
+    }
 
     // Read header
     // TODO #3
+    fread
 
     // Use check_format to ensure WAV format
     // TODO #4
