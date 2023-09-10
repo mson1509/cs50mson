@@ -67,7 +67,8 @@ int main(int argc, char *argv[])
     }
     while (fread(block_buffer, block_size, 1, inptr) == 1)
     {
-        fwrite(block_bufferr, block_size, )
+        fwrite(block_bufferr, block_size, 1, outptr);
+        fseek(inptr, 2 * (-block_size), SEEK_CUR)
     }
     // TODO #8
     fclose(inptr);
