@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 int const block_size = 512;
+int const filename_char = 8;
 
 int main(int argc, char *argv[])
 {
