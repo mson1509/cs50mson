@@ -56,6 +56,7 @@ int main(int argc, char *argv[])
 
     // Use get_block_size to calculate size of block
     // TODO #7
+    block_size = get_block_size(header_buffer);
     
 
     // Write reversed audio to file
