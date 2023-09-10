@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     // TODO #3
     WAVHEADER header_buffer;
     fread(&header_buffer, header_size, 1, inptr);
-    long pos = ftell(inptr);
+    long header_end = ftell(inptr);
 
     // Use check_format to ensure WAV format
     // TODO #4
@@ -61,12 +61,14 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     WORD* block_buffer = malloc(block_size);
+    long stop_reverse;
     do
     {
         fseek(inptr, -block_size, SEEK_END)
     }
-    while ( ftell(outptr) !=)
+    while (stop_reverse != header_end)
     {
+        stop_reverse = ftell(inptr)
         fread(block_buffer, block_size, 1, inptr);
         fwrite(block_bufferr, block_size, 1, outptr);
         fseek(inptr, 2 * (-block_size), SEEK_CUR)
