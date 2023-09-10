@@ -2,6 +2,7 @@
     "gitdoc.enabled": true,
     "files.associations": {
         "stdio.h": "c",
-        "random": "c"
+        "random": "c",
+        "*.tcc": "c"
     }
 }

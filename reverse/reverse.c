@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     // TODO #3
     WAVHEADER header_buffer;
     fread(&header_buffer, header_size, 1, inptr);
-
+    long pos = ftell(inptr);
 
     // Use check_format to ensure WAV format
     // TODO #4
@@ -65,8 +65,9 @@ int main(int argc, char *argv[])
     {
         fseek(inptr, -block_size, SEEK_END)
     }
-    while (fread(block_buffer, block_size, 1, inptr) == 1)
+    while ( ftell(outptr) !=)
     {
+        fread(block_buffer, block_size, 1, inptr);
         fwrite(block_bufferr, block_size, 1, outptr);
         fseek(inptr, 2 * (-block_size), SEEK_CUR)
     }
