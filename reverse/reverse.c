@@ -32,11 +32,14 @@ int main(int argc, char *argv[])
     // TODO #3
     WAVHEADER header_buffer;
     fread(header_buffer, header_size, 1, inptr);
-    
+
 
     // Use check_format to ensure WAV format
     // TODO #4
-
+    if (check_format == true)
+    {
+        
+    }
     // Open output file for writing
     // TODO #5
 
