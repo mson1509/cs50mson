@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
 
     // Write header to file
     // TODO #6
-    fwrite(&buffer_header, header_size, 1, outptr);
+    fwrite(&header_buffer, header_size, 1, outptr);
 
     // Use get_block_size to calculate size of block
     // TODO #7
@@ -64,12 +64,12 @@ int main(int argc, char *argv[])
     long stop_reverse = 0;
     do
     {
-        fseek(inptr, -block_size, SEEK_END)
+        fseek(inptr, -block_size, SEEK_END);
     }
-    while (stop_reverse != header_end)
+    while (stop_reverse != header_end);
     {
         fread(block_buffer, block_size, 1, inptr);
-        fwrite(block_bufferr, block_size, 1, outptr);
+        fwrite(block_buffer, block_size, 1, outptr);
         fseek(inptr, 2 * (-block_size), SEEK_CUR);
         stop_reverse = ftell(inptr);
     }
@@ -82,7 +82,7 @@ int main(int argc, char *argv[])
 int check_format(WAVHEADER header)
 {
     // TODO #4
-    if (header.format == 'W' && header.format[1] == 'A' && header.format[2] == 'V' && header.format[3] == 'E')
+    if (header.format[0] == 'W' && header.format[1] == 'A' && header.format[2] == 'V' && header.format[3] == 'E')
     {
         return 1;
     }
