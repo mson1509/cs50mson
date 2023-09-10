@@ -31,12 +31,12 @@ int main(int argc, char *argv[])
     // Read header
     // TODO #3
     WAVHEADER header_buffer;
-    fread(header_buffer, header_size, 1, inptr);
+    fread(&header_buffer, header_size, 1, inptr);
 
 
     // Use check_format to ensure WAV format
     // TODO #4
-    if (check_format(header_buffer) == false)
+    if (check_format(header_buffer) == 0)
     {
         printf("Input file is not wav\n");
         return 1;
