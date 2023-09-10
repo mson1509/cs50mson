@@ -4,6 +4,8 @@
 
 #include "wav.h"
 
+int header_size = 44;
+
 int check_format(WAVHEADER header);
 int get_block_size(WAVHEADER header);
 
@@ -28,7 +30,9 @@ int main(int argc, char *argv[])
 
     // Read header
     // TODO #3
-    fread
+    WAVHEADER header_buffer;
+    fread(header_buffer, header_size, 1, inptr);
+    
 
     // Use check_format to ensure WAV format
     // TODO #4
