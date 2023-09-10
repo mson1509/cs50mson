@@ -21,7 +21,8 @@ int main(int argc, char *argv[])
 
     // Open input file for reading
     // TODO #2
-    FILE* inptr = fopen(argv[2], "r");
+    FILE* inptr = malloc()
+    inptr = fopen(argv[2], "r");
     if (inptr == NULL)
     {
         printf("Cannot open input file\n");
@@ -58,6 +59,8 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
+    fclose(inptr);
+    fclose(outptr);
 }
 
 int check_format(WAVHEADER header)
