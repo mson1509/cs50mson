@@ -78,8 +78,8 @@ int check_format(WAVHEADER header)
 int get_block_size(WAVHEADER header)
 {
     // TODO #7
-    int num_channels = header.numChannels;
-    int bits_sample = header.bitsPerSample;
+    int num_channels = header.numChannels * sizeof(WORD);
+    int bits_sample = header.bitsPerSample * sizeof(WORD);
     int block_size = num_channels * bitsPerSample;
     return block_size;
 }
