@@ -75,10 +75,11 @@ int main(int argc, char *argv[])
         fwrite(block_buffer, block_size, 1, outptr);
         fseek(inptr, - 2 * block_size, SEEK_CUR);
         stop_reverse = ftell(inptr);
+        printf("%ld\n", stop_reverse);
     }
     fclose(inptr);
     fclose(outptr);
-    printf("%ld\n", stop_reverse);
+    printf("final %ld\n", stop_reverse);
 }
 
 int check_format(WAVHEADER header)
