@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 
     // Read header
     // TODO #3
-    WAVHEADER header_buffer[header_size];
+    WAVHEADER header_buffer;
     fread(header_buffer, header_size, 1, inptr);
 
 
