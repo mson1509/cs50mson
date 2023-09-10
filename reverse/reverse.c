@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
     block_size = get_block_size(header_buffer);
 
     // Write reversed audio to file
-    block_buffer = 
+    WORD block_buffer
     // TODO #8
     fclose(inptr);
     fclose(outptr);
