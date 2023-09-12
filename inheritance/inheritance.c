@@ -53,7 +53,7 @@ person *create_family(int generations)
         p->parents[0] = parent0;
         p->parents[1] = parent1;
         // TODO: Randomly assign current person's alleles based on the alleles of their parents
-        while (1);
+        while (1)
         {
             char tmp = random_allele();
             if (tmp == parent0->alleles[0] || tmp == parent0->alleles[1])
@@ -66,7 +66,7 @@ person *create_family(int generations)
                 continue;
             }
         }
-        while (1);
+        while (1)
         {
             char tmp = random_allele();
             if (tmp == parent1->alleles[0] || tmp == parent1->alleles[1])
@@ -102,7 +102,7 @@ void free_family(person *p)
     // TODO: Handle base case
     if (p == NULL)
     {
-        return
+        return;
     }
     // TODO: Free parents recursively
     free_family(p->parents[0]);
