@@ -56,6 +56,7 @@ person *create_family(int generations)
         while (char tmp = random_alleles(); tmp != parent0->alleles[0] || tmp != parent0->alleles[0])
         {
             p->alleles[0] = tmp;
+            tmp = random_alleles();
         }
 
     }
