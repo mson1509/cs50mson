@@ -26,6 +26,8 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+    unsigned int hashcode = hash(word);
+    if table[hashcode]->next == 
     return false;
 }
 
