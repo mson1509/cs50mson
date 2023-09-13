@@ -34,7 +34,7 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int length = strlen(word) - 1;
-    if (isupper(word[0]))
+    if (isupper(word[0]) != 0)
     {
         first_letter = tolower(word[0]);
     }
