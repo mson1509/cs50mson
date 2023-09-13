@@ -1,4 +1,4 @@
-// Declares a dictionary's functionality
+    // Declares a dictionary's functionality
 
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
