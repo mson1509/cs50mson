@@ -17,7 +17,7 @@ typedef struct node
 node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = ALPHABET_LETTERS * LENGTH;
+const unsigned int N = ALPHABET_LETTERS * 100 + LENGTH;
 
 // Hash table
 node *table[N];
