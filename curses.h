@@ -86,7 +86,7 @@
 /*
  * Definitions to facilitate DLL's.
  */
-#include <ncurses_dll.h>
+#include "ncurses_dll.h"
 
 /*
  * Extra headers.
@@ -2093,7 +2093,7 @@ extern NCURSES_EXPORT(const char *) _nc_visbuf (const char *);
 
 extern GCC_NORETURN NCURSES_EXPORT(void) exit_curses (int);
 
-#include <unctrl.h>
+#include "unctrl.h"
 
 #ifdef __cplusplus
 
