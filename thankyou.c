@@ -1,4 +1,4 @@
-#include "curses.h"
+#include <curses.h>
 #include <unistd.h> // For sleep()
 #include <string.h> // For strlen()
 #include <stdlib.h> // For malloc()
