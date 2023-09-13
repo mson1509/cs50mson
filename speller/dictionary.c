@@ -34,6 +34,10 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int length = strlen(word) - 1;
+    if (isupper(word[0]))
+    {
+        first_letter = tolower(word[0]);
+    }
     unsigned int first_letter = word[0] - LOWER_ASCII;
     unsigned int hashcode = first_letter * 100 + length;
     return hashcode;
