@@ -27,7 +27,18 @@ bool check(const char *word)
 {
     // TODO
     unsigned int hashcode = hash(word);
-    if table[hashcode]->next == 
+    if (table[hashcode]->next == NULL)
+    {
+        return false;
+    }
+    else if (!check(table[hashcode]->word))
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
     return false;
 }
 
