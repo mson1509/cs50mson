@@ -31,11 +31,6 @@ bool check(const char *word)
     {
         return false;
     }
-    if (table[hashcode]->)
-    else
-    {
-        check((*table[hashcode]->next)->word);
-    }
     return false;
 }
 
