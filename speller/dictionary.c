@@ -59,7 +59,14 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-
+    fopen(dictionary, "r");
+    char *word;
+    while (fscanf(dictionary, "%s", word) != EOF)
+    {
+        hashcode = hash(word);
+        node *n = malloc(sizeof(node))
+        n = table[hashcode].next;
+    }
     return false;
 }
 
