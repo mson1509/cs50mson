@@ -30,6 +30,8 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
+    unsigned int length = strlen(word);
+    unsigned int first_letter = word[0];
     return toupper(word[0]) - 'A';
 }
 
