@@ -17,7 +17,7 @@ typedef struct node
 node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = ALPHABET_LETTERS * 100 + LENGTH;
+const unsigned int N = ALPHABET_LETTERS * 10000 + ALPHABET_LETTERS * 100 + LENGTH;
 
 // Hash table
 node *table[N];
@@ -39,12 +39,19 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int length = strlen(word) - 1;
-    if (isupper(word[0]) != 0)
+    unsigned int first_letter = word[0];
+    unsigned int last_letter = word[length - 1];
+    if (isupper(first_letter))
     {
-        first_letter = tolower(word[0]);
+        first_letter = tolower(first_letter);
     }
-    unsigned int first_letter = word[0] - LOWER_ASCII;
-    unsigned int hashcode = first_letter * 100 + length;
+    if (isupper(last_letter))
+    {
+        last_letter = tolower(last_letter);
+    }
+    first_letter -= LOWER_ASCII;
+    last_letter -= LOWER_ASCII;
+    unsigned int hashcode = last_letter * 10000 + first_letter * 100 + length;
     return hashcode;
 }
 
