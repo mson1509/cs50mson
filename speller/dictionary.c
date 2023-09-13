@@ -5,6 +5,9 @@
 
 #include "dictionary.h"
 
+// define the starting number of lower alphabetical character in ASCII
+#define LOWER_ASCII = 97;
+#define ALPHABET_LETTERS = 26;
 // Represents a node in a hash table
 typedef struct node
 {
@@ -14,7 +17,7 @@ typedef struct node
 node;
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 26;
+const unsigned int N = ALPHABET_LETTERS * LENGTH;
 
 // Hash table
 node *table[N];
@@ -30,9 +33,10 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    unsigned int length = strlen(word);
-    unsigned int first_letter = word[0];
-    return toupper(word[0]) - 'A';
+    unsigned int length = strlen(word) - 1;
+    unsigned int first_letter = word[0] - LOWER_ASCII;
+    unsigned int hashcode = first_letter * 100 + length;
+    return hashcode;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
