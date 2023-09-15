@@ -18,8 +18,8 @@ def main():
     # TODO: Read teams into memory from file
     file = open(sys.argv[1], "r")
     reader = csv.DictReader(file)
-    for row{} in reader:
-        teams.append(row["team": int("rating")])
+    for row in reader:
+        teams.append(row["team", int(rating)])
     file.close()
 
     counts = {}
