@@ -13,7 +13,7 @@ def main():
     elif level < 1:
         print("Before Grade 1")
     else:
-        print(f"Grade {int(level)}")
+        print(f"Grade {round(level)}")
 
 
 def num_letters(text):
