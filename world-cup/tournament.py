@@ -60,9 +60,9 @@ def simulate_tournament(teams):
     # TODO
     winners = simulate_round(teams)
     if len(winners) == 1:
-        return winners
+        return winners[0]
     else
-        winners = stimulate_round(winners)
+        winners = simulate_tournament(winners)
 
 if __name__ == "__main__":
     main()
