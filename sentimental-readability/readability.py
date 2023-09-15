@@ -1,5 +1,7 @@
 # TODO
 from cs50 import get_int, get_string
+
+
 def main():
     text = get_string("Text: ")
     letters = num_letters(text)
@@ -7,11 +9,11 @@ def main():
     sentences = num_sentences(text)
     level = 0.0588 * letters / words * 100 - 0.296 * sentences / words * 100 - 15.8
     if level > 16:
-        print("Grade: 16+")
+        print("Grade 16+")
     elif level < 1:
         print("Before Grade 1")
     else:
-        print ("Grade: " + level)
+        print(f"Grade {int(level)}")
 
 
 def num_letters(text):
@@ -36,6 +38,7 @@ def num_sentences(text):
         if c == "." or c == "?" or c == "!":
             sentences += 1
     return sentences
+
 
 if __name__ == "__main__":
     main()
