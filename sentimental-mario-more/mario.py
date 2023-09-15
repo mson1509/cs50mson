@@ -6,8 +6,8 @@ while height < 0:
 for row in range(1, height + 1, 1):
     for spaces in range(height - row):
         print(" ", end = "")
-    for stars in range(row):
+    for first in range(row):
         print("#", end = "")
     print ("  ",end = "")
-    for stars in range(row):
+    for second in range(row):
         print("#")
