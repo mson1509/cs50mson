@@ -14,7 +14,7 @@ def main():
         print ("Grade: " + level)
 
 
-def num_letters(text)
+def num_letters(text):
     letters = 0
     for c in text:
         if c.isalpha():
@@ -22,7 +22,7 @@ def num_letters(text)
     return letters
 
 
-def num_words(text)
+def num_words(text):
     words = 1
     for c in text:
         if c == " ":
@@ -30,11 +30,12 @@ def num_words(text)
     return words
 
 
-def num_sentences(text)
+def num_sentences(text):
     sentences = 0
     for c in text:
         if c == "." or c == "?" or c == "!":
             sentences += 1
     return sentences
 
-
+if __name__ == "__main__":
+    main()
