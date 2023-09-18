@@ -22,7 +22,7 @@ def main():
     close(file)
 
     # TODO: Find longest match of each STR in DNA sequence
-    profile = []
+    profile = {}
     STRs = reader.fieldnames
     for str in STRs:
         num_match = longest_match(sequence, str)
