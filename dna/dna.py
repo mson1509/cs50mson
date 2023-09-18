@@ -38,7 +38,7 @@ def main():
             else:
                 check = 0
                 break
-        if check == len(STRs):
+        if check == len(profile):
             print(person["name"])
             return
     print("No match")
