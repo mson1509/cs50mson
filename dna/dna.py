@@ -41,9 +41,6 @@ def main():
                 break
         if check == len(profile):
             print(person["name"])
-            print(STRs)
-            print(profile)
-            print(person)
             return
     print("No match")
     return
