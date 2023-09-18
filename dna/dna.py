@@ -22,8 +22,7 @@ def main():
     close(file)
 
     # TODO: Find longest match of each STR in DNA sequence
-    for i in range(len(people)):
-        
+    
     match_num = longest_match(sequence, )
     # TODO: Check database for matching profiles
 
