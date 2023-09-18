@@ -28,7 +28,7 @@ def main():
         num_match = longest_match(sequence, str)
         profile.[str] = num_match
     # TODO: Check database for matching profiles
-    for i in people[1:]:
+    for i in people:
         for str in people[i]
     return
 
