@@ -10,14 +10,14 @@ def main():
         sys.exit(1)
 
     # TODO: Read database file into a variable
-    file = open(argv[1], "r")
+    file = open(sys.argv[1], "r")
     people = []
     reader = csv.DictReader(file)
     for row in reader:
         people.append(row)
     close(file)
     # TODO: Read DNA sequence file into a variable
-    file = open(agv[2], "r")
+    file = open(sys.agv[2], "r")
     sequence = file.read()
     close(file)
 
