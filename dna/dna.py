@@ -41,6 +41,9 @@ def main():
         if check == len(profile):
             print(person["name"])
             return
+    print(check)
+    print(profile)
+    print(person)
     print("No match")
     return
 
