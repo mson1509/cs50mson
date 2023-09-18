@@ -40,7 +40,7 @@ def main():
                 check = 0
                 break
         if check == len(STRs):
-            print(people[i]["name"])
+            print(person["name"])
             return
     print("No match")
     return
