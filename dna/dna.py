@@ -10,18 +10,20 @@ def main():
         sys.exit(1)
 
     # TODO: Read database file into a variable
-    dtbs = open(argv[1], "r")
+    file = open(argv[1], "r")
     people = []
     reader = csv.DictReader(dtbs)
     for row in reader:
         people.append(row)
-    close(dtbs)
+    close(file)
     # TODO: Read DNA sequence file into a variable
-    sqc = open(agv[2], "r")
-    sequence = sqc.read(sequence)
-    close(dtbs)
-    # TODO: Find longest match of each STR in DNA sequence
+    file = open(agv[2], "r")
+    sequence = file.read()
+    close(file)
 
+    # TODO: Find longest match of each STR in DNA sequence
+    
+    match_num = longest_match(sequence, )
     # TODO: Check database for matching profiles
 
     return
