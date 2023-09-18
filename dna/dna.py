@@ -30,10 +30,10 @@ def main():
     # TODO: Check database for matching profiles
     check = 0
     for person in people:
-        for str in person:
-            if str == "name":
+        for key in person:
+            if key == "name":
                 continue
-            elif person[str] == profile[str]:
+            elif person[key] == profile[key]:
                 check += 1
                 continue
             else:
