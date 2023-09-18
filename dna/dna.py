@@ -34,13 +34,17 @@ def main():
             if str == name:
                 continue
             elif people[i][str] == profile[str]:
+                check += 1
                 continue
             else:
-                check = 1
+                check = 0
                 break
+        if check == len(STRs):
+            print(people[i]["name"])
+            sys.exit(0)
+    print("No match")
+    sys.exit(0)
     
-    return
-
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
