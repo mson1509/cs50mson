@@ -7,7 +7,7 @@ def main():
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
         print("Usage: python dna.py <csv> <txt>")
-        sys.exit(1)
+        return
 
     # TODO: Read database file into a variable
     file = open(sys.argv[1], "r")
@@ -41,9 +41,9 @@ def main():
                 break
         if check == len(STRs):
             print(people[i]["name"])
-            sys.exit(0)
+            return
     print("No match")
-    sys.exit(0)
+    return
 
 
 def longest_match(sequence, subsequence):
