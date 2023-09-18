@@ -26,7 +26,7 @@ def main():
     STRs = reader.fieldnames
     for str in STRs:
         num_match = longest_match(sequence, str)
-        profile[str] = num_match
+        profile["str"] = "num_match"
     # TODO: Check database for matching profiles
     check = 0
     for person in people:
