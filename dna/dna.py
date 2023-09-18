@@ -35,7 +35,6 @@ def main():
                 continue
             elif person[key] == profile[key]:
                 check += 1
-                continue
             else:
                 check = 0
                 break
