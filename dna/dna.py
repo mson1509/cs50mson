@@ -6,7 +6,7 @@ def main():
 
     # TODO: Check for command-line usage
     if len(sys.argv) != 3:
-        print("Usage: ./dna <csv> <txt>")
+        print("Usage: python dna.py <csv> <txt>")
         sys.exit(1)
 
     # TODO: Read database file into a variable
@@ -26,7 +26,7 @@ def main():
     STRs = reader.fieldnames
     for str in STRs:
         num_match = longest_match(sequence, str)
-        profile.[str] = num_match
+        profile[str] = num_match
     # TODO: Check database for matching profiles
     check = 0
     for i in people:
@@ -44,7 +44,7 @@ def main():
             sys.exit(0)
     print("No match")
     sys.exit(0)
-    
+
 
 def longest_match(sequence, subsequence):
     """Returns length of longest run of subsequence in sequence."""
