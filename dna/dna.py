@@ -29,7 +29,12 @@ def main():
         profile.[str] = num_match
     # TODO: Check database for matching profiles
     for i in people:
-        for str in people[i]
+        for str in people[i]:
+            if str == name:
+                continue
+            elif people[i][str] == profile[str]
+                continue
+            else:
     return
 
 
