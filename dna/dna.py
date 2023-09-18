@@ -12,7 +12,7 @@ def main():
     # TODO: Read database file into a variable
     file = open(argv[1], "r")
     people = []
-    reader = csv.DictReader(dtbs)
+    reader = csv.DictReader(file)
     for row in reader:
         people.append(row)
     close(file)
@@ -22,11 +22,13 @@ def main():
     close(file)
 
     # TODO: Find longest match of each STR in DNA sequence
+    profile = []
     STRs = reader.fieldnames
-    print(STRs)
-    match_num = longest_match(sequence, )
+    for str in STRs:
+        num_match = longest_match(sequence, str)
+        profile.append(num_match)
     # TODO: Check database for matching profiles
-
+    for 
     return
 
 
