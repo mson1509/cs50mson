@@ -1,20 +1,23 @@
-SELECT
-    name
+SELECT DISTINCT
+    (people.name)
 FROM
-    movies, stars, people
+    people
+JOIN stars
+    ON people.id = stars.person_id
+JOIN movies
+    ON movies.id = stars.movie_id
 WHERE
-    movies.id = stars.movie_id
-    AND people.id = stars.person_id
-    AND name != 'Kevin Bacon'
-    AND title IN
+    people.name != 'Kevin Bacon'
+    AND movies.title IN
     (
         SELECT
-            title
+            movies.title
         FROM
-            movies, stars, people
-        WHERE
-            movies.id = stars.movie_id
-            AND people.id = stars.person_id
-            AND name = 'Kevin Bacon'
-            AND birth = 1958
+            movies
+        JOIN stars
+            ON movies.id = stars.movie_id
+        JOIN people
+            ON people.id = stars.person_id
+        AND people.name = 'Kevin Bacon'
+        AND people.birth = 1958
     );
