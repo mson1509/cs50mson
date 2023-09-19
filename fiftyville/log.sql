@@ -17,6 +17,6 @@ FROM
 WHERE
     year = 2021
     AND month = 7
-    AND day = 28;
-    transcript LIKE '%thief%';
+    AND day = 28
+    AND transcript LIKE '%thief%';
 -- Step 3:
