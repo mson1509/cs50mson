@@ -19,4 +19,16 @@ WHERE
     AND month = 7
     AND day = 28
     AND transcript LIKE '%thief%';
--- Step 3:
+-- Step 3: Find the activity and license plate of the thief at the bakery according to witness 1
+SELECT
+  license_plate
+FROM
+  bakery_security_logs
+WHERE
+  activity = 'exit'
+  AND year = 2021
+  AND month = 7
+  AND day = 28
+  AND hour = 10
+  AND minute > 5
+  AND minute < 25;
