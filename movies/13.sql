@@ -5,6 +5,7 @@ FROM
 WHERE
     kevin_movies.id = stars.movie_id
     AND people.id = stars.people_id
+    AND name NOT 'Kevin Bacon'
     AND title IN
     (
         SELECT
@@ -17,4 +18,4 @@ WHERE
             AND name = 'Kevin Bacon'
             AND birth = 1958
         AS kevin_movies
-    )
+    );
