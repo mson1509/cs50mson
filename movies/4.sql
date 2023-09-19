@@ -1,6 +1,7 @@
 SELECT
   COUNT
   (
+SELECT
     title
 FROM
   movies,
