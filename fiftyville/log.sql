@@ -19,7 +19,7 @@ WHERE
     AND month = 7
     AND day = 28
     AND transcript LIKE '%thief%';
--- Step 3: Find the activity and license plate of the thief at the bakery according to witness 1
+-- Step 3: Find the license plate of the thief at the bakery according to witness 1
 SELECT
   license_plate
 FROM
@@ -32,3 +32,10 @@ WHERE
   AND hour = 10
   AND minute > 5
   AND minute < 25;
+-- Step 4: Find the account number and amount of money the thief withdrew according to winess 2
+SELECT
+  account_number, transaction_type, amount
+FROM
+  atm_transactions
+WHERE
+  
