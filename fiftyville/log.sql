@@ -9,4 +9,12 @@ WHERE
   AND MONTH = 7
   AND DAY = 28
   AND street = 'Humphrey Street';
--- 2:
+-- 2: Find the transcript of the 3 witnesses
+SELECT
+    transcript
+FROM
+    interviews
+WHERE
+    year = 2021
+    AND month = 7
+    AND day = 28;
