@@ -1,10 +1,10 @@
 SELECT
     name
 FROM
-    kevin_movies, stars, people
+    movies, stars, people
 WHERE
-    kevin_movies.id = stars.movie_id
-    AND people.id = stars.people_id
+    movies.id = stars.movie_id
+    AND people.id = stars.person_id
     AND name != 'Kevin Bacon'
     AND title IN
     (
@@ -17,5 +17,4 @@ WHERE
             AND people.id = stars.people_id
             AND name = 'Kevin Bacon'
             AND birth = 1958
-        AS kevin_movies
     );
