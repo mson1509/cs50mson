@@ -124,7 +124,7 @@ SELECT
 FROM
   people
 JOIN phone_calls ON people.phone_number = phone_calls.receiver
-JOIN final_suspects ON people.phone_number = final_suspect.phone_number
+JOIN final_suspects ON people.phone_number = final_suspects.phone_number
 WHERE
   phone_calls.receiver IN final_suspects.phone_number
   AND year = 2021
