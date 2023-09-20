@@ -118,11 +118,13 @@ SELECT * FROM final_suspects;
 
 --Step 9:
 SELECT
-  phone_calls.receiver
+  phone_calls.caller,
+  phone_calls.receiver,
+  phone_calls.duration
 FROM
   phone_calls, final_suspects
 WHERE
-  phone_calls.caller IN final_suspects.phone_number
+  phone_calls.caller = final_suspects.phone_number
   AND year = 2021
   AND month = 7
   AND day = 28;
