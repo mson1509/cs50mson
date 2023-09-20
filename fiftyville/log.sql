@@ -51,6 +51,7 @@ WHERE
   AND transaction_type = 'withdraw';
 
 -- Step 5: Find the airpot the thief gonna go to tommorow according to witness 3
+CREATE TEMPORARY TABLE thief_flight AS
 SELECT
   airports.abbreviation,
   airports.full_name,
