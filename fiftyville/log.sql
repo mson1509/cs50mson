@@ -103,7 +103,7 @@ WHERE
 
 SELECT * FROM thief_ids;
 
---Step 8: Find the thief name and phone numebr by 3 tables: thief_license_plates, thief_passport_numbers, thief_ids
+--Step 8: Find the thief name and phone number by 3 tables: thief_license_plates, thief_passport_numbers, thief_ids
 CREATE TEMPORARY TABLE final_suspects AS
 SELECT
   people.name,
