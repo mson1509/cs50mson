@@ -116,15 +116,18 @@ INNER JOIN thief_ids ON thief_ids.person_id = people.id;
 
 SELECT * FROM final_suspects;
 
---Step 9:
+--Step 9: Find the call that the thief made according to witness 3
+CREATE TEMPORARY TABLE criminal_call AS
 SELECT
   phone_calls.caller,
   phone_calls.receiver,
-  phone_calls.duration
 FROM
   phone_calls, final_suspects
 WHERE
   phone_calls.caller = final_suspects.phone_number
   AND year = 2021
   AND month = 7
-  AND day = 28;
+  AND day = 28
+  AND duration < 60;
+
+SELECT * FROM criminal_call;
