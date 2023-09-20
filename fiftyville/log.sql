@@ -105,8 +105,9 @@ SELECT * FROM thief_ids;
 
 --Step 8: Find the thief name and phone numebr by 3 tables: thief_license_plates, thief_passport_numbers, thief_ids
 SELECT
-  people.name,
-  people.phone_number
+*
 FROM
   people
-INNER JOIN thief_license_plates ON thief_license
+INNER JOIN thief_license_plates ON thief_license_plates.license_plate = people.license_plate
+INNER JOIN thief_passport_numbers ON thief_passport_numbers.passport_number = people.passport_number
+INNER JOIN thief_ids ON thief_ids.person_id = people.id;
