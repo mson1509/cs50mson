@@ -116,4 +116,17 @@ INNER JOIN thief_ids ON thief_ids.person_id = people.id;
 
 SELECT * FROM final_suspects;
 
---Step 9: 
+--Step 9:
+SELECT
+  people.name,
+  people.phone_number,
+  phone_calls.duration
+FROM
+  people
+JOIN phone_calls ON people.phone_number = phone_calls.receiver
+JOIN final_suspects ON people.phone_number = final_suspect.phone_number
+WHERE
+  phone_calls.receiver IN final_suspects.phone_number
+  AND year = 2021
+  AND month = 7
+  AND day = 28;
