@@ -45,7 +45,7 @@ WHERE
   AND transaction_type = 'withdraw';
 -- Step 5: Find the airpot the thief gonna go to tommorow according to witness 3
 SELECT
-  airports.abbreviation, airports.full_name, airports.city, flights.hour, flights.minute
+  airports.abbreviation, airports.full_name, airports.city, flights.id, flights.hour, flights.minute
 FROM
   flights
 JOIN
