@@ -65,3 +65,4 @@ WHERE
   )
 ORDER BY hour, minute
 LIMIT 1;
+-- Step 6: Find the passport number of the thief from his flight_id
