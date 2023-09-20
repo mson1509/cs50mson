@@ -93,3 +93,20 @@ JOIN thief_flight ON passengers.flight_id = thief_flight.id;
 SELECT * FROM thief_passport_numbers;
 
 --Step 7: Find the thief id from his bank account
+CREATE TEMPORARY TABLE thief_ids AS
+SELECT
+  person_id
+FROM
+   bank_accounts
+WHERE
+  account_number IN thief_account_numbers;
+
+SELECT * FROM thief_ids;
+
+--Step 8: Find the thief name and phone numebr by 3 tables: thief_license_plates, thief_passport_numbers, thief_ids
+SELECT
+  people.name,
+  people.phone_number
+FROM
+  people
+INNER JOIN thief_license_plates ON thief_license
