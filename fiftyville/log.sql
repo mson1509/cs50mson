@@ -32,10 +32,36 @@ WHERE
   AND hour = 10
   AND minute > 5
   AND minute < 25;
--- Step 4: Find the account number and amount of money the thief withdrew according to winess 2
+-- Step 4: Find the account number and amount of money the thief withdrew according to witness 2
 SELECT
-  account_number, transaction_type, amount
+  account_number, amount
 FROM
   atm_transactions
 WHERE
-  
+  year = 2021
+  AND month = 7
+  AND day = 28
+  AND atm_location = 'Leggett Street'
+  AND transaction_type = 'withdraw';
+-- Step 5: Find the airpot the thief gonna go to tommorow according to witness 3
+SELECT
+  airports.abbreviation, airports.full_name, airports.city, flights.hour, flights.minute
+FROM
+  flights
+JOIN
+  airports ON airports.id = flights.destination_airport_id
+WHERE
+  year = 2021
+  AND month = 7
+  AND day = 29
+  AND flights.origin_airport_id =
+  (
+    SELECT
+      id
+    FROM
+      airports
+    WHERE
+      city = 'Fiftyville'
+  )
+ORDER BY hour, minute
+LIMIT 1;
