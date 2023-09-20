@@ -32,9 +32,9 @@ WHERE
   AND hour = 10
   AND minute > 5
   AND minute < 25;
--- Step 4: Find the account number and amount of money the thief withdrew according to witness 2
+-- Step 4: Find the account number of the thief according to witness 2
 SELECT
-  account_number, amount
+  account_number
 FROM
   atm_transactions
 WHERE
