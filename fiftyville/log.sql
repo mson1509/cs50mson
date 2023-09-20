@@ -88,7 +88,7 @@ SELECT
   passport_number
 FROM
   passengers
-JOIN thief_flight ON passengers.flight_id = thief_flight.id;
+  JOIN thief_flight ON passengers.flight_id = thief_flight.id;
 
 SELECT * FROM thief_passport_numbers;
 
@@ -97,7 +97,7 @@ CREATE TEMPORARY TABLE thief_ids AS
 SELECT
   person_id
 FROM
-   bank_accounts
+  bank_accounts
 WHERE
   account_number IN thief_account_numbers;
 
@@ -110,9 +110,9 @@ SELECT
   people.phone_number
 FROM
   people
-JOIN thief_license_plates ON thief_license_plates.license_plate = people.license_plate
-JOIN thief_passport_numbers ON thief_passport_numbers.passport_number = people.passport_number
-JOIN thief_ids ON thief_ids.person_id = people.id;
+  JOIN thief_license_plates ON thief_license_plates.license_plate = people.license_plate
+  JOIN thief_passport_numbers ON thief_passport_numbers.passport_number = people.passport_number
+  JOIN thief_ids ON thief_ids.person_id = people.id;
 
 SELECT * FROM final_suspects;
 
@@ -122,7 +122,8 @@ SELECT
   phone_calls.caller,
   phone_calls.receiver
 FROM
-  phone_calls, final_suspects
+  phone_calls,
+  final_suspects
 WHERE
   phone_calls.caller = final_suspects.phone_number
   AND year = 2021
@@ -136,13 +137,15 @@ SELECT * FROM criminal_call;
 SELECT
   people.name AS thief
 FROM
-  people, criminal_call
+  people,
+  criminal_call
 WHERE
   people.phone_number = criminal_call.caller;
 
 SELECT
   people.name AS accomplice
 FROM
-  people, criminal_call
+  people,
+  criminal_call
 WHERE
   people.phone_number = criminal_call.receiver;
