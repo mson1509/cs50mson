@@ -120,7 +120,7 @@ SELECT * FROM final_suspects;
 CREATE TEMPORARY TABLE criminal_call AS
 SELECT
   phone_calls.caller,
-  phone_calls.receiver,
+  phone_calls.receiver
 FROM
   phone_calls, final_suspects
 WHERE
@@ -131,3 +131,18 @@ WHERE
   AND duration < 60;
 
 SELECT * FROM criminal_call;
+
+--Step 10: Find the thief as the caller and the accomplice as the receiver
+SELECT
+  people.name AS thief
+FROM
+  people, criminal_call
+WHERE
+  people.phone_number = criminal_call.caller;
+
+SELECT
+  people.name AS accomplice
+FROM
+  people, criminal_call
+WHERE
+  people.phone_number = criminal_call.receiver;
