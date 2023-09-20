@@ -37,6 +37,8 @@ WHERE
   AND minute > 5
   AND minute < 25;
 
+SELECT * FROM thief_license_plates;
+
 -- Step 4: Find the account number of the thief according to witness 2
 CREATE TEMPORARY TABLE thief_account_numbers AS
 SELECT
@@ -50,15 +52,15 @@ WHERE
   AND atm_location = 'Leggett Street'
   AND transaction_type = 'withdraw';
 
+SELECT * FROM thief_account_numbers;
+
 -- Step 5: Find the airpot the thief gonna go to tommorow according to witness 3
 CREATE TEMPORARY TABLE thief_flight AS
 SELECT
   airports.abbreviation,
   airports.full_name,
   airports.city,
-  flights.id,
-  flights.hour,
-  flights.minute
+  flights.id
 FROM
   flights
   JOIN airports ON airports.id = flights.destination_airport_id
@@ -81,3 +83,12 @@ LIMIT
   1;
 
 -- Step 6: Find the passport number of the thief from his flight_id
+SELECT
+  passport_number
+FROM
+  passengers
+JOIN thief_flight ON passengers.flight_id = thief_flight.
+SELECT
+  flights.id
+FROM
+  thief_flight;
