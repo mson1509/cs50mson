@@ -83,12 +83,13 @@ LIMIT
   1;
 
 -- Step 6: Find the passport number of the thief from his flight_id
+CREATE TEMPORARY TABLE thief_passport_numbers AS
 SELECT
   passport_number
 FROM
   passengers
-JOIN thief_flight ON passengers.flight_id = thief_flight.
-SELECT
-  flights.id
-FROM
-  thief_flight;
+JOIN thief_flight ON passengers.flight_id = thief_flight.id;
+
+SELECT * FROM thief_passport_numbers;
+
+--Step 7: Find the thief id from his bank account
