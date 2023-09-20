@@ -110,9 +110,9 @@ SELECT
   people.phone_number
 FROM
   people
-INNER JOIN thief_license_plates ON thief_license_plates.license_plate = people.license_plate
-INNER JOIN thief_passport_numbers ON thief_passport_numbers.passport_number = people.passport_number
-INNER JOIN thief_ids ON thief_ids.person_id = people.id;
+JOIN thief_license_plates ON thief_license_plates.license_plate = people.license_plate
+JOIN thief_passport_numbers ON thief_passport_numbers.passport_number = people.passport_number
+JOIN thief_ids ON thief_ids.person_id = people.id;
 
 SELECT * FROM final_suspects;
 
