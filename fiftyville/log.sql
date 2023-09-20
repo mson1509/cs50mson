@@ -20,6 +20,9 @@ WHERE
     AND day = 28
     AND transcript LIKE '%thief%';
 -- Step 3: Find the license plate of the thief at the bakery according to witness 1
+CREATE TEMPORARY TABLE
+  thief_license_plates
+AS
 SELECT
   license_plate
 FROM
@@ -33,6 +36,9 @@ WHERE
   AND minute > 5
   AND minute < 25;
 -- Step 4: Find the account number of the thief according to witness 2
+CREATE TEMPORARY TABLE
+  thief_account_numbers
+AS
 SELECT
   account_number
 FROM
