@@ -5,9 +5,9 @@ SELECT
 FROM
   crime_scene_reports
 WHERE
-  YEAR = 2021
-  AND MONTH = 7
-  AND DAY = 28
+  year = 2021
+  AND month = 7
+  AND day = 28
   AND street = 'Humphrey Street';
 
 -- Step 2: Find the name and transcript of the 3 witnesses
@@ -17,9 +17,9 @@ SELECT
 FROM
   interviews
 WHERE
-  YEAR = 2021
-  AND MONTH = 7
-  AND DAY = 28
+  year = 2021
+  AND month = 7
+  AND day = 28
   AND transcript LIKE '%thief%';
 
 -- Step 3: Find the license plate of the thief at the bakery according to witness 1
@@ -30,12 +30,12 @@ FROM
   bakery_security_logs
 WHERE
   activity = 'exit'
-  AND YEAR = 2021
-  AND MONTH = 7
-  AND DAY = 28
-  AND HOUR = 10
-  AND MINUTE > 5
-  AND MINUTE < 25;
+  AND year = 2021
+  AND month = 7
+  AND day = 28
+  AND hour = 10
+  AND minute > 5
+  AND minute < 25;
 
 -- Step 4: Find the account number of the thief according to witness 2
 CREATE TEMPORARY TABLE thief_account_numbers AS
@@ -44,9 +44,9 @@ SELECT
 FROM
   atm_transactions
 WHERE
-  YEAR = 2021
-  AND MONTH = 7
-  AND DAY = 28
+  year = 2021
+  AND month = 7
+  AND day = 28
   AND atm_location = 'Leggett Street'
   AND transaction_type = 'withdraw';
 
@@ -63,9 +63,9 @@ FROM
   flights
   JOIN airports ON airports.id = flights.destination_airport_id
 WHERE
-  YEAR = 2021
-  AND MONTH = 7
-  AND DAY = 29
+  year = 2021
+  AND month = 7
+  AND day = 29
   AND flights.origin_airport_id = (
     SELECT
       id
@@ -75,8 +75,8 @@ WHERE
       city = 'Fiftyville'
   )
 ORDER BY
-  HOUR,
-  MINUTE
+  hour,
+  minute
 LIMIT
   1;
 
