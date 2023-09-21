@@ -37,6 +37,11 @@ h1 {
     font-size: 48px;
 }
 
+h3 {
+    font-family: 'Times New Roman', sans-serif;
+    font-size: 24px;
+}
+
 button, input[type="submit"] {
     background-color: #d9edff;
     border: 1px solid transparent;
