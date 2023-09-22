@@ -11,13 +11,13 @@
                 button = document.querySelector(button_id);
                 if (color == 'red') {
                     button.style.backgroundColor = '#ff3632';
-                    let text = document.createTextNode("Correct!");
-                    button.patentNode.appendChild(text);
+                    let text = document.createTextNode("Incorrect!");
+                    button.parentNode.appendChild(text);
                 }
                 if (color == 'green') {
                     button.style.backgroundColor = '#1fd655';
-                    let text = document.createTextNode("Incorrect!");
-                    button.patentNode.appendChild(text);
+                    let text = document.createTextNode("Correct!");
+                    button.parentNode.appendChild(text);
                 }
             }
             document.addEventListener("DOMContentLoaded", function() {
