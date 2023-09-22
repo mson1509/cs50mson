@@ -39,7 +39,7 @@ h1 {
 
 h3 {
     font-family: 'Times New Roman', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 button, input[type="submit"] {
@@ -59,6 +59,7 @@ button, input[type="submit"] {
 input[type="text"] {
     line-height: 2.8;
     width: 25%;
+    font-size: 1.05rem;
 }
 
 input[type="text"]:hover {
