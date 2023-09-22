@@ -15,10 +15,12 @@
                     document.querySelector(color_id).style.backgroundColor = '#1fd655';
                 }
             }
-
-            document.querySelector('#D').addEventListener('click', function() {
-                change_color('green', '#D');
+            document.addEventListener("DOMContentLoaded", function() {
+                document.querySelector('#D').addEventListener('click', function() {
+                    change_color('green', '#D');
+                });
             });
+
         </script>
     </head>
     <body>
