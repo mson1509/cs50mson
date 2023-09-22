@@ -8,13 +8,16 @@
         <script>
             // TODO: Add code to check answers to questions
             function response(color, button_id) {
+                button = document.querySelector(button_id);
                 if (color == 'red') {
-                    document.querySelector(button_id).style.backgroundColor = '#ff3632';
+                    button.style.backgroundColor = '#ff3632';
                     let text = document.createTextNode("Correct!");
-                    document.getElementById(button_id).patentNode.appendChild(text);
+                    button.patentNode.appendChild(text);
                 }
                 if (color == 'green') {
-                    document.querySelector(color_id).style.backgroundColor = '#1fd655';
+                    button.style.backgroundColor = '#1fd655';
+                    let text = document.createTextNode("Incorrect!");
+                    button.patentNode.appendChild(text);
                 }
             }
             document.addEventListener("DOMContentLoaded", function() {
