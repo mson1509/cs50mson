@@ -7,11 +7,11 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
-            function response(color, color_id) {
+            function response(color, button_id) {
                 if (color == 'red') {
-                    document.querySelector(color_id).style.backgroundColor = '#ff3632';
+                    document.querySelector(button_id).style.backgroundColor = '#ff3632';
                     let text = document.createTextNode("Correct!");
-                    button.patentNode.appendChild(text);
+                    document.getElementById(button_id).patentNode.appendChild(text);
                 }
                 if (color == 'green') {
                     document.querySelector(color_id).style.backgroundColor = '#1fd655';
