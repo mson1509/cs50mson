@@ -41,9 +41,11 @@
                     answer = document.querySelector('#answer');
                     if (answer.value == "FC Mang Ky" || answer.value == "Mang Ky FC" || answer.value == "Mang Ky") {
                         response('green', '#answer');
+                        document.querySelector('#check').textContent = "Correct!";
                     }
                     else {
                         response('red', '#answer');
+                        document.querySelector('#check').textContent = "Incorrect!";
                     }
                     event.preventDefault();
                 });
@@ -79,6 +81,8 @@
                     <input autocomplete="off" autofocus id="answer" placeholder="Your answer" type="text">
                     <button type="submit">Confirm </button>
                 </form>
+                <div id="check">
+                </div>
             </div>
         </div>
     </body>
