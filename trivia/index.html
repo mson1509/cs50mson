@@ -7,12 +7,17 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
-            function green(color_id) {
-                document.querySelector(color_id).style.color
+            function change_color(color, color_id) {
+                if (color = 'red') {
+                    document.querySelector(color_id).style.background-color = #ff3632;
+                }
+                if (color = 'green') {
+                    document.querySelector(color_id).style.background-color = #1fd655;
+                }
             }
 
             let choices = document.querySelectorAll('button')
-            document.querySelector('#D').addEventListener('click', green('#D'))
+            document.querySelector('#D').addEventListener('click', change_color(green, '#D'))
         </script>
     </head>
     <body>
