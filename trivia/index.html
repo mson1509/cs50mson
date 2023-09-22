@@ -16,9 +16,13 @@
                 }
             }
             document.addEventListener("DOMContentLoaded", function() {
+                let incorrects = document.querySelectorAll('#A, #B, #C, #E, #F');
                 document.querySelector('#D').addEventListener('click', function() {
                     change_color('green', '#D');
                 });
+                document.querySelector(incorrects).addEventListener('click', function() {
+                    change_color('ref', incorrects);
+                })
             });
 
         </script>
