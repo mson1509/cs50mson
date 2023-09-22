@@ -37,7 +37,14 @@
                     document.querySelector('#' + element.id).addEventListener('click', function() {
                         response('red', '#' + element.id);
                     });
-                document.querySelector('#answer')
+                answer = document.querySelector('#answer');
+                button = document.querySelector('#cf');
+                if (answer == "FC Mang Ky" || answer == "Mang Ky FC" || answer = "Mang Ky") {
+                    let text = document.createTextNode("Correct!");
+                    let div = document.createElement('div');
+                    div.appendChild(text);
+                    button.appendChild(div);
+                }
             });
 
         </script>
@@ -68,7 +75,7 @@
                 <h3> Which club does the greatest player above play for?</h3>
                 <form>
                     <input autocomplete="off" autofocus id="answer" placeholder="Your answer" type="text">
-                    <button type="submit">Confirm </button>
+                    <button id ="cf" type="submit">Confirm </button>
                 </form>
             </div>
         </div>
