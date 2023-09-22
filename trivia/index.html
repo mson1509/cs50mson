@@ -7,9 +7,10 @@
         <title>Trivia!</title>
         <script>
             // TODO: Add code to check answers to questions
-            function change_color(color, color_id) {
+            function response(color, color_id) {
                 if (color == 'red') {
                     document.querySelector(color_id).style.backgroundColor = '#ff3632';
+                    document.
                 }
                 if (color == 'green') {
                     document.querySelector(color_id).style.backgroundColor = '#1fd655';
@@ -18,11 +19,11 @@
             document.addEventListener("DOMContentLoaded", function() {
                 let incorrects = document.querySelectorAll('#A, #B, #C, #E, #F');
                 document.querySelector('#D').addEventListener('click', function() {
-                    change_color('green', '#D');
+                    response('green', '#D');
                 });
-                incorrects.forEach()
-                    document.querySelector(incorrects).addEventListener('click', function() {
-                        change_color('ref', incorrects);
+                for (let element of incorrects)
+                    document.querySelector('#' + element.id).addEventListener('click', function() {
+                        response('red', '#' + element.id);
                     });
             });
 
