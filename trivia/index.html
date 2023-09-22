@@ -38,8 +38,6 @@
                         response('red', '#' + element.id);
                     });
                 document.querySelector('form').addEventListener('submit', function(event) {
-                    event.preventDefault()
-                });
                     answer = document.querySelector('#answer');
                     button = document.querySelector('#cf');
                     if (answer.value == "FC Mang Ky" || answer.value == "Mang Ky FC" || answer.value == "Mang Ky") {
@@ -48,6 +46,8 @@
                         div.appendChild(text);
                         button.appendChild(div);
                 }
+                    event.preventDefault();
+                });
             });
 
         </script>
