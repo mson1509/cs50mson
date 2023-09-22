@@ -12,12 +12,16 @@
                 if (color == 'red') {
                     button.style.backgroundColor = '#ff3632';
                     let text = document.createTextNode("Incorrect!");
-                    button.parentNode.appendChild(text);
+                    let div = document.createElement('div');
+                    div.appendChild(text);
+                    button.parentNode.appendChild(div);
                 }
                 if (color == 'green') {
                     button.style.backgroundColor = '#1fd655';
                     let text = document.createTextNode("Correct!");
-                    button.parentNode.appendChild(text);
+                    let div = document.createElement('div');
+                    div.appendChild(text);
+                    button.parentNode.appendChild(div);
                 }
             }
             document.addEventListener("DOMContentLoaded", function() {
