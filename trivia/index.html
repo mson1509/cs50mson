@@ -37,7 +37,7 @@
                     document.querySelector('#' + element.id).addEventListener('click', function() {
                         response('red', '#' + element.id);
                     });
-                document.
+                document.querySelector('#answer')
             });
 
         </script>
@@ -66,10 +66,10 @@
                 <hr>
                 <!-- TODO: Add free response question here -->
                 <h3> Which club does the greatest player above play for?</h3>
-                <for>
+                <form>
                     <input autocomplete="off" autofocus id="answer" placeholder="Your answer" type="text">
-                    <button>Confirm </button>
-                </for>
+                    <button type="submit">Confirm </button>
+                </form>
             </div>
         </div>
     </body>
