@@ -37,13 +37,16 @@
                     document.querySelector('#' + element.id).addEventListener('click', function() {
                         response('red', '#' + element.id);
                     });
-                answer = document.querySelector('#answer');
-                button = document.querySelector('#cf');
-                if (answer.value == "FC Mang Ky" || answer.value == "Mang Ky FC" || answer.value == "Mang Ky") {
-                    let text = document.createTextNode("Correct!");
-                    let div = document.createElement('div');
-                    div.appendChild(text);
-                    button.appendChild(div);
+                document.querySelector('form').addEventListener('submit', function(event) {
+                    event.preventDefault()
+                });
+                    answer = document.querySelector('#answer');
+                    button = document.querySelector('#cf');
+                    if (answer.value == "FC Mang Ky" || answer.value == "Mang Ky FC" || answer.value == "Mang Ky") {
+                        let text = document.createTextNode("Correct!");
+                        let div = document.createElement('div');
+                        div.appendChild(text);
+                        button.appendChild(div);
                 }
             });
 
