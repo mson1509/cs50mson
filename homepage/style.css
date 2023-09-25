@@ -11,13 +11,18 @@ body
 h2 {
   text-align: center;
 }
-/* Override Bootstrap accordion styles */
-/* Change the background color of the accordion header */
-.accordion-header {
-  background-color: #000; /* Change to your desired color */
+/* Change the background color of the accordion headers */
+.accordion-item {
+  background-color: #000; /* Change to your desired background color */
 }
 
-/* Change the text color of the accordion header */
-.accordion-header a {
+/* Change the text color of the accordion headers */
+.accordion-button {
   color: #fff; /* Change to your desired text color */
+}
+
+/* Change the background color and text color of the accordion content */
+.accordion-body {
+  background-color: #333; /* Change to your desired background color for content */
+  color: #fff; /* Change to your desired text color for content */
 }
