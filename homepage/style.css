@@ -11,3 +11,8 @@ body
 h2 {
   text-align: center;
 }
+/* Ensure .accordion-flush inherits parent container styles */
+.accordion-flush {
+  background-color: #000000; /* Match parent container background color */
+  color: #ffffff; /* Match parent container text color */
+}
