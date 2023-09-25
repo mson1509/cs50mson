@@ -11,8 +11,13 @@ body
 h2 {
   text-align: center;
 }
-/* Ensure .accordion-flush inherits parent container styles */
-.accordion {
-  background-color: #000000; /* Match parent container background color */
-  color: #ffffff; /* Match parent container text color */
+/* Override Bootstrap accordion styles */
+/* Change the background color of the accordion header */
+.accordion-header {
+  background-color: #000; /* Change to your desired color */
+}
+
+/* Change the text color of the accordion header */
+.accordion-header a {
+  color: #fff; /* Change to your desired text color */
 }
