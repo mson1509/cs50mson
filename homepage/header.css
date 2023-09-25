@@ -1,23 +1,49 @@
-/* Custom CSS to style a Bootstrap navbar with a light background color */
-.navbar-custom {
-    background-color: #000000; /* Change this color to your desired background color */
+/* Reset some default styles for the list */
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-/* You can add more custom styles as needed */
-.navbar-custom .navbar-brand {
-    color: #333; /* Change this color to style the brand/logo text */
+/* Style the header and navbar */
+header {
+    background-color: #000;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
 }
 
-.navbar-custom .navbar-nav .nav-link {
-    color: #ffffff; /* Change this color to style the navigation links */
+.navbar {
+    display: flex;
+    justify-content: center;
 }
 
-/* Active and hover styles for navigation links */
-.navbar-custom .navbar-nav .nav-link:hover,
-.navbar-custom .navbar-nav .nav-item.active .nav-link {
-    color: #f2f2f2; /* Change this color for hover and active states */
+/* Style the navigation links */
+.nav-list {
+    display: flex;
 }
 
+.nav-item {
+    margin-right: 20px;
+}
+
+.nav-item:last-child {
+    margin-right: 0;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.nav-item a:hover {
+    background-color: #333; /* Light gray background on hover */
+    color: #fff;
+}
 /* Main content */
 .main {
     margin-top: 20px; /* Add a top margin to avoid content overlay */
