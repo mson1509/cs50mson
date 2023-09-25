@@ -2,6 +2,7 @@
 .navbar {
   overflow: hidden;
   background-color: #000000;
+  color: #ffffff;
   position: fixed; /* Set the navbar to fixed position */
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
@@ -20,10 +21,10 @@
 /* Change background on mouse-over */
 .navbar a:hover {
   background: #444444;
-  color: black;
+  color: #ffffff;
 }
 
 /* Main content */
 .main {
-  margin-top: 30px; /* Add a top margin to avoid content overlay */
+  margin-top: 70px; /* Add a top margin to avoid content overlay */
 }
