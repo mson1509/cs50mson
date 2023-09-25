@@ -1,6 +1,6 @@
-/* body {
+body {
     color: #ffffff;
-} */
+}
 /* The navigation bar */
 .navbar {
   overflow: hidden;
@@ -22,7 +22,7 @@
 
 /* Change background on mouse-over */
 .navbar a:hover {
-  background: #ffffff;
+  background: #444444;
   color: black;
 }
 
