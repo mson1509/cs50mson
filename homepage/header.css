@@ -1,7 +1,21 @@
-/* The navigation bar */
+/* Custom CSS to style a Bootstrap navbar with a light background color */
 .navbar-custom {
-    background-color: #000000;
-    color: #ffffff;
+    background-color: #000000; /* Change this color to your desired background color */
+}
+
+/* You can add more custom styles as needed */
+.navbar-custom .navbar-brand {
+    color: #333; /* Change this color to style the brand/logo text */
+}
+
+.navbar-custom .navbar-nav .nav-link {
+    color: #ffffff; /* Change this color to style the navigation links */
+}
+
+/* Active and hover styles for navigation links */
+.navbar-custom .navbar-nav .nav-link:hover,
+.navbar-custom .navbar-nav .nav-item.active .nav-link {
+    color: #f2f2f2; /* Change this color for hover and active states */
 }
 
   /* Main content */
