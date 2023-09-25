@@ -13,7 +13,7 @@ h2 {
 }
 /* Change the background color of the accordion headers */
 .accordion-item {
-  background-color: #0d0d0d; /* Change to your desired background color */
+  background-color: #000; /* Change to your desired background color */
 }
 
 /* Change the text color of the accordion headers */
@@ -23,6 +23,6 @@ h2 {
 
 /* Change the background color and text color of the accordion content */
 .accordion-body {
-  background-color: #333; /* Change to your desired background color for content */
+  background-color: #121212; /* Change to your desired background color for content */
   color: #fff; /* Change to your desired text color for content */
 }
