@@ -7,6 +7,8 @@ body
 .main {
   margin-top: 20px; /* Add a top margin to avoid content overlay */
   margin: 50px;
+  background-color: #000000;
+  color: #ffffff;
 }
 h2 {
   text-align: center;
