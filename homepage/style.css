@@ -12,14 +12,14 @@ h2 {
   text-align: center;
 }
 /* Change the background color of the accordion headers */
-.accordion-button {
+.accordion-item {
   color:#000; /* Change to your desired background color */
 }
 
 /* Change the text color of the accordion headers */
 .accordion-button {
-  color: #000;
-  background: #fff;  /* Change to your desired text color */
+  color: #fff;
+  background: #000;  /* Change to your desired text color */
 }
 
 /* Change the background color and text color of the accordion content */
