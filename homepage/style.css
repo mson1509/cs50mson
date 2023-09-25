@@ -19,7 +19,7 @@ h2 {
 
 /* Change the text color of the accordion headers */
 .accordion-button {
-  color: #fff; /* Change to your desired text color */
+  color: #000; /* Change to your desired text color */
 }
 
 /* Change the background color and text color of the accordion content */
