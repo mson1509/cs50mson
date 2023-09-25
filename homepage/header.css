@@ -47,4 +47,5 @@ header {
 /* Main content */
 .main {
     margin-top: 20px; /* Add a top margin to avoid content overlay */
+    margin: 50px;
 }
