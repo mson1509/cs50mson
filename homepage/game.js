@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
-    /* declare objects */
+    //declare objects
     let rock = document.getElementById("rock");
     let paper = document.getElementById("paper");
     let scissor = document.getElementById("scissor");
     let question = document.getElementById("question");
 
-    /* take user input */
+    //take user input and display their choice
     rock.addEventListener("click", function() {
         userDisplay(0);
     });
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
             scissor.style.display = "block";
         }
     };
-
+    // wait 2 seconds before computer choose their random choice
     setTimeout(function() {
         console.log("After 2 seconds");
     }, 2000);
@@ -39,22 +39,26 @@ document.addEventListener("DOMContentLoaded", function() {
         let x = Math.round(Math.random() * 10);
         return x % 3;
     };
-    computerDisplay(computer);
-
-    function computerDisplay(computer) {
-        if (computer == 0) {
-            question.src = "rock.png";
-        }
-        else if (computer == 1) {
-            question.src = "paper.jpg";
-        }
-        else if (computer == 2) {
-            question.src = "scissor.png";
-        }
-    };
-
-    function winner(user, computer) {
-
+    // display computer choice
+    if (computer == 0) {
+        question.src = "rock.png";
     }
+    else if (computer == 1) {
+        question.src = "paper.jpg";
+    }
+    else if (computer == 2) {
+        question.src = "scissor.png";
+    }
+    // determine the winner
+    if ((user + 1) % 3 == computer) {
+        return "You lose!";
+    }
+    else if (user == computer) {
+        return "It's a tie!";
+    }
+    else {
+        return "You win!";
+    }
+    };
 
 })
