@@ -7,16 +7,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
     /* take user input */
     rock.addEventListener("click", function() {
-        setDisplay(0);
+        userDisplay(0);
     });
     paper.addEventListener("click", function() {
-        setDisplay(1);
+        userDisplay(1);
     });
     scissor.addEventListener("click", function() {
-        setDisplay(2);
+        userDisplay(2);
     });
 
-    function setDisplay(user) {
+    function userDisplay(user) {
         rock.style.display = "none";
         paper.style.display = "none";
         scissor.style.display = "none";
@@ -32,12 +32,26 @@ document.addEventListener("DOMContentLoaded", function() {
     };
 
     setTimeout(function() {
+        console.log("After 2 seconds");
     }, 2000);
+
     let computer = function() {
         let x = Math.round(Math.random() * 10);
         return x % 3;
     };
+    computerDisplay(computer);
 
+    function computerDisplay(computer) {
+        if (computer == 0) {
+            question.src = "rock.png";
+        }
+        else if (computer == 1) {
+            question.src = "paper.jpg";
+        }
+        else if (computer == 2) {
+            question.src = "scissor.png";
+        }
+    };
 
     function winner(user, computer) {
 
