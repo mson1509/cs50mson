@@ -3,9 +3,9 @@ from cs50 import get_string
 # take the user input
 def main():
     number = get_string("Number: ")
-    digits = every_other_digit(number, false)
+    digits = every_other_digit(number, False)
     sum = add_products_digits (digits)
-    sum += sum(every_other_digit(number, true))
+    sum += sum(every_other_digit(number, True))
     if sum % 10 != 0:
         print("INVALID")
     elif len(str(number)) == 15 and str(number)[0] == 3 and (str(number)[1] == 4 or str(number)[1] == 7):
