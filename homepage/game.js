@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
     };
     // wait 2 seconds before computer choose their random choice
     setTimeout(function() {
-        console.log("After 2 seconds");
+        console.log("Computer generating random choice");
     }, 2000);
 
     let computer = function() {
