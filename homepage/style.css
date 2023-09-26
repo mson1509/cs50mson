@@ -29,7 +29,9 @@ h2 {
   color: #fff; /* Change to your desired text color for content */
 }
 
-.game {
-  width:
-  height:
+/* Center-align the images horizontally */
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
