@@ -5,25 +5,20 @@ import math
 def main():
     number = get_int("Number: ")
     digits = every_other_digit(number, False)
-    print(digits)
     print(every_other_digit(number, True))
     total = add_products_digits (digits)
-    print(total)
     total += sum(every_other_digit(number, True))
-    print(total)
     num_digits = len(str(number))
     first_digit = int(str(number)[0])
     second_digit = int(str(number)[1])
     if (total % 10) != 0:
         print("INVALID")
-    elif len(str(number)) == 15 and str(number)[0] == 3 and (str(number)[1] == 4 or str(number)[1] == 7):
+    elif num_digits == 15 and first_digit == 3 and (second_digit == 4 or second_digit == 7):
         print("AMEX")
-    elif len(str(number)) == 16 and str(number)[0] == 5 and str(number)[1] < 6 and str(number)[1] > 0:
+    elif num_digits == 16 and first_digit == 5 and second_digit < 6 and second_digit > 0:
         print("MASTERCARD")
-    elif (len(str(number)) == 13 or len(str(number)) == 16) and str(number)[0] == 4:
+    elif (num_digits == 13 or num_digits == 16) and first_digit == 4:
         print("VISA")
-    print (len(str(number)))
-    print(str(number)[0])
     return
 
 def every_other_digit(number, from_last_digit):
