@@ -62,4 +62,8 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }, 2000);
     };
+    // reset the game
+    document.getElementById("reset").addEventListener("click", function() {
+        location.reload();
+    });
 })
