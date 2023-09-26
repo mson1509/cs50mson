@@ -29,20 +29,12 @@ h2 {
 }
 
 /* Center-align the images horizontally */
-.image-container {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 250px;
-    height: 250px;
 }
 
-/* Center-align the text */
-.text-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 /* Change the color of the button */
 #reset {
   color: #fff;
