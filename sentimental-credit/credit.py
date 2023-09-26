@@ -17,8 +17,10 @@ def main():
         print("AMEX")
     elif len(str(number)) == 16 and str(number)[0] == 5 and str(number)[1] < 6 and str(number)[1] > 0:
         print("MASTERCARD")
-    elif (len(str(number)) == 13 or len(str(number)) == 16) and str(number)[0] == 4:
+    elif (len(str(number)) == 13 or len(str(number)) == 16) and (str(number)[0] == 4):
         print("VISA")
+    print (len(str(number)))
+    print(str(number)[0])
     return
 
 def every_other_digit(number, from_last_digit):
