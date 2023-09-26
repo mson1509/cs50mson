@@ -10,14 +10,15 @@ def main():
     num_digits = len(str(number))
     first_digit = int(str(number)[0])
     second_digit = int(str(number)[1])
-    if (total % 10) != 0:
+    if (total % 10) == 0:
+        if num_digits == 15 and first_digit == 3 and (second_digit == 4 or second_digit == 7):
+            print("AMEX")
+        elif num_digits == 16 and first_digit == 5 and second_digit < 6 and second_digit > 0:
+            print("MASTERCARD")
+        elif (num_digits == 13 or num_digits == 16) and first_digit == 4:
+            print("VISA")
+    else:
         print("INVALID")
-    elif num_digits == 15 and first_digit == 3 and (second_digit == 4 or second_digit == 7):
-        print("AMEX")
-    elif num_digits == 16 and first_digit == 5 and second_digit < 6 and second_digit > 0:
-        print("MASTERCARD")
-    elif (num_digits == 13 or num_digits == 16) and first_digit == 4:
-        print("VISA")
     return
 
 def every_other_digit(number, from_last_digit):
