@@ -17,5 +17,8 @@ def every_other_digit(number, from_last_digit):
             i += 1
     return digits
 
-def sum_of_digits
+def add_products_digits (digits):
+    for digit in digits:
+        if digit * 2 > 9:
+            
 
