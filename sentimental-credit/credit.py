@@ -24,11 +24,13 @@ def every_other_digit(number, from_last_digit):
     current_digit = from_last_digit
     for i in range(len(str(number))):
         if current_digit:
-            digit = number % (10 ** (i + 1))
+            digit = round(number % 10)
             digits.append(digit)
+            number = round(number / 10)
             current_digit = not current_digit
             i += 1
         else:
+            number = round(number / 10)
             current_digit = not current_digit
             i += 1
     return digits
