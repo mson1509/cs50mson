@@ -11,6 +11,9 @@ def main():
     print(total)
     total += sum(every_other_digit(number, True))
     print(total)
+    num_digits = len(str(number))
+    first_digit = int(str(number)[0])
+    second_digit = int(str(number)[1])
     if (total % 10) != 0:
         print("INVALID")
     elif len(str(number)) == 15 and str(number)[0] == 3 and (str(number)[1] == 4 or str(number)[1] == 7):
