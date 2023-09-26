@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
         question.src = "scissor.png";
     }
     // determine the winner and print the result
+    document.getElementById("text").innerHTML = "VS";
     if ((user + 1) % 3 == computer) {
         document.getElementById("text").innerHTML = "You lose!";
     }
