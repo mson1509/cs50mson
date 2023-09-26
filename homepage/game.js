@@ -36,11 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     setTimeout(function() {
         console.log("Computer generating random choice");
     }, 5000);
-
-    let computer = function() {
-        let x = Math.round(Math.random() * 10);
-        return (x % 3);
-    };
+    let computer = (Math.round(Math.random() * 10)) % 3;
     // display computer choice
     if (computer == 0) {
         question.src = "rock.png";
