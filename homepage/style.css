@@ -36,7 +36,7 @@ h2 {
 }
 
 /* Change the color of the button */
-#reset {
+.msn-btn {
   color: #fff;
   background-color: #000;
 }

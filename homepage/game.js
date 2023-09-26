@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
             else {
                 document.getElementById("text").innerHTML = "You win!";
             }
-        }, 2000);
+        }, 1000);
     };
     // reset the game
     document.getElementById("reset").addEventListener("click", function() {
