@@ -7,14 +7,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //take user input and display their choice
     var user = null;
+    let computer = (Math.round(Math.random() * 10)) % 3;
     rock.addEventListener("click", function() {
         user = userDisplay(0);
+        winner(computer);
     });
     paper.addEventListener("click", function() {
         user = userDisplay(1);
+        winner(computer);
     });
     scissor.addEventListener("click", function() {
         user = userDisplay(2);
+        winner(computer);
     });
 
     function userDisplay(user) {
@@ -32,28 +36,29 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         return user;
     };
-    // wait 2 seconds before computer choose their random choice
-    setTimeout(function() {
-        let computer = (Math.round(Math.random() * 10)) % 3;
-        // display computer choice
-        if (computer == 0) {
-            question.src = "rock.png";
-        }
-        else if (computer == 1) {
-            question.src = "paper.jpg";
-        }
-        else if (computer == 2) {
-            question.src = "scissor.png";
-        }
-        // determine the winner and print the result
-        if ((user + 1) % 3 == computer) {
-            document.getElementById("text").innerHTML = "You lose!";
-        }
-        else if (user == computer) {
-            document.getElementById("text").innerHTML = "It's a tie!";
-        }
-        else {
-            document.getElementById("text").innerHTML = "You win!";
-        }
-    }, 2000);
+    function winner(computer) {
+        // wait 2 seconds before computer choose their random choice
+        setTimeout(function() {
+            // display computer choice
+            if (computer == 0) {
+                question.src = "rock.png";
+            }
+            else if (computer == 1) {
+                question.src = "paper.jpg";
+            }
+            else if (computer == 2) {
+                question.src = "scissor.png";
+            }
+            // determine the winner and print the result
+            if ((user + 1) % 3 == computer) {
+                document.getElementById("text").innerHTML = "You lose!";
+            }
+            else if (user == computer) {
+                document.getElementById("text").innerHTML = "It's a tie!";
+            }
+            else {
+                document.getElementById("text").innerHTML = "You win!";
+            }
+        }, 2000);
+    };
 })
