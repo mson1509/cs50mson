@@ -4,8 +4,8 @@ from cs50 import get_int
 def main():
     number = get_int("Number: ")
     digits = every_other_digit(number, False)
-    sum = add_products_digits (digits)
-    sum += sum(every_other_digit(number, True))
+    total = add_products_digits (digits)
+    total += sum(every_other_digit(number, True))
     if sum % 10 != 0:
         print("INVALID")
     elif len(str(number)) == 15 and str(number)[0] == 3 and (str(number)[1] == 4 or str(number)[1] == 7):
