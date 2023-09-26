@@ -1,3 +1,4 @@
+console.log("Script loaded");
 document.addEventListener("DOMContentLoaded", function() {
     /* declare objects */
     let rock = document.getElementById("rock");
