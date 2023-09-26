@@ -12,6 +12,15 @@ def every_other_digit(number, from_last_digit):
                 current_digit = not current_digit
                 i += 1
             else:
-
+                current_digit = not current_digit
+                i += 1
     else:
         current_digit = not current_digit
+        for i in range(1, len(str(number)) + 1)
+            if current_digit:
+                digit = number % (10 ** i)
+                current_digit = not current_digit
+                i += 1
+            else:
+                current_digit = not current_digit
+                i += 1
