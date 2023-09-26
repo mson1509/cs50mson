@@ -1,5 +1,6 @@
 # TODO
 from cs50 import get_int
+import math
 # take the user input
 def main():
     number = get_int("Number: ")
