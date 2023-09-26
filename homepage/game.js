@@ -49,16 +49,15 @@ document.addEventListener("DOMContentLoaded", function() {
     else if (computer == 2) {
         question.src = "scissor.png";
     }
-    // determine the winner
+    // determine the winner and print the result
     if ((user + 1) % 3 == computer) {
-        return "You lose!";
+        document.getElementById("text").innerHTML = "You lose!";
     }
     else if (user == computer) {
-        return "It's a tie!";
+        document.getElementById("text").innerHTML = "It's a tie!";
     }
     else {
-        return "You win!";
+        document.getElementById("text").innerHTML = "You win!";
     }
-    };
 
 })
