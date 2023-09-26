@@ -7,13 +7,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //take user input and display their choice
     rock.addEventListener("click", function() {
-        userDisplay(0);
+        let user = userDisplay(0);
     });
     paper.addEventListener("click", function() {
-        userDisplay(1);
+        let user = userDisplay(1);
     });
     scissor.addEventListener("click", function() {
-        userDisplay(2);
+        let user = userDisplay(2);
     });
 
     function userDisplay(user) {
@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
         else if (user == 2) {
             scissor.style.display = "block";
         }
+        return user;
     };
     // wait 2 seconds before computer choose their random choice
     setTimeout(function() {
