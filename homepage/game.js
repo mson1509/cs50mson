@@ -38,5 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    
+    let computer = computer();
+
+    function computer() {
+        let x = Math.round(Math.random() * 10);
+        return x % 3;
+    }
 })
