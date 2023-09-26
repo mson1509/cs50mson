@@ -35,3 +35,9 @@ h2 {
     justify-content: center;
     align-items: center;
 }
+
+/* Change the color of the button */
+button {
+  color: #fff;
+  background-color: #000;
+}
