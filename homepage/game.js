@@ -1,4 +1,3 @@
-console.log("Script loaded");
 document.addEventListener("DOMContentLoaded", function() {
     /* declare objects */
     let rock = document.getElementById("rock");
@@ -38,4 +37,4 @@ document.addEventListener("DOMContentLoaded", function() {
             scissor.style.display = "block";
         }
     }
-}
+})
