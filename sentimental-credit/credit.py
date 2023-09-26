@@ -10,4 +10,4 @@ def every_other_digit(number, from_last_digit):
             number %= 10;
             current_digit = not current_digit
     else:
-        
+        current_digit = not current_digit
