@@ -5,6 +5,7 @@ def main():
     number = get_int("Number: ")
     digits = every_other_digit(number, False)
     print(digits)
+    print(every_other_digit(number, True))
     total = add_products_digits (digits)
     print(total)
     total += sum(every_other_digit(number, True))
