@@ -5,7 +5,8 @@ body
 }
 /* Main content */
 .about-text {
-  margin-left: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 h2 {
   text-align: center;
