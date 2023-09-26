@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let scissor = document.getElementById("scissor");
     let question = document.getElementById("question");
 
-    //take user input and display their choice
+    //take user input and print the result
     var user = null;
     let computer = (Math.round(Math.random() * 10)) % 3;
     rock.addEventListener("click", function() {
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function() {
         user = userDisplay(2);
         winner(computer);
     });
-
+    // display user choice
     function userDisplay(user) {
         rock.style.display = "none";
         paper.style.display = "none";
@@ -36,8 +36,9 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         return user;
     };
+    // determine the winner
     function winner(computer) {
-        // wait 2 seconds before computer choose their random choice
+        // wait 2 seconds after user clicked
         setTimeout(function() {
             // display computer choice
             if (computer == 0) {
@@ -49,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
             else if (computer == 2) {
                 question.src = "scissor.png";
             }
-            // determine the winner and print the result
+            // print the result
             if ((user + 1) % 3 == computer) {
                 document.getElementById("text").innerHTML = "You lose!";
             }
