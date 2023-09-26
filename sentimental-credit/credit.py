@@ -17,6 +17,8 @@ def main():
             print("MASTERCARD")
         elif (num_digits == 13 or num_digits == 16) and first_digit == 4:
             print("VISA")
+        else:
+            print("INVALID")
     else:
         print("INVALID")
     return
@@ -40,12 +42,9 @@ def every_other_digit(number, from_last_digit):
 def add_products_digits (digits):
     sum = 0
     for digit in digits:
-        digit *= 2
-        if len(str(digit)) == 2:
-            sum += int(str(digit)[0])
-            sum += int(str(digit)[1])
-        else:
-            sum += digit
+        multiply = digit * 2
+        for i in range(len(str(multiply))):
+            sum += int(str(multiply)[i])
     return sum
 
 main()
