@@ -26,13 +26,13 @@ def every_other_digit(number, from_last_digit):
     current_digit = from_last_digit
     for i in range(len(str(number))):
         if current_digit:
-            digit = round(number % 10)
+            digit = math.floor(number % 10)
             digits.append(digit)
-            number = round(number / 10)
+            number = math.floor(number / 10)
             current_digit = not current_digit
             i += 1
         else:
-            number = round(number / 10)
+            number = math.floor(number / 10)
             current_digit = not current_digit
             i += 1
     return digits
