@@ -35,11 +35,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // wait 2 seconds before computer choose their random choice
     setTimeout(function() {
         console.log("Computer generating random choice");
-    }, 2000);
+    }, 5000);
 
     let computer = function() {
         let x = Math.round(Math.random() * 10);
-        return x % 3;
+        return (x % 3);
     };
     // display computer choice
     if (computer == 0) {
