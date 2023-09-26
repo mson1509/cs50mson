@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
+    setTimeout(function() {
+    }, 2000); // 2000 milliseconds = 2 seconds
     let computer = function() {
         let x = Math.round(Math.random() * 10);
         return x % 3;
