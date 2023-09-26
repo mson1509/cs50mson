@@ -31,9 +31,14 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     };
 
-    let computer = function {
+    let computer = function() {
         let x = Math.round(Math.random() * 10);
         return x % 3;
     };
+
+
+    function winner(user, computer) {
+
+    }
 
 })
