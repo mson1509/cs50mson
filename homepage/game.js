@@ -34,29 +34,26 @@ document.addEventListener("DOMContentLoaded", function() {
     };
     // wait 2 seconds before computer choose their random choice
     setTimeout(function() {
-        console.log("Computer generating random choice");
-    }, 5000);
-    let computer = (Math.round(Math.random() * 10)) % 3;
-    // display computer choice
-    if (computer == 0) {
-        question.src = "rock.png";
-    }
-    else if (computer == 1) {
-        question.src = "paper.jpg";
-    }
-    else if (computer == 2) {
-        question.src = "scissor.png";
-    }
-    // determine the winner and print the result
-    document.getElementById("text").innerHTML = "VS";
-    if ((user + 1) % 3 == computer) {
-        document.getElementById("text").innerHTML = "You lose!";
-    }
-    else if (user == computer) {
-        document.getElementById("text").innerHTML = "It's a tie!";
-    }
-    else {
-        document.getElementById("text").innerHTML = "You win!";
-    }
-
+        let computer = (Math.round(Math.random() * 10)) % 3;
+        // display computer choice
+        if (computer == 0) {
+            question.src = "rock.png";
+        }
+        else if (computer == 1) {
+            question.src = "paper.jpg";
+        }
+        else if (computer == 2) {
+            question.src = "scissor.png";
+        }
+        // determine the winner and print the result
+        if ((user + 1) % 3 == computer) {
+            document.getElementById("text").innerHTML = "You lose!";
+        }
+        else if (user == computer) {
+            document.getElementById("text").innerHTML = "It's a tie!";
+        }
+        else {
+            document.getElementById("text").innerHTML = "You win!";
+        }
+    }, 2000);
 })
