@@ -1,8 +1,8 @@
 # TODO
-from cs50 import get_string
+from cs50 import get_int
 # take the user input
 def main():
-    number = get_string("Number: ")
+    number = get_int("Number: ")
     digits = every_other_digit(number, False)
     sum = add_products_digits (digits)
     sum += sum(every_other_digit(number, True))
