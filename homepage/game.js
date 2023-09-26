@@ -7,13 +7,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //take user input and display their choice
     rock.addEventListener("click", function() {
-        let user = userDisplay(0);
+        var user = userDisplay(0);
     });
     paper.addEventListener("click", function() {
-        let user = userDisplay(1);
+        var user = userDisplay(1);
     });
     scissor.addEventListener("click", function() {
-        let user = userDisplay(2);
+        var user = userDisplay(2);
     });
 
     function userDisplay(user) {
