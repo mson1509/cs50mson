@@ -6,14 +6,15 @@ document.addEventListener("DOMContentLoaded", function() {
     let question = document.getElementById("question");
 
     //take user input and display their choice
+    var user = null;
     rock.addEventListener("click", function() {
-        var user = userDisplay(0);
+        user = userDisplay(0);
     });
     paper.addEventListener("click", function() {
-        var user = userDisplay(1);
+        user = userDisplay(1);
     });
     scissor.addEventListener("click", function() {
-        var user = userDisplay(2);
+        user = userDisplay(2);
     });
 
     function userDisplay(user) {
