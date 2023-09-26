@@ -6,41 +6,34 @@ document.addEventListener("DOMContentLoaded", function() {
     let question = document.getElementById("question");
 
     /* take user input */
-    let user = null;
     rock.addEventListener("click", function() {
-        user = 0;
-        setDisplay();
+        setDisplay(0);
     });
     paper.addEventListener("click", function() {
-        user = 1;
-        setDisplay();
+        setDisplay(1);
     });
     scissor.addEventListener("click", function() {
-        user = 2;
-        setDisplay();
+        setDisplay(2);
     });
 
-    function setDisplay() {
+    function setDisplay(user) {
+        rock.style.display = "none";
+        paper.style.display = "none";
+        scissor.style.display = "none";
         if (user == 0) {
             rock.style.display = "block";
-            paper.style.display = "none";
-            scissor.style.display = "none";
         }
         else if (user == 1) {
-            rock.style.display = "none";
             paper.style.display = "block";
-            scissor.style.display = "none";
         }
         else if (user == 2) {
-            rock.style.display = "none";
-            paper.style.display = "none";
             scissor.style.display = "block";
         }
-    }
+    };
 
     let computer = function {
         let x = Math.round(Math.random() * 10);
         return x % 3;
     };
-    
+
 })
