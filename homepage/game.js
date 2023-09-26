@@ -37,4 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
             scissor.style.display = "block";
         }
     }
+
+    
 })
