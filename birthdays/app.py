@@ -33,7 +33,7 @@ def index():
             db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", name, month, day)
             return redirect("/")
         else:
-            return redirect("/")
+            return redirect("/", message="Invalid!")
 
     else:
         # TODO: Display the entries in the database on index.html

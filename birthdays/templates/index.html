@@ -20,6 +20,11 @@
                     <input autocomplete="off" autofocus name="month" placeholder="Month" type="number">
                     <input autocomplete="off" autofocus name="day" placeholder="Day" type="number">
                     <button type="submit">Add birthday</button>
+                    <script>
+                        if ("{{ message }}") {
+                            alert("{{ message }}");
+                        }
+                    </script>
                 </form>
             <div class="section">
 
