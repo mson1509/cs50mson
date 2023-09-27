@@ -19,6 +19,7 @@
                     <input autocomplete="off" autofocus name="name" placeholder="Name" type="text">
                     <input autocomplete="off" autofocus name="month" placeholder="Month" type="number">
                     <input autocomplete="off" autofocus name="day" placeholder="Day" type="number">
+                    <button type="submit">Add birthday</button>
                 </form>
             <div class="section">
 
@@ -36,6 +37,10 @@
                         <tr>
                             <th>{{ birthday.name }}</th>
                             <th>{{ birthday.month }}/{{ birthday.day }}</th>
+                            <form action="/delete" method="post">
+                                <input type="hidden" name=""
+                                <button type="submit">Delete birthday</button>
+                            </form>
                         </tr>
                     {% endfor %}
                     </tbody>
