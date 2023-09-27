@@ -26,9 +26,13 @@ def after_request(response):
 def index():
     if request.method == "POST":
         # TODO: Add the user's entry into the database
-        request.form.get("name"), request.form.get("month"), request.form.get("day")
-        if request.form.get("name") is not None and  request.form.get("month") in range(0) request.form.get("day"):
-            db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", request.form.get("name"), request.form.get("month"), request.form.get("day"))
+        name = request.form.get("name")
+        month = request.form.get("month")
+        day = request.form.get("day")
+        if (name is not None) and (1 <= month <=12) and (1<= day <= 31):
+            db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", name, month, day)
+            return redirect("/")
+        else:
             return redirect("/")
 
     else:
