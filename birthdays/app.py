@@ -5,6 +5,7 @@ from flask import Flask, flash, jsonify, redirect, render_template, request, ses
 
 # Configure application
 app = Flask(__name__)
+app.secret_key = 'secretkey?!?!'
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
