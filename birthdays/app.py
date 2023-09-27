@@ -26,8 +26,10 @@ def after_request(response):
 def index():
     if request.method == "POST":
         # TODO: Add the user's entry into the database
-        db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", request.form.get("name"), request.form.get("month"), request.form.get("day"))
-        return redirect("/")
+        request.form.get("name"), request.form.get("month"), request.form.get("day")
+        if request.form.get("name") is not None and  request.form.get("month") in range(0) request.form.get("day"):
+            db.execute("INSERT INTO birthdays (name, month, day) VALUES (?, ?, ?)", request.form.get("name"), request.form.get("month"), request.form.get("day"))
+            return redirect("/")
 
     else:
         # TODO: Display the entries in the database on index.html
@@ -37,6 +39,6 @@ def index():
 @app.route("/delete", methods=["POST"])
 def delete():
     if id:
-        db.execute("DELETE FROM birthdays WHERE id = ?", request.form.get(id))
+        db.execute("DELETE FROM birthdays WHERE id = ?", request.form.get("id"))
         return redirect("/")
 
