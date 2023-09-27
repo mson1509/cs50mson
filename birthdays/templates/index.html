@@ -20,11 +20,13 @@
                     <input autocomplete="off" autofocus name="month" placeholder="Month" type="number">
                     <input autocomplete="off" autofocus name="day" placeholder="Day" type="number">
                     <button type="submit">Add birthday</button>
-                    <script>
-                        if ("{{ message }}") {
-                            alert("{{ message }}");
-                        }
-                    </script>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            <script>
+                            alert("{{ messages[0] }}");
+                            </script>
+                        {% endif %}
+                        {% endwith %}
                 </form>
             <div class="section">
 
