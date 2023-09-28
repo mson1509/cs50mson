@@ -112,6 +112,8 @@ def register():
     # TODOOOO
     if request.methods == "POST":
         rows = db.execute(SELECT * FROM users)
+        if not username or username in rows.username:
+            return apology("Username already taken", )
     else:
         return render_template("register.html")
 
