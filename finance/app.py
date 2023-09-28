@@ -111,6 +111,7 @@ def register():
     """Register user"""
     # TODOOOO
     if request.methods == "POST":
+        rows = db.execute(SELECT * FROM users)
     else:
         return render_template("register.html")
 
