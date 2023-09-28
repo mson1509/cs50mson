@@ -112,8 +112,14 @@ def register():
     # TODOOOO
     if request.methods == "POST":
         rows = db.execute(SELECT * FROM users)
-        if not username or username in rows.username:
-            return apology("Username already taken", )
+        if not username or not password or not confirmation:
+            return apology("Blank input")
+        elif username in rows.username:
+            return apology("Username already taken")
+        elif password != confirmation:
+            return apology("Confirmation do not match")
+        else:
+            db.execute(INSERT INTO users column ())
     else:
         return render_template("register.html")
 
