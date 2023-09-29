@@ -6,15 +6,12 @@
 
 {% block main %}
     <form action="/buy" method="post">
-        <div class="mb-3 dropdown">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Dropdown button
-            </button>
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            {% for stock in stocks %}
-              <li><input class="dropdown-item" id="symbol" name="symbol">{{ stock["stock"] }}></li>
-            {% endfor %}
-            </ul>
+        <div class="mb-3">
+            <select class="form-select mx-auto w-auto" aria-label="Default select example">
+                <option selected disabled>Stock</option>
+            {% for stock in stocks%}
+                <option name="symbol" value="1">{{ }}</option>
+              </select>
           </div>
         <div class="mb-3">
             <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="shares" name="shares" placeholder="Shares" type="number">
