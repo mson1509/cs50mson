@@ -105,11 +105,10 @@ def quote():
     """Get stock quote."""
     return apology("TODO")
 
-
+#TODOOOOO
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    # TODOOOO
     if request.methods == "POST":
         rows = db.execute("SELECT * FROM users")
         # Ensure username and password is valid
