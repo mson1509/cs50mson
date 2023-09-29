@@ -60,8 +60,12 @@ def buy():
                 return apology("you do not have enough cash", 403)
             db.execute("""
                        CREATE TABLE purchases (
-                            purchase_id INT PRIMARY KEY,
-                            user_id INT 
+                            purchase_id INTERGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                            user_id INTERGER NOT NULL,
+                            purchase REAL NOT NULL,
+                            price REAL NOT NULL,
+                            share INTERGER NOT NULL,
+                            FOREIGN KEY(user_id) REFERENCES users(id)
                        )
                        """)
             return
