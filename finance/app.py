@@ -95,6 +95,7 @@ def buy():
         )
         cash = cash - purchase
         db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
+        # add them cai thong bao mua thanh cong vao
         return redirect("/")
     else:
         return render_template("buy.html")
@@ -163,6 +164,7 @@ def logout():
 def quote():
     """Get stock quote."""
     if request.method == "POST":
+        
         quote = request.form.get("quote")
         stock = lookup(quote)
         if stock:
