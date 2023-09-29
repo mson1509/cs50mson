@@ -62,6 +62,7 @@ def buy():
                        CREATE TABLE purchases (
                             purchase_id INTERGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                             user_id INTERGER NOT NULL,
+                            time 
                             purchase REAL NOT NULL,
                             price REAL NOT NULL,
                             share INTERGER NOT NULL,
