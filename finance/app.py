@@ -60,6 +60,7 @@ def buy():
             purchase = price * shares
             if cash < purchase:
                 return apology("you do not have enough cash", 403)
+            if 
             db.execute("""
                        CREATE TABLE purchases (
                             purchase_id INTERGER PRIMARY KEY AUTOINCREMENT NOT NULL,
