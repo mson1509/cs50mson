@@ -67,7 +67,7 @@ def index():
             """, id)
     for stock in stocks:
         stock["price"] = usd(stock["price"])
-        stock["value]
+        stock["value"] = usd(stock["price"] * stock["shares"])
     return render_template("index.html", username=username, stocks=stocks)
 
 
@@ -184,10 +184,10 @@ def quote():
         stock = lookup(quote)
         if stock:
             name = stock["name"]
-            price = stock["price"]
+            price = usd(stock["price"])
             symbol = stock["symbol"]
             return render_template(
-                "quoted.html", name=name, price=usd(price), symbol=symbol
+                "quoted.html", name=name, price=price, symbol=symbol
             )
         else:
             return apology("stock cannot be found", 404)
