@@ -111,15 +111,19 @@ def register():
     """Register user"""
     # TODOOOO
     if request.methods == "POST":
-        rows = db.execute(SELECT * FROM users)
+        rows = db.execute("SELECT * FROM users")
+        # Ensure username and password is valid
         if not username or not password or not confirmation:
             return apology("Blank input")
         elif username in rows.username:
             return apology("Username already taken")
         elif password != confirmation:
             return apology("Confirmation do not match")
+        # Add user information to db and redirect to login page (muon add them thong bao register thanh cong)
         else:
-            db.execute(INSERT INTO users (username, (username, generate_password_hash(password)))
+            db.execute("INSERT INTO users (username, hash) VALUES (username, generate_password_hash(password))")
+            redirect("/login")
+    # Render register page when user reached route via GET
     else:
         return render_template("register.html")
 
