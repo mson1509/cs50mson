@@ -11,8 +11,9 @@
               Dropdown button
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            {% for %}
-              <li><input class="dropdown-item" >{{ }}></li>
+            {% for stock in stocks %}
+              <li><input class="dropdown-item" >{{ stock["stock"] }}></li>
+            {% endfor %}
             </ul>
           </div>
         <div class="mb-3">
