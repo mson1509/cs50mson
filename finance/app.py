@@ -45,11 +45,14 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         symbol = request.form.get("symbol")
-        shares = float(request.form.get("shares"))
-        if not isinstance(shares, int):
+        try:
+            shares = int(request.form.get("shares"))
+        except ValueError:
             return apology("please enter a whole number of shares", 403)
         stock = lookup(symbol)
         if stock:
+            price = stock["price"]
+            purchase = price * shares
 
             return
         else:
