@@ -7,10 +7,11 @@
 {% block main %}
     <form action="/buy" method="post">
         <div class="mb-3">
-            <select class="form-select mx-auto w-auto" aria-label="Default select example">
+            <select class="form-select mx-auto w-auto" name="symbol">
                 <option selected disabled>Stock</option>
             {% for stock in stocks%}
-                <option name="symbol" value="1">{{ }}</option>
+                <option value="{{ stock["stock"] }}">{{ stock["stock"] }}</option>
+            {% endfor %}
               </select>
           </div>
         <div class="mb-3">
