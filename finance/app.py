@@ -69,12 +69,12 @@ def buy():
             db.execute(
                 """
                 CREATE TABLE purchases (
-                    purchase_id INTERGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                    user_id INTERGER NOT NULL,
+                    purchase_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                    user_id INTEGER NOT NULL,
                     time TEXT NOT NULL,
                     stock TEXT NOT NULL,
                     price REAL NOT NULL,
-                    shares INTERGER NOT NULL,
+                    shares INTEGER NOT NULL,
                     purchase REAL NOT NULL,
                     FOREIGN KEY(user_id) REFERENCES users(id)
                 )
