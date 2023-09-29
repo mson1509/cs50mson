@@ -69,14 +69,11 @@ def index():
                 ORDER BY stock
             """, id)
     # Ensure to not display stocks that have been fully sold
+    stocks = [stock for stock in stocks if stock["shares"] > 0]
     for stock in stocks:
-        if stock["shares"] == 0:
-            stocks.remove(stock)
-            continue
-        else:
-            current = lookup(stock["stock"])
-            stock["current"] = usd(current["price"])
-            stock["value"] = usd(current["price"] * stock["shares"])
+        current = lookup(stock["stock"])
+        stock["current"] = usd(current["price"])
+        stock["value"] = usd(current["price"] * stock["shares"])
     return render_template("index.html", username=username, cash=cash, stocks=stocks)
 
 
