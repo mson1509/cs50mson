@@ -97,7 +97,7 @@ def buy():
         user = db.execute("SELECT * FROM users WHERE id = ?", id)
         cash = user[0]["cash"]
         price = stock["price"]
-        total = - (price * shares)
+        total = -(price * shares)
         if cash + total < 0:
             return apology("you do not have enough cash", 403)
         db.execute(
@@ -248,6 +248,7 @@ def sell():
             return apology("please enter a whole number of shares", 403)
         if sell_shares <= 0:
             return apology("please enter a positive number of shares", 403)
+        sell_shares = -1 * sell_shares
         stock = lookup(sell_symbol)
         if not stock:
             return apology("Stock cannot be found", 404)
@@ -259,14 +260,14 @@ def sell():
                           GROUP BY history.stock""",
                           symbol=sell_symbol, id=id)
         if not user:
-            return apology("You do not own this stock", 403)
+            return apology("you do not own this stock", 403)
         user_shares = user["shares"]
         if sell_shares > user_shares:
-            return apology("You do not have enough shares", 403)
+            return apology("you do not have enough shares", 403)
         # Update the history table after sell successfully
         time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         price = stock["price"]
-        sale = price * sell_shares
+        sale = -(price * sell_shares)
         db.execute(
             """
             INSERT INTO history
