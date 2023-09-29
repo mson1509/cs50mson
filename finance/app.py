@@ -164,7 +164,7 @@ def logout():
 def quote():
     """Get stock quote."""
     if request.method == "POST":
-        
+        # Take user input and return the found stock
         quote = request.form.get("quote")
         stock = lookup(quote)
         if stock:
@@ -176,6 +176,7 @@ def quote():
             )
         else:
             return apology("stock cannot be found", 404)
+    # Default quote interface via GET
     else:
         return render_template("quote.html")
 
@@ -197,13 +198,14 @@ def register():
                 return apology("username already taken", 403)
         if password != confirmation:
             return apology("confirmation do not match", 403)
-        # Add user information to db and redirect to login page (muon add them thong bao register thanh cong)
+        # Add user information to db and redirect to login page
         else:
             db.execute(
                 "INSERT INTO users (username, hash) VALUES (:username, :hashed_password)",
                 username=username,
                 hashed_password=generate_password_hash(password),
             )
+            # add them thong bao register thanh cong
             return redirect("/login")
     # Render register page when user reached route via GET
     else:
