@@ -52,6 +52,7 @@ def buy():
         stock = lookup(symbol)
         if stock:
             price = stock["price"]
+            cash = db.execute(SELECT * FROM users WHERE )
             purchase = price * shares
 
             return
