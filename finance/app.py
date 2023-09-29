@@ -56,15 +56,18 @@ def buy():
         if not stock:
             return apology("stock cannot be found", 404)
         id = session["user_id"]
-        time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         rows = db.execute("SELECT * FROM users WHERE id = ?", id)
         cash = rows[0]["cash"]
         price = stock["price"]
         purchase = price * shares
         if cash < purchase:
             return apology("you do not have enough cash", 403)
-        if not db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='purchases'"):
-            db.execute("""
+        if not db.execute(
+            "SELECT name FROM sqlite_master WHERE type='table' AND name='purchases'"
+        ):
+            db.execute(
+                """
                 CREATE TABLE purchases (
                     purchase_id INTERGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                     user_id INTERGER NOT NULL,
@@ -75,16 +78,26 @@ def buy():
                     purchase REAL NOT NULL,
                     FOREIGN KEY(user_id) REFERENCES users(id)
                 )
-            """)
-        db.execute("""
+            """
+            )
+        db.execute(
+            """
             INSERT INTO purchases
                     (user_id, time, stock, price, shares, purchase)
                     VALUES (:id, :time, :symbol, :price, :shares, :purchase)
-        """, id=id, time=time, symbol=symbol, price=price, shares=shares, purchase=purchase)
+        """,
+            id=id,
+            time=time,
+            symbol=symbol,
+            price=price,
+            shares=shares,
+            purchase=purchase,
+        )
 
         return
     else:
         return render_template("buy.html")
+
 
 @app.route("/history")
 @login_required
@@ -102,7 +115,6 @@ def login():
 
     # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
-
         # Ensure username was submitted
         if not request.form.get("username"):
             return apology("must provide username", 403)
@@ -112,10 +124,14 @@ def login():
             return apology("must provide password", 403)
 
         # Query database for username
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        rows = db.execute(
+            "SELECT * FROM users WHERE username = ?", request.form.get("username")
+        )
 
         # Ensure username exists and password is correct
-        if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
+        if len(rows) != 1 or not check_password_hash(
+            rows[0]["hash"], request.form.get("password")
+        ):
             return apology("invalid username and/or password", 403)
 
         # Remember which user has logged in
@@ -152,7 +168,9 @@ def quote():
             name = stock["name"]
             price = stock["price"]
             symbol = stock["symbol"]
-            return render_template("quoted.html", name=name, price=usd(price), symbol=symbol)
+            return render_template(
+                "quoted.html", name=name, price=usd(price), symbol=symbol
+            )
         else:
             return apology("stock cannot be found", 404)
     else:
@@ -178,7 +196,11 @@ def register():
             return apology("confirmation do not match", 403)
         # Add user information to db and redirect to login page (muon add them thong bao register thanh cong)
         else:
-            db.execute("INSERT INTO users (username, hash) VALUES (:username, :hashed_password)", username=username, hashed_password=generate_password_hash(password))
+            db.execute(
+                "INSERT INTO users (username, hash) VALUES (:username, :hashed_password)",
+                username=username,
+                hashed_password=generate_password_hash(password),
+            )
             return redirect("/login")
     # Render register page when user reached route via GET
     else:
