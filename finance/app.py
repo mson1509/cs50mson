@@ -97,8 +97,8 @@ def buy():
         user = db.execute("SELECT * FROM users WHERE id = ?", id)
         cash = user[0]["cash"]
         price = stock["price"]
-        total = price * shares
-        if cash < total:
+        total = - (price * shares)
+        if cash + total < 0:
             return apology("you do not have enough cash", 403)
         db.execute(
             """
@@ -114,7 +114,7 @@ def buy():
             total=total,
         )
         # Update user table after buy successfully
-        cash = cash - total
+        cash = cash + total
         db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
         # add them cai thong bao mua thanh cong vao
         return redirect("/")
