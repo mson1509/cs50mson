@@ -22,7 +22,7 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
-# Create history table to keep track of all purchases
+# Create history table to keep track of all transactions
 db.execute(
                 """
                 CREATE TABLE IF NOT EXISTS history (
