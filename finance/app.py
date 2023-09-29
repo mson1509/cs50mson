@@ -238,8 +238,13 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method == "POST":
-        stock = request.form.get("stock")
-        shares = request.form.get("shares")
+        id = session["user_id"]
+        sell_symbol = request.form.get("symbol")
+        sell_shares = request.form.get("shares")
+        
+        stock = lookup(symbol)
+        if not stock:
+            return apology("Stock cannot be found", 404)
         return
     else:
         return render_template("sell.html")
