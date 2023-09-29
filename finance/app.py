@@ -50,7 +50,7 @@ def buy():
             shares = int(request.form.get("shares"))
         except ValueError:
             return apology("please enter a whole number of shares", 403)
-        if shares < 0:
+        if shares <= 0:
             return apology("please enter a positive number of shares", 403)
         stock = lookup(symbol)
         if not stock:
