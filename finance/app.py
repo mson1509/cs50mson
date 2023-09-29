@@ -99,11 +99,14 @@ def logout():
     return redirect("/")
 
 
+#TODOOOOO
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
 def quote():
     """Get stock quote."""
+    
     return apology("TODO")
+
 
 #TODOOOOO
 @app.route("/register", methods=["GET", "POST"])
