@@ -113,6 +113,7 @@ def buy():
             shares=shares,
             purchase=purchase,
         )
+        # Update user table after buy successfully
         cash = cash - purchase
         db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
         # add them cai thong bao mua thanh cong vao
