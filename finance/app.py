@@ -135,6 +135,9 @@ def history():
     username = user[0]["username"]
     cash = usd(user[0]["cash"])
     history = db.execute("SELECT * FROM history WHERE user_id = ?", id)
+    for transaction in history:
+        transaction["price"] = usd(transaction["price"])
+        transaction["total"] = usd(transaction["total"])
     return render_template("history.html", history=history, username=username, cash=cash)
 
 
