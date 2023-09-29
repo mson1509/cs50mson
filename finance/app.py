@@ -22,6 +22,22 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
+# Create purchases table to keep track of all purchases
+db.execute(
+                """
+                CREATE TABLE purchases (
+                    purchase_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                    user_id INTEGER NOT NULL,
+                    time TEXT NOT NULL,
+                    stock TEXT NOT NULL,
+                    price REAL NOT NULL,
+                    shares INTEGER NOT NULL,
+                    purchase REAL NOT NULL,
+                    FOREIGN KEY(user_id) REFERENCES users(id)
+                )
+            """
+            )
+
 
 @app.after_request
 def after_request(response):
@@ -76,23 +92,6 @@ def buy():
         purchase = price * shares
         if cash < purchase:
             return apology("you do not have enough cash", 403)
-        if not db.execute(
-            "SELECT name FROM sqlite_master WHERE type='table' AND name='purchases'"
-        ):
-            db.execute(
-                """
-                CREATE TABLE purchases (
-                    purchase_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                    user_id INTEGER NOT NULL,
-                    time TEXT NOT NULL,
-                    stock TEXT NOT NULL,
-                    price REAL NOT NULL,
-                    shares INTEGER NOT NULL,
-                    purchase REAL NOT NULL,
-                    FOREIGN KEY(user_id) REFERENCES users(id)
-                )
-            """
-            )
         db.execute(
             """
             INSERT INTO purchases
