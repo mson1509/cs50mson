@@ -81,6 +81,7 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         symbol = request.form.get("symbol")
+        # Ensure stock is valid and the number of shares is a positive int
         try:
             shares = int(request.form.get("shares"))
         except ValueError:
@@ -90,6 +91,7 @@ def buy():
         stock = lookup(symbol)
         if not stock:
             return apology("stock cannot be found", 404)
+        # Take information needed to add to purchases table
         id = session["user_id"]
         time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         rows = db.execute("SELECT * FROM users WHERE id = ?", id)
