@@ -137,6 +137,7 @@ def history():
     history = db.execute("SELECT * FROM history WHERE user_id = ?", id)
     for transaction in history:
         transaction["price"] = usd(transaction["price"])
+        transaction["num_total"] = transaction["total"]
         if transaction["shares"] >= 0:
             transaction["shares"] = "+" + str(transaction["shares"])
             transaction["total"] = "-" + usd(-transaction["total"])
