@@ -239,7 +239,7 @@ def sell():
     """Sell shares of stock"""
     if request.method == "POST":
         id = session["user_id"]
-        user = db.execute("SELECT username, )
+        user = db.execute("SELECT username, SUM(shares) as shares FROM users, purchases WHERE users.id = purchases.user_id AND users.id = ? GROUP BY purchases.stock", id)
         sell_symbol = request.form.get("symbol")
         sell_shares = request.form.get("shares")
         user_shares =
