@@ -58,8 +58,12 @@ def buy():
             purchase = price * shares
             if cash < purchase:
                 return apology("you do not have enough cash", 403)
-            db.execute("CREATE TABLE purchases )
-
+            db.execute("""
+                       CREATE TABLE purchases (
+                            purchase_id INT PRIMARY KEY,
+                            user_id INT 
+                       )
+                       """)
             return
         else:
             return apology("stock cannot be found", 404)
