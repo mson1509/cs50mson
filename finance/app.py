@@ -119,7 +119,7 @@ def register():
         elif password != confirmation:
             return apology("Confirmation do not match")
         else:
-            db.execute(INSERT INTO users (username, generate_password_hash(password))
+            db.execute(INSERT INTO users (username, (username, generate_password_hash(password)))
     else:
         return render_template("register.html")
 
