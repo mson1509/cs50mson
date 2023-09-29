@@ -1,6 +1,7 @@
 import os
 
 from cs50 import SQL
+from datetime import datetime
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -52,37 +53,36 @@ def buy():
         if shares < 0:
             return apology("please enter a positive number of shares", 403)
         stock = lookup(symbol)
-        if stock:
-            id = session["user_id"]
-            time = 
-            rows = db.execute("SELECT * FROM users WHERE id = ?", id)
-            cash = rows[0]["cash"]
-            price = stock["price"]
-            purchase = price * shares
-            if cash < purchase:
-                return apology("you do not have enough cash", 403)
-            if not db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='purchases'"):
-                db.execute("""
-                    CREATE TABLE purchases (
-                        purchase_id INTERGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                        user_id INTERGER NOT NULL,
-                        time TEXT NOT NULL,
-                        stock TEXT NOT NULL,
-                        price REAL NOT NULL,
-                        shares INTERGER NOT NULL,
-                        purchase REAL NOT NULL,
-                        FOREIGN KEY(user_id) REFERENCES users(id)
-                    )
-                """)
-            db.execute("""
-                INSERT INTO purchases
-                       (user_id, time, stock, price, shares, purchase)
-                       VALUES (:id, :time, :symbol, :price, :shares, :purchase)
-            """, id=id, time=time, symbol=symbol, price=price, shares=shares, purchase=purchase)
-
-            return
-        else:
+        if not stock:
             return apology("stock cannot be found", 404)
+        id = session["user_id"]
+        time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+        rows = db.execute("SELECT * FROM users WHERE id = ?", id)
+        cash = rows[0]["cash"]
+        price = stock["price"]
+        purchase = price * shares
+        if cash < purchase:
+            return apology("you do not have enough cash", 403)
+        if not db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='purchases'"):
+            db.execute("""
+                CREATE TABLE purchases (
+                    purchase_id INTERGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                    user_id INTERGER NOT NULL,
+                    time TEXT NOT NULL,
+                    stock TEXT NOT NULL,
+                    price REAL NOT NULL,
+                    shares INTERGER NOT NULL,
+                    purchase REAL NOT NULL,
+                    FOREIGN KEY(user_id) REFERENCES users(id)
+                )
+            """)
+        db.execute("""
+            INSERT INTO purchases
+                    (user_id, time, stock, price, shares, purchase)
+                    VALUES (:id, :time, :symbol, :price, :shares, :purchase)
+        """, id=id, time=time, symbol=symbol, price=price, shares=shares, purchase=purchase)
+
+        return
     else:
         return render_template("buy.html")
 
