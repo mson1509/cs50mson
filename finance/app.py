@@ -111,7 +111,7 @@ def buy():
         """,
             id=id,
             time=time,
-            symbol=symbol,
+            symbol=stock["symbol"],
             price=price,
             shares=shares,
             total=total,
