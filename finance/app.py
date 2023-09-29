@@ -267,7 +267,7 @@ def sell():
         if not user:
             return apology("you do not own this stock", 403)
         user_shares = user[0]["shares"]
-        if sell_shares > user_shares:
+        if user_shares + sell_shares < 0:
             return apology("you do not have enough shares", 403)
         # Update the history table after sell successfully
         time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -284,7 +284,7 @@ def sell():
                    stock=stock["symbol"],
                    price=price,
                    shares=sell_shares,
-                   total= sale)
+                   total=sale)
         # Update the user table after sell successfully
         cash = user["cash"]
         cash = cash + sale
