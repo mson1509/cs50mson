@@ -38,11 +38,12 @@ def index():
     return apology("TODO")
 
 
+# TODO: DONE
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
     """Buy shares of stock"""
-    return apology("TODO")
+        
 
 
 @app.route("/history")
@@ -99,7 +100,7 @@ def logout():
     return redirect("/")
 
 
-# TODO
+# TODO: DONE
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
 def quote():
@@ -118,7 +119,7 @@ def quote():
         return render_template("quote.html")
 
 
-# TODO
+# TODO: DONE
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
