@@ -39,7 +39,7 @@ def index():
     return apology("TODO")
 
 
-# TODO: D
+# TODO: DONE
 @app.route("/buy", methods=["GET", "POST"])
 @login_required
 def buy():
