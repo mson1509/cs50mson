@@ -56,6 +56,8 @@ def buy():
             cash = rows[0]["cash"]
             price = stock["price"]
             purchase = price * shares
+            if cash < purchase:
+                return apology("you do not have enough cash", 403)
             db.execute("CREATE TABLE purchases )
 
             return
