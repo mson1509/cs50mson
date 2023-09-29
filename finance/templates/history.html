@@ -25,7 +25,8 @@
                 <th>{{ transaction["time"] }}</th>
                 <th>{{ transaction["stock"] }}</th>
                 <th>{{ transaction["price"] }}</th>
-                <th>{{ transaction["shares"] }}</th>
+            {% if %}
+                <th class="green">{{ transaction["shares"] }}</th>
                 <th>{{ transaction["total"] }}</th>
             </tr>
         {% endfor %}
