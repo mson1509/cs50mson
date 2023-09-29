@@ -60,7 +60,7 @@ def index():
     cash = usd(user[0]["cash"])
     stocks = db.execute(
                 """
-                SELECT stock, SUM(price) AS price, SUM(shares) AS shares
+                SELECT stock, SUM(shares) AS shares
                 FROM history
                 JOIN users
                 ON history.user_id = users.id
