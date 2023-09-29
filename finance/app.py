@@ -47,8 +47,8 @@ def buy():
         symbol = request.form.get("symbol")
         try:
             shares = int(request.form.get("shares"))
-        except ValueError:
-            return apology("please enter a whole number of shares", 403)
+        except (ValueError, shares < 0):
+            return apology("please enter a whole and positive number of shares", 403)
         stock = lookup(symbol)
         if stock:
             id = session["user_id"]
