@@ -238,8 +238,8 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
+    id = session["user_id"]
     if request.method == "POST":
-        id = session["user_id"]
         sell_symbol = request.form.get("symbol")
         # Ensure valid input of shares and stock
         try:
@@ -286,4 +286,5 @@ def sell():
         # add them thong bao sell thanh cong
         return redirect("/")
     else:
+        
         return render_template("sell.html")
