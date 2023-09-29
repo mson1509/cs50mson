@@ -72,7 +72,7 @@ def buy():
         time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         rows = db.execute("SELECT * FROM users WHERE id = ?", id)
         cash = rows[0]["cash"]
-        price = stock["price"]
+        price = usd(stock["price"])
         purchase = price * shares
         if cash < purchase:
             return apology("you do not have enough cash", 403)
