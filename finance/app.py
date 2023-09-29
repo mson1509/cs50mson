@@ -93,8 +93,7 @@ def buy():
             shares=shares,
             purchase=purchase,
         )
-
-        return
+        return redirect("/")
     else:
         return render_template("buy.html")
 
