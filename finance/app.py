@@ -48,6 +48,7 @@ def buy():
         shares = request.form.get("shares")
         stock = lookup(symbol)
         if stock:
+            
             return
         else:
             return apology("stock cannot be found", 404)
