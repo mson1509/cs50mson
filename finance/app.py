@@ -63,13 +63,14 @@ def buy():
                             purchase_id INTERGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                             user_id INTERGER NOT NULL,
                             time TEXT NOT NULL,
+                            stock TEXT NOT NULL,
                             purchase REAL NOT NULL,
                             price REAL NOT NULL,
                             share INTERGER NOT NULL,
                             FOREIGN KEY(user_id) REFERENCES users(id)
                        )
                        """)
-            
+
             return
         else:
             return apology("stock cannot be found", 404)
