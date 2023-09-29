@@ -53,9 +53,10 @@ def buy():
         if stock:
             id = session["user_id"]
             rows = db.execute("SELECT * FROM users WHERE id = ?", id)
+            cash = rows[0]["cash"]
             price = stock["price"]
-            cash = db.execute(SELECT * FROM users WHERE )
             purchase = price * shares
+            db.execute("CREATE TABLE purchases )
 
             return
         else:
