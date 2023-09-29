@@ -5,5 +5,20 @@
 {% endblock %}
 
 {% block main %}
-    <table 
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Symbol</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{{ name }}</th>
+                <th>{{ price }}</th>
+                <th>{{ symbol }}</th>
+            </tr>
+        </tbody>
+    </table>
 {% endblock %}
