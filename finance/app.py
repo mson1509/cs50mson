@@ -22,17 +22,18 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
-# Create purchases table to keep track of all purchases
+# Create history table to keep track of all purchases
 db.execute(
                 """
-                CREATE TABLE IF NOT EXISTS purchases (
+                CREATE TABLE IF NOT EXISTS history (
                     purchase_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                     user_id INTEGER NOT NULL,
                     time TEXT NOT NULL,
                     stock TEXT NOT NULL,
                     price REAL NOT NULL,
                     shares INTEGER NOT NULL,
-                    purchase REAL NOT NULL,
+                    total REAL NOT NULL,
+                    action TEXT NOT NULL,
                     FOREIGN KEY(user_id) REFERENCES users(id)
                 )
             """
@@ -60,9 +61,9 @@ def index():
     stocks = db.execute(
                 """
                 SELECT stock, SUM(price) AS price, SUM(shares) AS shares
-                FROM purchases
+                FROM history
                 JOIN users
-                ON purchases.user_id = users.id
+                ON history.user_id = users.id
                 WHERE users.id = ?
                 GROUP BY stock
                 ORDER BY stock
@@ -91,30 +92,30 @@ def buy():
         stock = lookup(symbol)
         if not stock:
             return apology("stock cannot be found", 404)
-        # Update purchases table if buy successfully
+        # Update history table if buy successfully
         id = session["user_id"]
         time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         user = db.execute("SELECT * FROM users WHERE id = ?", id)
         cash = user[0]["cash"]
         price = stock["price"]
-        purchase = price * shares
-        if cash < purchase:
+        total = price * shares
+        if cash < total:
             return apology("you do not have enough cash", 403)
         db.execute(
             """
-            INSERT INTO purchases
-                    (user_id, time, stock, price, shares, purchase)
-                    VALUES (:id, :time, :symbol, :price, :shares, :purchase)
+            INSERT INTO history
+                    (user_id, time, stock, price, shares, total)
+                    VALUES (:id, :time, :symbol, :price, :shares, :total)
         """,
             id=id,
             time=time,
             symbol=symbol,
             price=price,
             shares=shares,
-            purchase=purchase,
+            total=total,
         )
         # Update user table after buy successfully
-        cash = cash - purchase
+        cash = cash - total
         db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
         # add them cai thong bao mua thanh cong vao
         return redirect("/")
@@ -252,33 +253,33 @@ def sell():
         if not stock:
             return apology("Stock cannot be found", 404)
         user = db.execute("""SELECT username, cash, stock, SUM(shares) AS shares
-                          FROM users, purchases
-                          WHERE users.id = purchases.user_id
-                          AND purchases.stock = :symbol
+                          FROM users, history
+                          WHERE users.id = history.user_id
+                          AND history.stock = :symbol
                           AND users.id = :id
-                          GROUP BY purchases.stock""",
+                          GROUP BY history.stock""",
                           symbol=sell_symbol, id=id)
         if not user:
             return apology("You do not own this stock", 403)
         user_shares = user["shares"]
         if sell_shares > user_shares:
             return apology("You do not have enough shares", 403)
-        # Update the purchases table after sell successfully
+        # Update the history table after sell successfully
         time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         price = stock["price"]
         sale = price * sell_shares
         db.execute(
             """
-            INSERT INTO purchases
-                    (user_id, time, stock, price, shares, purchase)
-                    VALUES (:id, :time, :symbol, :price, :shares, :purchase)
+            INSERT INTO history
+                    (user_id, time, stock, price, shares, total)
+                    VALUES (:id, :time, :symbol, :price, :shares, :total)
         """,
                    id=id,
                    time=time,
                    stock=sell_symbol,
                    price=price,
                    shares=sell_shares,
-                   purchase= -1 * sale)
+                   total= sale)
         # Update the user table after sell successfully
         cash = user["cash"]
         cash = cash + sale
@@ -286,5 +287,5 @@ def sell():
         # add them thong bao sell thanh cong
         return redirect("/")
     else:
-        
+
         return render_template("sell.html")
