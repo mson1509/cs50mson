@@ -239,10 +239,16 @@ def sell():
     """Sell shares of stock"""
     if request.method == "POST":
         id = session["user_id"]
-        user = db.execute("SELECT username, SUM(shares) AS shares FROM users, purchases WHERE users.id = purchases.user_id AND purchases.stock = :symbol AND users.id = :id GROUP BY purchases.stock", symbol=symbol, id=id)
+        user = db.execute("SELECT username, stock, SUM(shares) AS shares
+                          FROM users, purchases
+                          WHERE users.id = purchases.user_id
+                          AND purchases.stock = :symbol
+                          AND users.id = :id
+                          GROUP BY purchases.stock",
+                          symbol=symbol, id=id)
         sell_symbol = request.form.get("symbol")
         sell_shares = request.form.get("shares")
-        user_shares =
+        user_shares = user["shares"]
         stock = lookup(symbol)
         if not stock:
             return apology("Stock cannot be found", 404)
