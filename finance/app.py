@@ -230,8 +230,9 @@ def register():
         return render_template("register.html")
 
 
+# TODO: DOING
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
     """Sell shares of stock"""
-    return apology("TODO")
+    if request.method = "POST":
