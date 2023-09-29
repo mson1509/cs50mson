@@ -54,8 +54,9 @@ def after_request(response):
 def index():
     """Show portfolio of stocks"""
     id = session["user_id"]
-    user = db.execute("SELECT username FROM users WHERE id = ?", id)
+    user = db.execute("SELECT username, cash FROM users WHERE id = ?", id)
     username = user[0]["username"]
+    cash = usd(user[0]["cash"])
     stocks = db.execute(
                 """
                 SELECT stock, SUM(price) AS price, SUM(shares) AS shares
@@ -67,9 +68,11 @@ def index():
                 ORDER BY stock
             """, id)
     for stock in stocks:
-        stock["value"] = usd(stock["price"] * stock["shares"])
         stock["price"] = usd(stock["price"])
-    return render_template("index.html", username=username, stocks=stocks)
+        current = lookup(stock["stock"])
+        stock["current"] = usd(current["price"])
+        stock["value"] = usd(current["price"] * stock["shares"])
+    return render_template("index.html", username=username, cash=cash, stocks=stocks)
 
 
 # TODO: DONE

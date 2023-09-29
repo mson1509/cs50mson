@@ -6,12 +6,14 @@
 
 {% block main %}
     <div class="">
-        user: {{ username }}
+        User: {{ username }}
+        Account balance: {{ cash }}
     </div>
     <table class="table table-striped">
         <thead>
             <tr>
                 <th>Stock</th>
+                <th>Price Purchased</th>
                 <th>Shares</th>
                 <th>Current Price</th>
                 <th>Value</th>
@@ -21,8 +23,9 @@
         {% for stock in stocks %}
             <tr>
                 <th>{{ stock["stock"] }}</th>
-                <th>{{ stock["shares"] }}</th>
                 <th>{{ stock["price"] }}</th>
+                <th>{{ stock["shares"] }}</th>
+                <th>{{ stock["current"] }}</th>
                 <th>{{ stock["value"] }}</th>
             </tr>
         {% endfor %}
