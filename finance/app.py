@@ -106,9 +106,12 @@ def quote():
     """Get stock quote."""
     if request.method == "POST":
         stock = lookup(symbol)
-        name = stock["name"]
-        price = stock["price"]
-        symbol = stock["symbol"]
+        if stock:
+            name = stock["name"]
+            price = stock["price"]
+            symbol = stock["symbol"]
+        else:
+            return apology("Stock cannot be found", 404)
         return render_template("quoted.html")
     else:
         return render_template("quote.html")
