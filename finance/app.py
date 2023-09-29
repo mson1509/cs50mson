@@ -109,9 +109,12 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    if request.methods == "POST":
+    if request.method == "POST":
         rows = db.execute("SELECT * FROM users")
         # Ensure username and password is valid
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirmation = request.form.get("confirmation")
         if not username or not password or not confirmation:
             return apology("Blank input")
         elif username in rows.username:
