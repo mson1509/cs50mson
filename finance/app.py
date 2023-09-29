@@ -67,7 +67,7 @@ def index():
             """, id)
     for stock in stocks:
         stock["price"] = usd(stock["price"])
-        stock["value"] = usd(stock["price"] * stock["shares"])
+        stock["value"] = stock["price"] * stock["shares"]
     return render_template("index.html", username=username, stocks=stocks)
 
 
