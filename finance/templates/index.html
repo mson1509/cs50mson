@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+{% block main %}
+    <div class="">
+        user: {{ username }}
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Shares</th>
+                <th>Current Price</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>{{ symbol }}</th>
+                <th>{{ shares }}</th>
+                <th>{{ price }}</th>
+                <th>{{ value }}</th>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/quote">
+        <button class="btn btn-primary" type=""button>Back</button>
+    </a>
+{% endblock %}
