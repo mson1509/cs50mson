@@ -64,10 +64,11 @@ def index():
                 ON purchases.user_id = users.id
                 WHERE users.id = ?
                 GROUP BY stock
+                ORDER BY stock
             """, id)
     for stock in stocks:
+        stock["value"] = usd(stock["price"] * stock["shares"])
         stock["price"] = usd(stock["price"])
-        stock["value"] = stock["price"] * stock["shares"]
     return render_template("index.html", username=username, stocks=stocks)
 
 
