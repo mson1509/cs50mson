@@ -51,6 +51,8 @@ def buy():
             return apology("please enter a whole number of shares", 403)
         stock = lookup(symbol)
         if stock:
+            id = session["user_id"]
+            rows = db.execute("SELECT * FROM users WHERE id = ?", id)
             price = stock["price"]
             cash = db.execute(SELECT * FROM users WHERE )
             purchase = price * shares
