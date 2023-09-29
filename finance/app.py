@@ -238,3 +238,5 @@ def register():
 def sell():
     """Sell shares of stock"""
     if request.method = "POST":
+    else:
+        return render_template("sell.html")
