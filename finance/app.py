@@ -138,11 +138,11 @@ def history():
     for transaction in history:
         transaction["price"] = usd(transaction["price"])
         transaction["num_total"] = transaction["total"]
-        if transaction["shares"] >= 0:
-            transaction["shares"] = "+" + str(transaction["shares"])
+        if transaction["total"] < 0:
             transaction["total"] = "-" + usd(-transaction["total"])
         else:
             transaction["total"] = "+" + usd(transaction["total"])
+            transaction["shares"] *= -1
     return render_template("history.html", history=history, username=username, cash=cash)
 
 
