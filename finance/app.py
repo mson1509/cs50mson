@@ -243,8 +243,10 @@ def sell():
     """Sell shares of stock"""
     id = session["user_id"]
     if request.method == "POST":
-        sell_symbol = request.form.get("symbol")
         # Ensure valid input of shares and stock
+        sell_symbol = request.form.get("symbol")
+        if not sell_symbol:
+            return apology("please select a stock", 403)
         try:
             sell_shares = int(request.form.get("shares"))
         except ValueError:
