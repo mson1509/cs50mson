@@ -134,7 +134,7 @@ def history():
     user = db.execute("SELECT username, cash FROM users WHERE id = ?", id)
     username = user[0]["username"]
     cash = usd(user[0]["cash"])
-    history = db.execute("SELECT * FROM history WHERE user_id = ?", id)
+    history = db.execute("SELECT * FROM history WHERE user_id = ? ORDER BY time DESC", id)
     for transaction in history:
         transaction["price"] = usd(transaction["price"])
         transaction["num_total"] = transaction["total"]
