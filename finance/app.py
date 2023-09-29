@@ -242,7 +242,7 @@ def register():
         return render_template("register.html")
 
 
-# TODO: DOING
+# TODO: DONE
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
 def sell():
