@@ -280,7 +280,10 @@ def sell():
                    shares=sell_shares,
                    purchase= -1 * sale)
         # Update the user table after sell successfully
-        db.execute
+        cash = user["cash"]
+        cash = cash + sale
+        db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
+        # add them thong bao sell thanh cong
         return redirect("/")
     else:
         return render_template("sell.html")
