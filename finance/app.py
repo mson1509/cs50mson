@@ -33,7 +33,6 @@ db.execute(
                     price REAL NOT NULL,
                     shares INTEGER NOT NULL,
                     total REAL NOT NULL,
-                    action TEXT NOT NULL,
                     FOREIGN KEY(user_id) REFERENCES users(id)
                 )
             """
