@@ -80,8 +80,8 @@ def index():
 def buy():
     """Buy shares of stock"""
     if request.method == "POST":
+        # Ensure valid input for stock and shares
         symbol = request.form.get("symbol")
-        # Ensure stock is valid and the number of shares is a positive int
         try:
             shares = int(request.form.get("shares"))
         except ValueError:
@@ -91,7 +91,7 @@ def buy():
         stock = lookup(symbol)
         if not stock:
             return apology("stock cannot be found", 404)
-        # Take information needed to add to purchases table
+        # Update purchases table if buy successfully
         id = session["user_id"]
         time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         rows = db.execute("SELECT * FROM users WHERE id = ?", id)
@@ -261,7 +261,9 @@ def sell():
             return apology("You do not own this stock", 403)
         user_shares = user["shares"]
         if sell_shares > user_shares:
-            re
-        return
+            return apology("You do not have enough shares", 403)
+        # Update the database after sell successfully
+        
+        return redirect("/")
     else:
         return render_template("sell.html")
