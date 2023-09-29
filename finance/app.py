@@ -70,7 +70,10 @@ def index():
             """, id)
     # Ensure to not display stocks that have been fully sold
     for stock in stocks:
-        if stock["shares"] > 0:
+        if stock["shares"] == 0:
+            stocks.remove(stock)
+            continue
+        else:
             current = lookup(stock["stock"])
             stock["current"] = usd(current["price"])
             stock["value"] = usd(current["price"] * stock["shares"])
