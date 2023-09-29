@@ -53,6 +53,7 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
+    # Query for the stocks and current shares
     id = session["user_id"]
     user = db.execute("SELECT username, cash FROM users WHERE id = ?", id)
     username = user[0]["username"]
@@ -67,10 +68,12 @@ def index():
                 GROUP BY stock
                 ORDER BY stock
             """, id)
+    # Ensure to not display stocks that have been fully sold
     for stock in stocks:
-        current = lookup(stock["stock"])
-        stock["current"] = usd(current["price"])
-        stock["value"] = usd(current["price"] * stock["shares"])
+        if stock["shares"] > 0:
+            current = lookup(stock["stock"])
+            stock["current"] = usd(current["price"])
+            stock["value"] = usd(current["price"] * stock["shares"])
     return render_template("index.html", username=username, cash=cash, stocks=stocks)
 
 
@@ -289,8 +292,7 @@ def sell():
     # Select current stocks that user can sell if access via GET
     else:
         stocks = db.execute("SELECT stock, SUM(shares) AS shares FROM history, users WHERE history.user_id = users.id AND users.id = ? GROUP BY history.stock", id)
-        current_shares = []
         for stock in stocks:
-            if stock["shares"] > 0:
-                current_shares.append(stock["shares"])
-        return render_template("sell.html")
+            if stock["shares"] = 0:
+                stocks.remove(stock)
+        return render_template("sell.html", stocks=stocks)
