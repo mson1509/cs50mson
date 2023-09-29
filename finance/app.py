@@ -294,7 +294,5 @@ def sell():
     # Select current stocks that user can sell if access via GET
     else:
         stocks = db.execute("SELECT stock, SUM(shares) AS shares FROM history, users WHERE history.user_id = users.id AND users.id = ? GROUP BY history.stock", id)
-        for stock in stocks:
-            if stock["shares"] == 0:
-                stocks.remove(stock)
+        stocks = [stock for stock in stocks if stock["shares"] > 0]
         return render_template("sell.html", stocks=stocks)
