@@ -64,12 +64,13 @@ def buy():
                             user_id INTERGER NOT NULL,
                             time TEXT NOT NULL,
                             stock TEXT NOT NULL,
-                            purchase REAL NOT NULL,
                             price REAL NOT NULL,
                             share INTERGER NOT NULL,
+                            purchase REAL NOT NULL,
                             FOREIGN KEY(user_id) REFERENCES users(id)
                        )
                        """)
+            db.execute
 
             return
         else:
