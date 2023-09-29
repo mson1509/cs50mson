@@ -105,14 +105,15 @@ def logout():
 def quote():
     """Get stock quote."""
     if request.method == "POST":
-        stock = lookup(symbol)
+        quote = request.form.get("quote")
+        stock = lookup(quote)
         if stock:
             name = stock["name"]
             price = stock["price"]
             symbol = stock["symbol"]
+            return render_template("quoted.html", name=name, price=price, symbol=symbol)
         else:
-            return apology("Stock cannot be found", 404)
-        return render_template("quoted.html")
+            return apology("stock cannot be found", 404)
     else:
         return render_template("quote.html")
 
@@ -128,12 +129,12 @@ def register():
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
         if not username or not password or not confirmation:
-            return apology("Blank input")
+            return apology("must provide input", 403)
         for i in range(len(rows)):
             if username == rows[i]["username"]:
-                return apology("Username already taken")
+                return apology("username already taken", 403)
         if password != confirmation:
-            return apology("Confirmation do not match")
+            return apology("confirmation do not match", 403)
         # Add user information to db and redirect to login page (muon add them thong bao register thanh cong)
         else:
             db.execute("INSERT INTO users (username, hash) VALUES (:username, :hashed_password)", username=username, hashed_password=generate_password_hash(password))
