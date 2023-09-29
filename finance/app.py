@@ -262,11 +262,24 @@ def sell():
         user_shares = user["shares"]
         if sell_shares > user_shares:
             return apology("You do not have enough shares", 403)
-        # Update the database after sell successfully
-        db.execute("INSERT INTO purchases
-                   (user_id, time, stock, price, shares, purchase)
-                   VALUES (:id, :time, :stock, :price, :shares, :purchase)",
-                   id=id, time=time, stock=sell_symbol, price=price, shares=sell_shares, purchase=-1 * sale)
+        # Update the purchases table after sell successfully
+        time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        price = stock["price"]
+        sale = price * sell_shares
+        db.execute(
+            """
+            INSERT INTO purchases
+                    (user_id, time, stock, price, shares, purchase)
+                    VALUES (:id, :time, :symbol, :price, :shares, :purchase)
+        """,
+                   id=id,
+                   time=time,
+                   stock=sell_symbol,
+                   price=price,
+                   shares=sell_shares,
+                   purchase= -1 * sale)
+        # Update the user table after sell successfully
+        db.execute
         return redirect("/")
     else:
         return render_template("sell.html")
