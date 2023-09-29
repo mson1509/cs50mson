@@ -239,9 +239,10 @@ def sell():
     """Sell shares of stock"""
     if request.method == "POST":
         id = session["user_id"]
+        user = db.execute("SELECT username, )
         sell_symbol = request.form.get("symbol")
         sell_shares = request.form.get("shares")
-        
+        user_shares =
         stock = lookup(symbol)
         if not stock:
             return apology("Stock cannot be found", 404)
