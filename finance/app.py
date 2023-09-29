@@ -286,7 +286,7 @@ def sell():
                    shares=sell_shares,
                    total=sale)
         # Update the user table after sell successfully
-        cash = user["cash"]
+        cash = user[0]["cash"]
         cash = cash + sale
         db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
         # add them thong bao sell thanh cong
