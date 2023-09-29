@@ -20,7 +20,7 @@
         <tbody>
         {% for stock in stocks %}
             <tr>
-                <th>{{ stock["symbol"] }}</th>
+                <th>{{ stock["stock"] }}</th>
                 <th>{{ stock["shares"] }}</th>
                 <th>{{ stock["price"] }}</th>
                 <th>{{ stock["price"] * stock["shares"] }}</th>

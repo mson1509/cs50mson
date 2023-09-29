@@ -37,16 +37,19 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
-    username = db.execute("SELECT name FROM )
+    id = session["user_id"]
+    user = db.execute("SELECT username FROM users WHERE id = ?", id)
+    username = user[0]["username"]
     stocks = db.execute(
                 """
-                SELECT stock, SUM(price), SUM(shares)
-                FROM purchase
+                SELECT stock, SUM(price) AS price, SUM(shares) AS shares
+                FROM purchases
                 JOIN users
-                ON purchase.user_id = users.id
+                ON purchases.user_id = users.id
+                WHERE users.id = ?
                 GROUP BY stock
-            """)
-    return render_template("index.html", stocks=stocks)
+            """, id)
+    return render_template("index.html", username=username, stocks=stocks)
 
 
 # TODO: DONE
