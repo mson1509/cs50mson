@@ -68,7 +68,6 @@ def index():
                 ORDER BY stock
             """, id)
     for stock in stocks:
-        stock["price"] = usd(stock["price"])
         current = lookup(stock["stock"])
         stock["current"] = usd(current["price"])
         stock["value"] = usd(current["price"] * stock["shares"])
