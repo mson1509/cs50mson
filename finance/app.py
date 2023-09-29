@@ -107,11 +107,11 @@ def buy():
             """
             INSERT INTO history
                     (user_id, time, stock, price, shares, total)
-                    VALUES (:id, :time, :symbol, :price, :shares, :total)
+                    VALUES (:id, :time, :stock, :price, :shares, :total)
         """,
             id=id,
             time=time,
-            symbol=stock["symbol"],
+            stock=stock["symbol"],
             price=price,
             shares=shares,
             total=total,
@@ -279,7 +279,7 @@ def sell():
         """,
                    id=id,
                    time=time,
-                   stock=sell_symbol,
+                   stock=stock["symbol"],
                    price=price,
                    shares=sell_shares,
                    total= sale)
