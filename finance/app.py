@@ -94,8 +94,8 @@ def buy():
         # Update purchases table if buy successfully
         id = session["user_id"]
         time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        rows = db.execute("SELECT * FROM users WHERE id = ?", id)
-        cash = rows[0]["cash"]
+        user = db.execute("SELECT * FROM users WHERE id = ?", id)
+        cash = user[0]["cash"]
         price = stock["price"]
         purchase = price * shares
         if cash < purchase:
