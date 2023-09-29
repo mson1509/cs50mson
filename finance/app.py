@@ -45,12 +45,14 @@ def buy():
     """Buy shares of stock"""
     if request.method == "POST":
         symbol = request.form.get("symbol")
+        shares = request.form.get("shares")
         stock = lookup(symbol)
         if stock:
-
+            return
         else:
-            return apology()
-
+            return apology("stock cannot be found", 404)
+    else:
+        return render_template("buy.html")
 
 @app.route("/history")
 @login_required
@@ -118,7 +120,7 @@ def quote():
             name = stock["name"]
             price = stock["price"]
             symbol = stock["symbol"]
-            return render_template("quoted.html", name=name, price=price, symbol=symbol)
+            return render_template("quoted.html", name=name, price=usd(price), symbol=symbol)
         else:
             return apology("stock cannot be found", 404)
     else:
