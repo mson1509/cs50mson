@@ -25,7 +25,7 @@ db = SQL("sqlite:///finance.db")
 # Create purchases table to keep track of all purchases
 db.execute(
                 """
-                CREATE TABLE purchases (
+                CREATE TABLE IF NOT EXISTS purchases (
                     purchase_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                     user_id INTEGER NOT NULL,
                     time TEXT NOT NULL,
