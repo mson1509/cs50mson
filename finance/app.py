@@ -32,11 +32,13 @@ def after_request(response):
     return response
 
 
+# TODO: DOING
 @app.route("/")
 @login_required
 def index():
     """Show portfolio of stocks"""
-    return apology("TODO")
+
+    return render_template("index.html", )
 
 
 # TODO: DONE
