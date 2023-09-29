@@ -266,7 +266,7 @@ def sell():
         db.execute("INSERT INTO purchases
                    (user_id, time, stock, price, shares, purchase)
                    VALUES (:id, :time, :stock, :price, :shares, :purchase)",
-                   id=id, time=time, stock=sell_symbol, price=price, shares=sell_shares, purchase=)
+                   id=id, time=time, stock=sell_symbol, price=price, shares=sell_shares, purchase=-1 * sale)
         return redirect("/")
     else:
         return render_template("sell.html")
