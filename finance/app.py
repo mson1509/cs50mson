@@ -237,6 +237,9 @@ def register():
 @login_required
 def sell():
     """Sell shares of stock"""
-    if request.method = "POST":
+    if request.method == "POST":
+        stock = request.form.get("stock")
+        shares = request.form.get("shares")
+        return
     else:
         return render_template("sell.html")
