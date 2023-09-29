@@ -124,7 +124,7 @@ def register():
             return apology("Confirmation do not match")
         # Add user information to db and redirect to login page (muon add them thong bao register thanh cong)
         else:
-            db.execute("INSERT INTO users (username, hash) VALUES (username, generate_password_hash(password))")
+            db.execute("INSERT INTO users (username, hash) VALUES (:username, :hashed_password)", username=username, hashed_password=generate_password_hash(password))
             redirect("/login")
     # Render register page when user reached route via GET
     else:
