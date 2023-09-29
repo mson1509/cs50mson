@@ -125,7 +125,7 @@ def register():
         # Add user information to db and redirect to login page (muon add them thong bao register thanh cong)
         else:
             db.execute("INSERT INTO users (username, hash) VALUES (:username, :hashed_password)", username=username, hashed_password=generate_password_hash(password))
-            redirect("/login")
+            return redirect("/login")
     # Render register page when user reached route via GET
     else:
         return render_template("register.html")
