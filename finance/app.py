@@ -240,18 +240,26 @@ def sell():
     if request.method == "POST":
         id = session["user_id"]
         sell_symbol = request.form.get("symbol")
-        sell_shares = request.form.get("shares")
+        try:
+            sell_shares = int(request.form.get("shares"))
+        except ValueError:
+            return apology("please enter a whole number of shares", 403)
+        if sell_shares <= 0:
+            return apology("please enter a positive number of shares", 403)
+        stock = lookup(symbol)
+        if not stock:
+            return apology("Stock cannot be found", 404)
         user = db.execute("SELECT username, stock, SUM(shares) AS shares
                           FROM users, purchases
                           WHERE users.id = purchases.user_id
                           AND purchases.stock = :symbol
                           AND users.id = :id
                           GROUP BY purchases.stock",
-                          symbol=symbol, id=id)
+                          symbol=sell_symbol, id=id)
+        if not user:
+            return apology("You do not own this stock", 403)
         user_shares = user["shares"]
-        stock = lookup(symbol)
-        if not stock:
-            return apology("Stock cannot be found", 404)
+        if sell_shares > user_shares
         return
     else:
         return render_template("sell.html")
