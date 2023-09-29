@@ -48,7 +48,7 @@ def after_request(response):
     return response
 
 
-# TODO: DOING
+# TODO: DONE
 @app.route("/")
 @login_required
 def index():
