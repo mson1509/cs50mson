@@ -23,7 +23,7 @@
                 <th>{{ stock["symbol"] }}</th>
                 <th>{{ stock["shares"] }}</th>
                 <th>{{ stock["price"] }}</th>
-                <th>{{ value }}</th>
+                <th>{{ stock["price"] * stock["shares"] }}</th>
             </tr>
         {% endfor %}
         </tbody>
