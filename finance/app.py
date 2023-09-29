@@ -54,26 +54,31 @@ def buy():
         stock = lookup(symbol)
         if stock:
             id = session["user_id"]
+            time = 
             rows = db.execute("SELECT * FROM users WHERE id = ?", id)
             cash = rows[0]["cash"]
             price = stock["price"]
             purchase = price * shares
             if cash < purchase:
                 return apology("you do not have enough cash", 403)
-            if 
+            if not db.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='purchases'"):
+                db.execute("""
+                    CREATE TABLE purchases (
+                        purchase_id INTERGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+                        user_id INTERGER NOT NULL,
+                        time TEXT NOT NULL,
+                        stock TEXT NOT NULL,
+                        price REAL NOT NULL,
+                        shares INTERGER NOT NULL,
+                        purchase REAL NOT NULL,
+                        FOREIGN KEY(user_id) REFERENCES users(id)
+                    )
+                """)
             db.execute("""
-                       CREATE TABLE purchases (
-                            purchase_id INTERGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-                            user_id INTERGER NOT NULL,
-                            time TEXT NOT NULL,
-                            stock TEXT NOT NULL,
-                            price REAL NOT NULL,
-                            share INTERGER NOT NULL,
-                            purchase REAL NOT NULL,
-                            FOREIGN KEY(user_id) REFERENCES users(id)
-                       )
-                       """)
-            db.execute
+                INSERT INTO purchases
+                       (user_id, time, stock, price, shares, purchase)
+                       VALUES (:id, :time, :symbol, :price, :shares, :purchase)
+            """, id=id, time=time, symbol=symbol, price=price, shares=shares, purchase=purchase)
 
             return
         else:
