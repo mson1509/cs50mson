@@ -137,7 +137,8 @@ def history():
     history = db.execute("SELECT * FROM history WHERE user_id = ?", id)
     for transaction in history:
         transaction["price"] = usd(transaction["price"])
-        transaction["total"] = usd(transaction["total"])
+        if transaction["shares"] >= 0:
+            transaction["shares"] = "+
     return render_template("history.html", history=history, username=username, cash=cash)
 
 
