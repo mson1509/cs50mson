@@ -117,7 +117,7 @@ def register():
         confirmation = request.form.get("confirmation")
         if not username or not password or not confirmation:
             return apology("Blank input")
-        elif username in rows.username:
+        elif username in rows["username"]:
             return apology("Username already taken")
         elif password != confirmation:
             return apology("Confirmation do not match")
