@@ -99,7 +99,7 @@ def logout():
     return redirect("/")
 
 
-#TODOOOOO
+# TODO
 @app.route("/quote", methods=["GET", "POST"])
 @login_required
 def quote():
@@ -118,7 +118,7 @@ def quote():
         return render_template("quote.html")
 
 
-#TODOOOOO
+# TODO
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
