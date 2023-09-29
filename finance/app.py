@@ -251,12 +251,12 @@ def sell():
         stock = lookup(sell_symbol)
         if not stock:
             return apology("Stock cannot be found", 404)
-        user = db.execute("SELECT username, cash, stock, SUM(shares) AS shares
+        user = db.execute("""SELECT username, cash, stock, SUM(shares) AS shares
                           FROM users, purchases
                           WHERE users.id = purchases.user_id
                           AND purchases.stock = :symbol
                           AND users.id = :id
-                          GROUP BY purchases.stock",
+                          GROUP BY purchases.stock""",
                           symbol=sell_symbol, id=id)
         if not user:
             return apology("You do not own this stock", 403)
