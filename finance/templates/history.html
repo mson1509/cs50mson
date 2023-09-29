@@ -26,7 +26,7 @@
                 <th>{{ transaction["stock"] }}</th>
                 <th>{{ transaction["price"] }}</th>
                 <th>{{ transaction["shares"] }}</th>
-                <th class="{% if transaction["num_total"] < 0 %}red{% else %}green{% endif %}">{{ transaction["total"] }}</th>
+                <th class="{% if transaction["num_total"] < 0 %}text-red{% else %}text-green{% endif %}">{{ transaction["total"] }}</th>
             </tr>
         {% endfor %}
         </tbody>
