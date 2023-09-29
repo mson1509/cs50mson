@@ -117,9 +117,10 @@ def register():
         confirmation = request.form.get("confirmation")
         if not username or not password or not confirmation:
             return apology("Blank input")
-        elif username in rows["username"]:
-            return apology("Username already taken")
-        elif password != confirmation:
+        for i in range(len(rows)):
+            if username == rows[i]["username"]:
+                return apology("Username already taken")
+        if password != confirmation:
             return apology("Confirmation do not match")
         # Add user information to db and redirect to login page (muon add them thong bao register thanh cong)
         else:
