@@ -65,6 +65,9 @@ def index():
                 WHERE users.id = ?
                 GROUP BY stock
             """, id)
+    for stock in stocks:
+        stock["price"] = usd(stock["price"])
+        stock["value]
     return render_template("index.html", username=username, stocks=stocks)
 
 
