@@ -293,6 +293,6 @@ def sell():
     else:
         stocks = db.execute("SELECT stock, SUM(shares) AS shares FROM history, users WHERE history.user_id = users.id AND users.id = ? GROUP BY history.stock", id)
         for stock in stocks:
-            if stock["shares"] = 0:
+            if stock["shares"] == 0:
                 stocks.remove(stock)
         return render_template("sell.html", stocks=stocks)
