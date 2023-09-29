@@ -266,7 +266,7 @@ def sell():
                           symbol=sell_symbol, id=id)
         if not user:
             return apology("you do not own this stock", 403)
-        user_shares = user["shares"]
+        user_shares = user[0]["shares"]
         if sell_shares > user_shares:
             return apology("you do not have enough shares", 403)
         # Update the history table after sell successfully
@@ -277,7 +277,7 @@ def sell():
             """
             INSERT INTO history
                     (user_id, time, stock, price, shares, total)
-                    VALUES (:id, :time, :symbol, :price, :shares, :total)
+                    VALUES (:id, :time, :stock, :price, :shares, :total)
         """,
                    id=id,
                    time=time,
