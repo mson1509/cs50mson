@@ -316,5 +316,7 @@ def sell():
 
 
 #TODO: DOING
-@app.route("/profile", methods=["GET", "POST"])
+@app.route("/profile")
 @login_required
+def profile():
+    render_template("profile.html")
