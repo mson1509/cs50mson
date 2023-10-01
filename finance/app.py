@@ -337,7 +337,7 @@ def add():
         id = session["user_id"]
         user = db.execute("SELECT cash FROM users WHERE id = ?", id)
         cash = user[0]["cash"]
-        money = request.form.get("money")
+        money = float(request.form.get("add_money"))
         #Check bank
         if request.form.get("bank") == "Test":
             cash = cash + money
@@ -352,14 +352,14 @@ def add():
 #TODO: DONE
 @app.route("/withdraw", methods=["GET", "POST"])
 @login_required
-def add():
+def withdraw():
     """Add money to user account"""
     # Query for user cash
     if request.method == "POST":
         id = session["user_id"]
         user = db.execute("SELECT cash FROM users WHERE id = ?", id)
         cash = user[0]["cash"]
-        money = request.form.get("money")
+        money = float(request.form.get("withdraw_money"))
         #Check bank
         if request.form.get("bank") == "Test":
             cash = cash - money

@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% block main %}
-    <form action="/add" method="post">
+    <form action="/withdraw" method="post">
         <div class="mb-3">
             <div class="mb-3">
-                $<input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="add_money" name="add_money" placeholder="Amount of money" type="number">
+                $<input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="withdraw_money" name="withdraw_money" placeholder="Amount of money" type="number">
             </div>
             <select class="form-select mx-auto w-auto" name="bank">
                 <option selected disabled>Choose your bank</option>
                 <option value="Test">Test</option>
               </select>
           </div>
-        <button class="btn btn-primary" type="submit">Add money</button>
+        <button class="btn btn-primary" type="submit">Withdraw money</button>
     </form>
 {% endblock %}
