@@ -319,4 +319,10 @@ def sell():
 @app.route("/profile")
 @login_required
 def profile():
-    render_template("profile.html")
+    """Show user profile"""
+    # Query for the stocks and current shares
+    id = session["user_id"]
+    user = db.execute("SELECT username, cash FROM users WHERE id = ?", id)
+    username = user[0]["username"]
+    cash = usd(user[0]["cash"])
+    return render_template("profile.html", username=username, cash=cash)
