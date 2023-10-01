@@ -315,14 +315,21 @@ def sell():
         return render_template("sell.html", stocks=stocks)
 
 
-#TODO: DOING
+#TODO: DONE
 @app.route("/profile")
 @login_required
 def profile():
     """Show user profile"""
-    # Query for the stocks and current shares
+    # Query for the name and account balance
     id = session["user_id"]
     user = db.execute("SELECT username, cash FROM users WHERE id = ?", id)
     username = user[0]["username"]
     cash = usd(user[0]["cash"])
     return render_template("profile.html", username=username, cash=cash)
+
+#TODO: DOING
+@app.route("/add", methods=["GET", "POST"])
+@login_required
+def add():
+    """Add money to user account"""
+    #
