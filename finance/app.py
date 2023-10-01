@@ -120,7 +120,6 @@ def buy():
         # Update user table after buy successfully
         cash = cash + total
         db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
-        # add them cai thong bao mua thanh cong vao
         return redirect("/")
     else:
         return render_template("buy.html")
@@ -136,6 +135,7 @@ def history():
     username = user[0]["username"]
     cash = usd(user[0]["cash"])
     history = db.execute("SELECT * FROM history WHERE user_id = ? ORDER BY time DESC", id)
+    # Format the value to color and -/+
     for transaction in history:
         transaction["price"] = usd(transaction["price"])
         transaction["num_total"] = transaction["total"]
@@ -246,7 +246,6 @@ def register():
                 username=username,
                 hashed_password=generate_password_hash(password),
             )
-            # add them thong bao register thanh cong
             return redirect("/login")
     # Render register page when user reached route via GET
     else:
@@ -306,7 +305,6 @@ def sell():
         cash = user[0]["cash"]
         cash = cash + sale
         db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
-        # add them thong bao sell thanh cong
         return redirect("/")
     # Select current stocks that user can sell if access via GET
     else:
@@ -370,4 +368,3 @@ def withdraw():
     else:
         return render_template("withdraw.html")
 
-#TODO
