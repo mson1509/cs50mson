@@ -7,10 +7,14 @@
 {% block main %}
     <div class="mb-3">
         <h1 class="display-4">User: {{ username }}</h1>
-        <h1 class="display-6">Balance: {{ cash }}</h1>
     </div>
-    <div class="mb-3">
-        
-    </div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Balance: {{ cash }}</th>
+                <th>Passwords</th>
+            </tr>
+        </tbody>
+    </table>
 
 {% endblock %}
