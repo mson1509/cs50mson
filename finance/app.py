@@ -332,4 +332,17 @@ def profile():
 @login_required
 def add():
     """Add money to user account"""
-    #
+    # Query for user cash
+    if request.method == "POST":
+        id = session["user_id"]
+        user = db.execute("SELECT cash FROM users WHERE id = ?", id)
+        cash = user[0]["cash"]
+        money = request.form.get("money")
+        #Check bank
+        if request.form.get("bank") == "Test":
+            cash = cash + money
+            db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
+        else:
+            return apology("please select the bank for your source account", 403)
+
+
