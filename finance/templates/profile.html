@@ -5,14 +5,24 @@
 {% endblock %}
 
 {% block main %}
-    <div class="mb-3">
+    <div class="mb-5">
         <h1 class="display-4">User: {{ username }}</h1>
+        <h1 class="display-6">Balance: {{ cash }}</h1>
     </div>
     <table class="table table-borderless">
         <tbody>
             <tr>
-                <th>Balance: {{ cash }}</th>
-                <th>Passwords</th>
+                <th>
+                    <form action="/add" method="post">
+                        <button class="" type="submit">Add money</button>
+                    </form>
+                    <form action="/change" method="post">
+                        <button class="" type="submit">Change password</button>
+                    </form>
+                </th>
+                <th>
+                    <form action="/withdraw" method="post"
+                </th>
             </tr>
         </tbody>
     </table>
