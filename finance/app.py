@@ -327,7 +327,7 @@ def profile():
     cash = usd(user[0]["cash"])
     return render_template("profile.html", username=username, cash=cash)
 
-#TODO: DOING
+#TODO: DONE
 @app.route("/add", methods=["GET", "POST"])
 @login_required
 def add():
@@ -342,7 +342,31 @@ def add():
         if request.form.get("bank") == "Test":
             cash = cash + money
             db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
+            return redirect("/profile")
         else:
             return apology("please select the bank for your source account", 403)
+    else:
+        return render_template("add.html")
 
+
+#TODO: DONE
+@app.route("/withdraw", methods=["GET", "POST"])
+@login_required
+def add():
+    """Add money to user account"""
+    # Query for user cash
+    if request.method == "POST":
+        id = session["user_id"]
+        user = db.execute("SELECT cash FROM users WHERE id = ?", id)
+        cash = user[0]["cash"]
+        money = request.form.get("money")
+        #Check bank
+        if request.form.get("bank") == "Test":
+            cash = cash - money
+            db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
+            return redirect("/profile")
+        else:
+            return apology("please select the bank for your destination account", 403)
+    else:
+        return render_template("withdraw.html")
 
