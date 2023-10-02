@@ -397,6 +397,6 @@ def change():
             return apology("your confirmation does not match", 400)
         # Update new password
         new_hash = generate_password_hash(new_password)
-        db.execute("UPDATE users)
+        db.execute("UPDATE users SET hash = :hash WHERE id = :id", hash=new_hash, id=id)
     else:
         return render_template("change.html")
