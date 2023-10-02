@@ -91,9 +91,9 @@ def buy():
         try:
             shares = int(request.form.get("shares"))
         except ValueError:
-            return apology("please enter a whole number of shares", 403)
+            return apology("please enter a whole number of shares", 400)
         if shares <= 0:
-            return apology("please enter a positive number of shares", 403)
+            return apology("please enter a positive number of shares", 400)
         stock = lookup(symbol)
         if not stock:
             return apology("stock cannot be found", 404)
@@ -211,7 +211,7 @@ def quote():
     """Get stock quote."""
     if request.method == "POST":
         # Take user input and return the found stock
-        quote = request.form.get("quote")
+        quote = request.form.get("symbol")
         stock = lookup(quote)
         if stock:
             name = stock["name"]
@@ -219,7 +219,7 @@ def quote():
             symbol = stock["symbol"]
             return render_template("quoted.html", name=name, price=price, symbol=symbol)
         else:
-            return apology("stock cannot be found", 404)
+            return apology("stock cannot be found", 400)
     # Default quote interface via GET
     else:
         return render_template("quote.html")
@@ -236,12 +236,12 @@ def register():
         password = request.form.get("password")
         confirmation = request.form.get("confirmation")
         if not username or not password or not confirmation:
-            return apology("must provide input", 403)
+            return apology("must provide input", 400)
         for i in range(len(rows)):
             if username == rows[i]["username"]:
-                return apology("username already taken", 403)
+                return apology("username already taken", 400)
         if password != confirmation:
-            return apology("confirmation do not match", 403)
+            return apology("confirmation do not match", 400)
         # Add user information to db and redirect to login page
         else:
             db.execute(
@@ -266,13 +266,13 @@ def sell():
         # Ensure valid input of shares and stock
         sell_symbol = request.form.get("symbol")
         if not sell_symbol:
-            return apology("please select a stock", 403)
+            return apology("please select a stock", 404)
         try:
             sell_shares = int(request.form.get("shares"))
         except ValueError:
-            return apology("please enter a whole number of shares", 403)
+            return apology("please enter a whole number of shares", 400)
         if sell_shares <= 0:
-            return apology("please enter a positive number of shares", 403)
+            return apology("please enter a positive number of shares", 400)
         sell_shares = -1 * sell_shares
         stock = lookup(sell_symbol)
         if not stock:
