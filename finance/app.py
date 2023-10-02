@@ -421,7 +421,7 @@ def delete():
     ):
         return apology("wrong password", 403)
     # Delete user from database
-    d
+    db.execute("DELETE FROM history WHERE user_id = ?", id)
     db.execute("DELETE FROM users WHERE id = ?", id)
     # Log user out
     return logout()
