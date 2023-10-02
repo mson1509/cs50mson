@@ -96,7 +96,7 @@ def buy():
             return apology("please enter a positive number of shares", 400)
         stock = lookup(symbol)
         if not stock:
-            return apology("stock cannot be found", 404)
+            return apology("stock cannot be found", 400)
         # Update history table if buy successfully
         id = session["user_id"]
         time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -105,7 +105,7 @@ def buy():
         price = stock["price"]
         total = -(price * shares)
         if cash + total < 0:
-            return apology("you do not have enough cash", 403)
+            return apology("you do not have enough cash", 400)
         db.execute(
             """
             INSERT INTO history
@@ -266,7 +266,7 @@ def sell():
         # Ensure valid input of shares and stock
         sell_symbol = request.form.get("symbol")
         if not sell_symbol:
-            return apology("please select a stock", 404)
+            return apology("please select a stock", 400)
         try:
             sell_shares = int(request.form.get("shares"))
         except ValueError:
@@ -276,7 +276,7 @@ def sell():
         sell_shares = -1 * sell_shares
         stock = lookup(sell_symbol)
         if not stock:
-            return apology("Stock cannot be found", 404)
+            return apology("Stock cannot be found", 400)
         user = db.execute(
             """SELECT username, cash, stock, SUM(shares) AS shares
                           FROM users, history
@@ -288,10 +288,10 @@ def sell():
             id=id,
         )
         if not user:
-            return apology("you do not own this stock", 403)
+            return apology("you do not own this stock", 400)
         user_shares = user[0]["shares"]
         if user_shares + sell_shares < 0:
-            return apology("you do not have enough shares", 403)
+            return apology("you do not have enough shares", 400)
         # Update the history table after sell successfully
         time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         price = stock["price"]
@@ -351,9 +351,9 @@ def add():
         try:
             money = int(request.form.get("add_money"))
         except ValueError:
-            return apology("please enter a whole amount of money", 403)
+            return apology("please enter a whole amount of money", 400)
         if money <= 0:
-            return apology("please enter a positive amount of money", 403)
+            return apology("please enter a positive amount of money", 400)
         # Check bank
         if request.form.get("bank") == "Test":
             cash = cash + money
@@ -361,7 +361,7 @@ def add():
             flash("Added money successfully!")
             return redirect("/profile")
         else:
-            return apology("please select the bank for your source account", 403)
+            return apology("please select the bank for your source account", 400)
     else:
         return render_template("add.html")
 
@@ -379,9 +379,9 @@ def withdraw():
         try:
             money = int(request.form.get("withdraw_money"))
         except ValueError:
-            return apology("please enter a whole amount of money", 403)
+            return apology("please enter a whole amount of money", 400)
         if money <= 0:
-            return apology("please enter a positive amount of money", 403)
+            return apology("please enter a positive amount of money", 400)
         # Check bank
         if request.form.get("bank") == "Test":
             cash = cash - money
@@ -389,7 +389,7 @@ def withdraw():
             flash("Withdrew money successfully!")
             return redirect("/profile")
         else:
-            return apology("please select the bank for your destination account", 403)
+            return apology("please select the bank for your destination account", 400)
     else:
         return render_template("withdraw.html")
 
@@ -405,10 +405,10 @@ def change():
         new_password = request.form.get("new_password")
         confirmation = request.form.get("confirmation")
         if not old_password or not new_password or not confirmation:
-            return apology("must provide input", 403)
+            return apology("must provide input", 400)
         # Check if old password is valid
         if not check_password_hash(user[0]["hash"], old_password):
-            return apology("wrong password", 403)
+            return apology("wrong password", 400)
         # Check new password confirmation
         if new_password != confirmation:
             return apology("your confirmation does not match", 400)
@@ -431,7 +431,7 @@ def delete():
     password = request.form.get("password")
     # Check if old password is valid
     if not check_password_hash(user[0]["hash"], password):
-        return apology("wrong password", 403)
+        return apology("wrong password", 400)
     # Delete user from database
     db.execute("DELETE FROM history WHERE user_id = ?", id)
     db.execute("DELETE FROM users WHERE id = ?", id)
