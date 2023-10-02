@@ -378,7 +378,8 @@ def withdraw():
     else:
         return render_template("withdraw.html")
 
-# TODO: DOING
+
+# TODO: DONE
 @app.route("/change", methods=["GET", "POST"])
 @login_required
 def change():
@@ -404,3 +405,6 @@ def change():
         return redirect("/profile")
     else:
         return render_template("change.html")
+
+
+# TODO: DOING
