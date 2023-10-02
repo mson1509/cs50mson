@@ -408,3 +408,7 @@ def change():
 
 
 # TODO: DOING
+@app.route("/delete")
+@login_required
+def delete():
+    
