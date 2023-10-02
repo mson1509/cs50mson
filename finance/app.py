@@ -408,7 +408,7 @@ def change():
 
 
 # TODO: DOING
-@app.route("/delete", method="POST")
+@app.route("/delete", methods=["POST"])
 @login_required
 def delete():
     id = session["user_id"]
@@ -421,6 +421,7 @@ def delete():
     ):
         return apology("wrong password", 403)
     # Delete user from database
+    d
     db.execute("DELETE FROM users WHERE id = ?", id)
     # Log user out
     return logout()
