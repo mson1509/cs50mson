@@ -25,7 +25,7 @@ db = SQL("sqlite:///finance.db")
 # TODO: DONE
 # Create history table to keep track of all transactions
 db.execute(
-                """
+    """
                 CREATE TABLE IF NOT EXISTS history (
                     purchase_id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                     user_id INTEGER NOT NULL,
@@ -37,7 +37,7 @@ db.execute(
                     FOREIGN KEY(user_id) REFERENCES users(id)
                 )
             """
-            )
+)
 
 
 @app.after_request
@@ -60,7 +60,7 @@ def index():
     username = user[0]["username"]
     cash = usd(user[0]["cash"])
     stocks = db.execute(
-                """
+        """
                 SELECT stock, SUM(shares) AS shares
                 FROM history
                 JOIN users
@@ -68,7 +68,9 @@ def index():
                 WHERE users.id = ?
                 GROUP BY stock
                 ORDER BY stock
-            """, id)
+            """,
+        id,
+    )
     # Ensure to not display stocks that have been fully sold
     stocks = [stock for stock in stocks if stock["shares"] > 0]
     for stock in stocks:
@@ -135,7 +137,9 @@ def history():
     user = db.execute("SELECT username, cash FROM users WHERE id = ?", id)
     username = user[0]["username"]
     cash = usd(user[0]["cash"])
-    history = db.execute("SELECT * FROM history WHERE user_id = ? ORDER BY time DESC", id)
+    history = db.execute(
+        "SELECT * FROM history WHERE user_id = ? ORDER BY time DESC", id
+    )
     # Format the value to color and -/+
     for transaction in history:
         transaction["price"] = usd(transaction["price"])
@@ -145,7 +149,9 @@ def history():
         else:
             transaction["total"] = "+" + usd(transaction["total"])
             transaction["shares"] *= -1
-    return render_template("history.html", history=history, username=username, cash=cash)
+    return render_template(
+        "history.html", history=history, username=username, cash=cash
+    )
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -173,9 +179,7 @@ def login():
         # Ensure username exists and password is correct
         if len(rows) != 1:
             return apology("invalid username", 403)
-        if not check_password_hash(
-            rows[0]["hash"], request.form.get("password")
-        ):
+        if not check_password_hash(rows[0]["hash"], request.form.get("password")):
             return apology("wrong password", 403)
 
         # Remember which user has logged in
@@ -213,9 +217,7 @@ def quote():
             name = stock["name"]
             price = usd(stock["price"])
             symbol = stock["symbol"]
-            return render_template(
-                "quoted.html", name=name, price=price, symbol=symbol
-            )
+            return render_template("quoted.html", name=name, price=price, symbol=symbol)
         else:
             return apology("stock cannot be found", 404)
     # Default quote interface via GET
@@ -275,13 +277,16 @@ def sell():
         stock = lookup(sell_symbol)
         if not stock:
             return apology("Stock cannot be found", 404)
-        user = db.execute("""SELECT username, cash, stock, SUM(shares) AS shares
+        user = db.execute(
+            """SELECT username, cash, stock, SUM(shares) AS shares
                           FROM users, history
                           WHERE users.id = history.user_id
                           AND history.stock = :symbol
                           AND users.id = :id
                           GROUP BY history.stock""",
-                          symbol=sell_symbol, id=id)
+            symbol=sell_symbol,
+            id=id,
+        )
         if not user:
             return apology("you do not own this stock", 403)
         user_shares = user[0]["shares"]
@@ -297,12 +302,13 @@ def sell():
                     (user_id, time, stock, price, shares, total)
                     VALUES (:id, :time, :stock, :price, :shares, :total)
         """,
-                   id=id,
-                   time=time,
-                   stock=stock["symbol"],
-                   price=price,
-                   shares=sell_shares,
-                   total=sale)
+            id=id,
+            time=time,
+            stock=stock["symbol"],
+            price=price,
+            shares=sell_shares,
+            total=sale,
+        )
         # Update the user table after sell successfully
         cash = user[0]["cash"]
         cash = cash + sale
@@ -311,12 +317,15 @@ def sell():
         return redirect("/")
     # Select current stocks that user can sell if access via GET
     else:
-        stocks = db.execute("SELECT stock, SUM(shares) AS shares FROM history, users WHERE history.user_id = users.id AND users.id = ? GROUP BY history.stock", id)
+        stocks = db.execute(
+            "SELECT stock, SUM(shares) AS shares FROM history, users WHERE history.user_id = users.id AND users.id = ? GROUP BY history.stock",
+            id,
+        )
         stocks = [stock for stock in stocks if stock["shares"] > 0]
         return render_template("sell.html", stocks=stocks)
 
 
-#TODO: DONE
+# TODO: DONE
 @app.route("/profile")
 @login_required
 def profile():
@@ -328,7 +337,8 @@ def profile():
     cash = usd(user[0]["cash"])
     return render_template("profile.html", username=username, cash=cash)
 
-#TODO: DONE
+
+# TODO: DONE
 @app.route("/add", methods=["GET", "POST"])
 @login_required
 def add():
@@ -344,7 +354,7 @@ def add():
             return apology("please enter a whole amount of money", 403)
         if money <= 0:
             return apology("please enter a positive amount of money", 403)
-        #Check bank
+        # Check bank
         if request.form.get("bank") == "Test":
             cash = cash + money
             db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
@@ -356,7 +366,7 @@ def add():
         return render_template("add.html")
 
 
-#TODO: DONE
+# TODO: DONE
 @app.route("/withdraw", methods=["GET", "POST"])
 @login_required
 def withdraw():
@@ -372,7 +382,7 @@ def withdraw():
             return apology("please enter a whole amount of money", 403)
         if money <= 0:
             return apology("please enter a positive amount of money", 403)
-        #Check bank
+        # Check bank
         if request.form.get("bank") == "Test":
             cash = cash - money
             db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
@@ -397,9 +407,7 @@ def change():
         if not old_password or not new_password or not confirmation:
             return apology("must provide input", 403)
         # Check if old password is valid
-        if not check_password_hash(
-            user[0]["hash"], old_password
-        ):
+        if not check_password_hash(user[0]["hash"], old_password):
             return apology("wrong password", 403)
         # Check new password confirmation
         if new_password != confirmation:
@@ -421,10 +429,8 @@ def delete():
     # Check password
     user = db.execute("SELECT hash FROM users WHERE id = ?", id)
     password = request.form.get("password")
-        # Check if old password is valid
-    if not check_password_hash(
-        user[0]["hash"], password
-    ):
+    # Check if old password is valid
+    if not check_password_hash(user[0]["hash"], password):
         return apology("wrong password", 403)
     # Delete user from database
     db.execute("DELETE FROM history WHERE user_id = ?", id)
