@@ -335,7 +335,12 @@ def add():
         id = session["user_id"]
         user = db.execute("SELECT cash FROM users WHERE id = ?", id)
         cash = user[0]["cash"]
-        money = float(request.form.get("add_money"))
+        try:
+            money = int(request.form.get("add_money"))
+        except ValueError:
+            return apology("please enter a whole amount of money", 403)
+        if money <= 0:
+            return apology("please enter a positive amount of money", 403)
         #Check bank
         if request.form.get("bank") == "Test":
             cash = cash + money
@@ -357,7 +362,12 @@ def withdraw():
         id = session["user_id"]
         user = db.execute("SELECT cash FROM users WHERE id = ?", id)
         cash = user[0]["cash"]
-        money = float(request.form.get("withdraw_money"))
+        try:
+            money = int(request.form.get("withdraw_money"))
+        except ValueError:
+            return apology("please enter a whole amount of money", 403)
+        if money <= 0:
+            return apology("please enter a positive amount of money", 403)
         #Check bank
         if request.form.get("bank") == "Test":
             cash = cash - money
@@ -368,3 +378,13 @@ def withdraw():
     else:
         return render_template("withdraw.html")
 
+# TODO: DOING
+@app.route("/change", methods=["GET", "POST"])
+@login_required
+def change():
+    if request.method == "POST":
+        # Check if old password is valid
+        # Check new password confirmation
+        # Update new password
+    else:
+        return render_template("change.html")
