@@ -407,7 +407,7 @@ def change():
         return render_template("change.html")
 
 
-# TODO: DOING
+# TODO: DONE
 @app.route("/delete", methods=["POST"])
 @login_required
 def delete():
