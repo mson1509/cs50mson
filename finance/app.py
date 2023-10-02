@@ -383,8 +383,18 @@ def withdraw():
 @login_required
 def change():
     if request.method == "POST":
+        id = session["user_id"]
+        user = db.execute("SELECT hash FROM users WHERE id = ?", id)
         # Check if old password is valid
+        if not check_password_hash(
+            user[0]["hash"], request.form.get("old_password")
+        ):
+            return apology("wrong password", 403)
         # Check new password confirmation
+        new_password = request.form.get("new_password")
+        confirmation = request.form.get("confirmation")
+        if new_password != confirmation:
+            return apology("your confirmation does not match", 40)
         # Update new password
     else:
         return render_template("change.html")
