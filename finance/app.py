@@ -385,18 +385,22 @@ def change():
     if request.method == "POST":
         id = session["user_id"]
         user = db.execute("SELECT hash FROM users WHERE id = ?", id)
+        old_password = request.form.get("old_password")
+        new_password = request.form.get("new_password")
+        confirmation = request.form.get("confirmation")
+        if not old_password or not new_password or not confirmation:
+            return apology("must provide input", 403)
         # Check if old password is valid
         if not check_password_hash(
-            user[0]["hash"], request.form.get("old_password")
+            user[0]["hash"], old_password
         ):
             return apology("wrong password", 403)
         # Check new password confirmation
-        new_password = request.form.get("new_password")
-        confirmation = request.form.get("confirmation")
         if new_password != confirmation:
             return apology("your confirmation does not match", 400)
         # Update new password
         new_hash = generate_password_hash(new_password)
         db.execute("UPDATE users SET hash = :hash WHERE id = :id", hash=new_hash, id=id)
+        return redirect("/profile")
     else:
         return render_template("change.html")
