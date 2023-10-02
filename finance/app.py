@@ -394,7 +394,9 @@ def change():
         new_password = request.form.get("new_password")
         confirmation = request.form.get("confirmation")
         if new_password != confirmation:
-            return apology("your confirmation does not match", 40)
+            return apology("your confirmation does not match", 400)
         # Update new password
+        new_hash = generate_password_hash(new_password)
+        db.execute("UPDATE users)
     else:
         return render_template("change.html")
