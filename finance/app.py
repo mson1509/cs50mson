@@ -120,6 +120,7 @@ def buy():
         # Update user table after buy successfully
         cash = cash + total
         db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
+        flash("Bought successfully!")
         return redirect("/")
     else:
         return render_template("buy.html")
@@ -246,6 +247,7 @@ def register():
                 username=username,
                 hashed_password=generate_password_hash(password),
             )
+            flash("Your account was created successfully!")
             return redirect("/login")
     # Render register page when user reached route via GET
     else:
@@ -305,6 +307,7 @@ def sell():
         cash = user[0]["cash"]
         cash = cash + sale
         db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
+        flash("Sold successfully!")
         return redirect("/")
     # Select current stocks that user can sell if access via GET
     else:
@@ -345,6 +348,7 @@ def add():
         if request.form.get("bank") == "Test":
             cash = cash + money
             db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
+            flash("Added money successfully!")
             return redirect("/profile")
         else:
             return apology("please select the bank for your source account", 403)
@@ -372,6 +376,7 @@ def withdraw():
         if request.form.get("bank") == "Test":
             cash = cash - money
             db.execute("UPDATE users SET cash = :cash WHERE id = :id", cash=cash, id=id)
+            flash("Withdrew money successfully!")
             return redirect("/profile")
         else:
             return apology("please select the bank for your destination account", 403)
@@ -402,6 +407,7 @@ def change():
         # Update new password
         new_hash = generate_password_hash(new_password)
         db.execute("UPDATE users SET hash = :hash WHERE id = :id", hash=new_hash, id=id)
+        flash("Password changed!")
         return redirect("/profile")
     else:
         return render_template("change.html")
@@ -424,4 +430,5 @@ def delete():
     db.execute("DELETE FROM history WHERE user_id = ?", id)
     db.execute("DELETE FROM users WHERE id = ?", id)
     # Log user out
+    flash("Account deleted!")
     return logout()
