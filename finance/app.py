@@ -411,4 +411,4 @@ def change():
 @app.route("/delete")
 @login_required
 def delete():
-    
+    return
